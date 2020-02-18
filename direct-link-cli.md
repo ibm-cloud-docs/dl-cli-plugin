@@ -30,6 +30,11 @@ subcollection: dl
 This document provides a reference of the command-line interface (CLI) commands available for {{site.data.keyword.cloud}} Direct Link Dedicated. The commands are organized into the sections listed in the navigation pane on the right.  
 {:shortdesc}
 
+Set the environment variable `IBMCLOUD_DL_VERSION` to mention the version, which is used in query parameters for all the APIs. Set the variable in the format `YYYY-MM-DD`. For example:  
+```
+export IBMCLOUD_DL_VERSION=2019-10-25
+```
+
 ## Before you begin
 {: #cli-ref-prereqs}
 
