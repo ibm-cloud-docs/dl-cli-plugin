@@ -24,7 +24,7 @@ subcollection: dl
 {:download: .download}
 {:DomainName: data-hd-keyref="DomainName"}
 
-# Direct Link CLI reference
+# Direct Link 2.0 CLI reference
 {: #dl-cli}
 
 This document provides a reference of the command-line interface (CLI) commands available for {{site.data.keyword.cloud}} Direct Link Dedicated. The commands are organized into the sections that are listed in the navigation pane on the right.  
@@ -35,7 +35,7 @@ This document provides a reference of the command-line interface (CLI) commands 
 
 Complete these steps to use the Direct Link CLI, which is implemented as an {{site.data.keyword.cloud_notm}} CLI plug-in. This plug-in provides you with the means to manage your service instance and its associated resources through a command-line user interface.
 
-1. Install the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-install-ibmcloud-cli){: external}.
+1. Install the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-install-ibmcloud-cli){: external}.
 1. Install the **dl-cli** plug-in to the {{site.data.keyword.cloud_notm}} CLI.
 
    To install the plug-in, enter the following command.
@@ -373,7 +373,7 @@ ibmcloud dl vc a771366f-2c8c-49f6-a23b-9d49fad035a3 dea35ba0-7323-4d8d-9c8d-d7ec
 Creating a virtual connection.
 
 ```
-ibmcloud dl virtual-connection-create|vcc --type TYPE --network-id NETWORK_ID --name VIRTUAL_CONNECTION_NAME [--help|-h] [--output format] 
+ibmcloud dl virtual-connection-create|vcc --type TYPE --network-id NETWORK_ID --name VIRTUAL_CONNECTION_NAME [--help|-h] [--output format]
 ```
 
 ### Command options
@@ -434,7 +434,7 @@ ibmcloud dl vcd fb0df64a-ef8d-4b3c-b473-dc0230593529 26284b6e-78a9-416c-ba5e-2b6
 Update a virtual connection.
 
 ```
-ibmcloud dl virtual-connection-update|vcu [--name NAME] [--status STATUS] [--help|-h] [--output format] 
+ibmcloud dl virtual-connection-update|vcu [--name NAME] [--status STATUS] [--help|-h] [--output format]
 ```
 
 ### Command options
