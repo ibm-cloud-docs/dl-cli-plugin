@@ -123,26 +123,27 @@ ibmcloud dl gateways|gws [-–help|-h] [--output format]
 Create a gateway.
 
 ```
-ibmcloud dl gateway-create|gwc GATEWAY_NAME --bgp-asn BGP_ASN --cross-connect-router CROSS_CONNECT_ROUTER  --location-name LOCATION_NAME --speed-mbps SPEED_MBPS --type TYPE [--global] [--metered] [--bgp-base-cidr BGP_IP_CIDR] [--bgp-ibm-cidr BGP_IBM_CIDR] [--bgp-cer-cidr BGP_CER_CIDR] [--resource-group-id RESOURCE_GROUP_ID] [--carrier-name CARRIER_NAME] [--customer-name CUSTOMER_NAME] [-–help|-h] [--output format]
+ibmcloud dl gateway-create|gwc GATEWAY_NAME --billing BILLING --bgp-asn BGP_ASN  --bgp-base-cidr BGP_BASE_CIDR --routing ROUTING --speed-mbps SPEED_MBPS --type TYPE [--bgp-cer-cidr BGP_CER_CIDR] [--bgp-ibm-cidr BGP_IBM_CIDR] [--carrier-name CARRIER_NAME] [--cross-connect-router CROSS_CONNECT_ROUTER] [--customer-name CUSTOMER_NAME] [--location-name LOCATION_NAME] [--port-id PORT_ID] [--resource-group-id RESOURCE_GROUP_ID] [-–help|-h] [--output format]
 ```
 
  ### Command options
 {: #command-options-gateway-create}
 
 - **GATEWAY_NAME**<br />Specify a name for the new gateway.
+- **--billing VALUE**<br />Billing of resources (metered | non-metered). Select metered to charge per gigabyte and non-metered for flat rate.
 - **--bgp-asn VALUE**<br />Specify either the default value of **64999**, or select an ASN from allowed ranges.
+- **--bgp-base-cidr CIDR:**<br />Specify the CIDR.
+- **--bgp-cer-cidr CIDR:**<br />Specify the CIDR.
+- **--bgp-ibm-cidr CIDR:**<br />Specify the CIDR.
+- **--carrier-name value**<br />Specify the gateway CARRIER NAME.
 - **--cross-connect-router XCR**<br />Select the IBM cross-connect router for the Direct Link connection.
+- **--customer-name value**<br />Specify the gateway CUSTOMER NAME.
 - **--location-name LOCATION**<br />Specify the location name; for example, **dal10**.
+- **--port-id**<br />Port ID for the Gateway. Required when type is connect.
+- **--resource-group-id value**<br />Resource group ID for this resource. If unspecified, the account's default resource group is used.
+- **--routing value**<br />Gateway routing of resources (global | local). Select global to connect resources across regions.
 - **--speed-mbps SPEED_MBPS**<br />Specify a value for the speed.
 - **--type TYPE**<br />Specify the Direct Link offering type. Currently, only **dedicated** is supported.
-- **--global**<br />Enable global routing. Gateways with global routing can connect to network outside their region. Set to **false** by default.
-- **--metered**<br />Specify a billing option. Set to **false** by default.
-- **--bgp-base-cidr CIDR:**<br />Specify the CIDR.
-- **--bgp-ibm-cidr CIDR:**<br />Specify the CIDR.
-- **--bgp-cer-cidr CIDR:**<br />Specify the CIDR.
-- **--resource-group-id value**<br />Resource group ID for this resource. If unspecified, the account's default resource group is used.
-- **--carrier-name value**<br />Specify the gateway CARRIER NAME.
-- **--customer-name value**<br />Sprecify the gateway CUSTOMER NAME.
 - **--help|-h**<br />(Optional) Get help on this command.
 - **--output value**<br />(Optional) Specify whether you want the output that is displayed in JSON format. Currently, **json** is the only supported format.
 
@@ -150,11 +151,11 @@ ibmcloud dl gateway-create|gwc GATEWAY_NAME --bgp-asn BGP_ASN --cross-connect-ro
 {: #example-create-gateway}
 
 ```
-ibmcloud dl gateway-create dl-gw --bgp-asn 64999 --cross-connect-router LAB-xcr01.dal09 --global --metered --location-name dal09 --speed-mbps 1000 --type dedicated --bgp-base-cidr 169.254.0.51/30 --bgp-ibm-cidr 169.254.0.52/30 --bgp-cer-cidr 169.254.0.53/30
+ibmcloud dl gateway-create dl-gw --bgp-asn 64999 --cross-connect-router LAB-xcr01.dal09 --routing local --billing metered --location-name dal09 --speed-mbps 1000 --type dedicated --bgp-base-cidr 169.254.0.51/30 --bgp-ibm-cidr 169.254.0.52/30 --bgp-cer-cidr 169.254.0.53/30
 ```
 
 ```
-ibmcloud dl gateway-create dl-gw --bgp-asn 64999 --cross-connect-router LAB-xcr01.dal09 --global --metered --location-name dal09 --speed-mbps 1000 --type dedicated --bgp-base-cidr 169.254.0.51/30 --bgp-ibm-cidr 169.254.0.52/30 --bgp-cer-cidr 169.254.0.53/30 --output json
+ibmcloud dl gateway-create dl-gw --bgp-asn 64999 --cross-connect-router LAB-xcr01.dal09 --routing local --billing metered --location-name dal09 --speed-mbps 1000 --type dedicated --bgp-base-cidr 169.254.0.51/30 --bgp-ibm-cidr 169.254.0.52/30 --bgp-cer-cidr 169.254.0.53/30 --output json
 ```
 
 ---
@@ -194,17 +195,18 @@ ibmcloud dl gateway-delete 8ba9e7b0-dded-400e-ad7e-6481dad0b157 -f
 Update a specific gateway.
 
 ```
-ibmcloud dl gateway-update|gwu GATEWAY_ID [--global VALUE] [--speed-mbps SPEED_MBPS] [--loa-reject-reason LOA_REJECT_REASON] [--operational-status OPERATIONAL_STATUS] [--help|-h] [--output format]
+ibmcloud dl gateway-update|gwu GATEWAY_ID [--loa-reject-reason LOA_REJECT_REASON] [--name NAME] [--operational-status OPERATIONAL_STATUS] [--routing ROUTING] [--speed-mbps SPEED_MBPS] [--help|-h] [--output format]
 ```
 
 ### Command options
 {: #command-options-specific-gateway}
 
 - **GATEWAY_ID**<br />Specify the ID of the gateway.
-- **--global VALUE**<br />Gateways with global routing can connect to networks outside their region. Specify a **true** or **false** value.
-- **--speed-mbps SPEED_MBPS**<br />Specify the speed of the gateway in MBPS.
 - **--loa-reject-reason LOA_REJECT_REASON**<br />Specify the reason for the Letter of Authorization (LOA) rejection.
+- **--name NAME**<br />Name of the Gateway.
 - **--operational-status OPERATIONAL_STATUS**<br />Specify the gateway's operational status. Values are **loa_accepted** or **loa_rejected**.
+- **--speed-mbps SPEED_MBPS**<br />Specify the speed of the gateway in MBPS.
+- **--routing VALUE**<br />Gateway routing of resources (global | local). Select global to connect resources across regions.
 - **--help|-h**<br />(Optional) Get help on this command.
 - **--output value**<br />(Optional) Specify whether you want the output that is displayed in JSON format. Currently, **json** is the only supported format.
 
@@ -217,6 +219,128 @@ ibmcloud dl gateway-update 8ba9e7b0-dded-400e-ad7e-6481dad0b157 --speed-mbps 500
 
 ```
 ibmcloud dl gateway-update 8ba9e7b0-dded-400e-ad7e-6481dad0b157 --speed-mbps 5000 --name dl-gw-updated --output json
+```
+
+---
+
+## ibmcloud dl gateway-change-approve
+{: #gateway-change-approve-cmd}
+
+Approve gateway change request.
+
+```
+ibmcloud dl gateway-change-approve|gwca GATEWAY_ID [--action Action] [--billing BILLING] [--resource-group-id RESOURCE_GROUP_ID] [--routing ROUTING] [--speed-mbps SPEED_MBPS] [--help|-h] [--output format]
+```
+
+### Command options
+{: #command-options-gateway-change-approval}
+
+- **GATEWAY_ID**<br />Specify the ID of the gateway.
+- **--action ACTION**<br />Action request. One of gateway-create|gateway-delete|gateway-attribute-update.
+- **--billing VALUE**<br />Billing (metered | non-metered). Select metered to charge per gigabyte and non-metered for flat rate. Set for gateway-create requests to select the gateway's metered billing option.
+- **--resource-group-id VALUE**<br />Resource group ID for this resource. Set for gateway-create requests to select the gateway's resource group.
+- **--routing ROUTING**<br />Gateway routing (global | local). Select global to connect resources across regions.Set for gateway-create requests to select the gateway's routing option.
+- **--speed-mbps SPEED_MBPS**<br />Speed of the Gateway in mbps
+- **--help|-h**<br />(Optional) Get help on this command.
+- **--output value**<br />(Optional) Specify whether you want the output that is displayed in JSON format. Currently, **json** is the only supported format.  
+
+### Examples
+{: #example-gateway-change-approve-ex}
+
+```
+ibmcloud dl gateway-change-approve a771366f-2c8c-49f6-a23b-9d49fad035a3 --action gateway-create --routing global --billing metered
+```
+
+```
+ibmcloud dl gateway-change-approve a771366f-2c8c-49f6-a23b-9d49fad035a3 --action gateway-create --routing global --billing metered --output json
+```
+
+---
+
+## ibmcloud dl gateway-change-reject
+{: #gateway-change-reject}
+
+Reject gateway change request.
+
+```
+ibmcloud dl gateway-change-reject|gwcr GATEWAY_ID [--action Action] [--speed-mbps SPEED_MBPS] [--help|-h] [--output format]
+```
+
+### Command options
+{: #command-options-gateway-change-approve-parms}
+
+- **GATEWAY_ID**<br />Specify the ID of the gateway.
+- **--action ACTION**<br />Action request. One of gateway-create|gateway-delete|gateway-attribute-update.
+- **--speed-mbps SPEED_MBPS**<br />Speed of the Gateway in mbps
+- **--help|-h**<br />(Optional) Get help on this command.
+- **--output value**<br />(Optional) Specify whether you want the output that is displayed in JSON format. Currently, **json** is the only supported format.  
+
+### Examples
+{: #example-gateway-change-reject}
+
+```
+ibmcloud dl gateway-change-reject a771366f-2c8c-49f6-a23b-9d49fad035a3 --action gateway-create
+```
+
+```
+ibmcloud dl gateway-change-reject a771366f-2c8c-49f6-a23b-9d49fad035a3 --action gateway-create --output json
+```
+
+---
+
+## ibmcloud dl port
+{: #port-retrieve}
+
+View details of a port.
+
+```
+ibmcloud dl port PORT_ID [--help|-h] [--output format]
+```
+
+### Command options
+{: #command-options-port}
+
+- **PORT_ID**<br />Specify the ID of the port.
+- **--help|-h**<br />(Optional) Get help on this command.
+- **--output value**<br />(Optional) Specify whether you want the output that is displayed in JSON format. Currently, **json** is the only supported format.  
+
+### Examples
+{: #example-get-port}
+
+```
+ibmcloud dl port a771366f-2c8c-49f6-a23b-9d49fad035a3
+```
+
+```
+ibmcloud dl port a771366f-2c8c-49f6-a23b-9d49fad035a3 --output json
+```
+
+---
+
+## ibmcloud dl ports
+{: #list-all-ports}
+
+List all ports.
+
+```
+ibmcloud dl ports [--help|-h] [--output format]
+```
+
+### Command options
+{: #command-options-ports}
+
+- **--help|-h**<br />(Optional) Get help on this command.
+- **--output value**<br />(Optional) Specify whether you want the output that is displayed in JSON format. Currently, **json** is the only supported format.  
+
+### Examples
+{: #example-list-ports}
+
+```
+ibmcloud dl ports
+```
+
+```
+ibmcloud dl port --output json
 ```
 
 ---
