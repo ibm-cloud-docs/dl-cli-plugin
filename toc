@@ -2,7 +2,7 @@
 {:topicgroup: .topicgroup}
 
 {: .toc subcollection="dl-cli-plugin" audience="network" href="/docs/dl-cli-plugin?topic=dl-cli-plugin-dl-cli" path="dl-cli-plugin"}
-Direct Link 2.0
+Direct Link CLI (2.0)
 
     {: .navgroup id="reference"}
     direct-link-cli.md
