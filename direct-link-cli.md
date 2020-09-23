@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-02-12"
+lastupdated: "2020-09-23"
 
 keywords: command line interface, commands, CLI
 
@@ -24,7 +24,7 @@ subcollection: dl
 {:download: .download}
 {:DomainName: data-hd-keyref="DomainName"}
 
-# Direct Link 2.0 CLI reference
+# Direct Link (2.0) CLI reference
 {: #dl-cli}
 
 This document provides a reference of the command-line interface (CLI) commands available for {{site.data.keyword.cloud}} Direct Link Dedicated. The commands are organized into the sections that are listed in the navigation pane on the right.  
@@ -79,6 +79,7 @@ View details of a specific gateway.
 ```
 ibmcloud dl gateway|gw GATEWAY_ID [-–help|-h] [--output format]
 ```
+{: pre}
 
 ### Command options
 {: #command-options-gateway-view-details}
@@ -90,13 +91,8 @@ ibmcloud dl gateway|gw GATEWAY_ID [-–help|-h] [--output format]
 ### Examples
 {: #example-get-gateway}
 
-```
-ibmcloud dl gateway a771366f-2c8c-49f6-a23b-9d49fad035a3
-```
-
-```
-ibmcloud dl gw a771366f-2c8c-49f6-a23b-9d49fad035a3 --output json
-```
+- `ibmcloud dl gateway a771366f-2c8c-49f6-a23b-9d49fad035a3`
+- `ibmcloud dl gw a771366f-2c8c-49f6-a23b-9d49fad035a3 --output json`
 
 ---
 
@@ -108,6 +104,7 @@ List all gateways.
 ```
 ibmcloud dl gateways|gws [-–help|-h] [--output format]
 ```
+{: pre}
 
 ### Command options
 {: #command-options-help-list-gateways}
@@ -125,6 +122,7 @@ Create a gateway.
 ```
 ibmcloud dl gateway-create|gwc GATEWAY_NAME --billing BILLING --bgp-asn BGP_ASN  --bgp-base-cidr BGP_BASE_CIDR --routing ROUTING --speed-mbps SPEED_MBPS --type TYPE [--bgp-cer-cidr BGP_CER_CIDR] [--bgp-ibm-cidr BGP_IBM_CIDR] [--carrier-name CARRIER_NAME] [--cross-connect-router CROSS_CONNECT_ROUTER] [--customer-name CUSTOMER_NAME] [--location-name LOCATION_NAME] [--port-id PORT_ID] [--resource-group-id RESOURCE_GROUP_ID] [-–help|-h] [--output format]
 ```
+{: pre}
 
  ### Command options
 {: #command-options-gateway-create}
@@ -150,13 +148,8 @@ ibmcloud dl gateway-create|gwc GATEWAY_NAME --billing BILLING --bgp-asn BGP_ASN 
 ### Examples
 {: #example-create-gateway}
 
-```
-ibmcloud dl gateway-create dl-gw --bgp-asn 64999 --cross-connect-router LAB-xcr01.dal09 --routing local --billing metered --location-name dal09 --speed-mbps 1000 --type dedicated --bgp-base-cidr 169.254.0.51/30 --bgp-ibm-cidr 169.254.0.52/30 --bgp-cer-cidr 169.254.0.53/30
-```
-
-```
-ibmcloud dl gateway-create dl-gw --bgp-asn 64999 --cross-connect-router LAB-xcr01.dal09 --routing local --billing metered --location-name dal09 --speed-mbps 1000 --type dedicated --bgp-base-cidr 169.254.0.51/30 --bgp-ibm-cidr 169.254.0.52/30 --bgp-cer-cidr 169.254.0.53/30 --output json
-```
+- `ibmcloud dl gateway-create dl-gw --bgp-asn 64999 --cross-connect-router LAB-xcr01.dal09 --routing local --billing metered --location-name dal09 --speed-mbps 1000 --type dedicated --bgp-base-cidr 169.254.0.51/30 --bgp-ibm-cidr 169.254.0.52/30 --bgp-cer-cidr 169.254.0.53/30`
+- `ibmcloud dl gateway-create dl-gw --bgp-asn 64999 --cross-connect-router LAB-xcr01.dal09 --routing local --billing metered --location-name dal09 --speed-mbps 1000 --type dedicated --bgp-base-cidr 169.254.0.51/30 --bgp-ibm-cidr 169.254.0.52/30 --bgp-cer-cidr 169.254.0.53/30 --output json`
 
 ---
 
@@ -168,6 +161,7 @@ Delete a specific gateway.
 ```
 ibmcloud dl gateway-delete|gwd GATEWAY_ID [--help|-h] [--force|-f]
 ```
+{: pre}
 
 ### Command options
 {: #command-options-gateway-delete}
@@ -179,13 +173,8 @@ ibmcloud dl gateway-delete|gwd GATEWAY_ID [--help|-h] [--force|-f]
 ### Examples
 {: #example-delete-gateway1}
 
-```
-ibmcloud dl gateway-delete e281b18b-0dba-49ee-9c64-aea588b7f1fd
-```
-
-```
-ibmcloud dl gateway-delete 8ba9e7b0-dded-400e-ad7e-6481dad0b157 -f
-```
+- `ibmcloud dl gateway-delete e281b18b-0dba-49ee-9c64-aea588b7f1fd`
+- `ibmcloud dl gateway-delete 8ba9e7b0-dded-400e-ad7e-6481dad0b157 -f`
 
 ---
 
@@ -197,6 +186,7 @@ Update a specific gateway.
 ```
 ibmcloud dl gateway-update|gwu GATEWAY_ID [--loa-reject-reason LOA_REJECT_REASON] [--name NAME] [--operational-status OPERATIONAL_STATUS] [--routing ROUTING] [--speed-mbps SPEED_MBPS] [--help|-h] [--output format]
 ```
+{: pre}
 
 ### Command options
 {: #command-options-specific-gateway}
@@ -213,13 +203,8 @@ ibmcloud dl gateway-update|gwu GATEWAY_ID [--loa-reject-reason LOA_REJECT_REASON
 ### Examples
 {: #example-update-gateway1}
 
-```
-ibmcloud dl gateway-update 8ba9e7b0-dded-400e-ad7e-6481dad0b157 --speed-mbps 5000 --name dl-gw-updated
-```
-
-```
-ibmcloud dl gateway-update 8ba9e7b0-dded-400e-ad7e-6481dad0b157 --speed-mbps 5000 --name dl-gw-updated --output json
-```
+- `ibmcloud dl gateway-update 8ba9e7b0-dded-400e-ad7e-6481dad0b157 --speed-mbps 5000 --name dl-gw-updated`
+- `ibmcloud dl gateway-update 8ba9e7b0-dded-400e-ad7e-6481dad0b157 --speed-mbps 5000 --name dl-gw-updated --output json`
 
 ---
 
@@ -231,6 +216,7 @@ Approve gateway change request.
 ```
 ibmcloud dl gateway-change-approve|gwca GATEWAY_ID [--action Action] [--billing BILLING] [--resource-group-id RESOURCE_GROUP_ID] [--routing ROUTING] [--speed-mbps SPEED_MBPS] [--help|-h] [--output format]
 ```
+{: pre}
 
 ### Command options
 {: #command-options-gateway-change-approval}
@@ -247,13 +233,8 @@ ibmcloud dl gateway-change-approve|gwca GATEWAY_ID [--action Action] [--billing 
 ### Examples
 {: #example-gateway-change-approve-ex}
 
-```
-ibmcloud dl gateway-change-approve a771366f-2c8c-49f6-a23b-9d49fad035a3 --action gateway-create --routing global --billing metered
-```
-
-```
-ibmcloud dl gateway-change-approve a771366f-2c8c-49f6-a23b-9d49fad035a3 --action gateway-create --routing global --billing metered --output json
-```
+- `ibmcloud dl gateway-change-approve a771366f-2c8c-49f6-a23b-9d49fad035a3 --action gateway-create --routing global --billing metered`
+- `ibmcloud dl gateway-change-approve a771366f-2c8c-49f6-a23b-9d49fad035a3 --action gateway-create --routing global --billing metered --output json`
 
 ---
 
@@ -265,6 +246,7 @@ Reject gateway change request.
 ```
 ibmcloud dl gateway-change-reject|gwcr GATEWAY_ID [--action Action] [--speed-mbps SPEED_MBPS] [--help|-h] [--output format]
 ```
+{: pre}
 
 ### Command options
 {: #command-options-gateway-change-approve-parms}
@@ -278,13 +260,8 @@ ibmcloud dl gateway-change-reject|gwcr GATEWAY_ID [--action Action] [--speed-mbp
 ### Examples
 {: #example-gateway-change-reject}
 
-```
-ibmcloud dl gateway-change-reject a771366f-2c8c-49f6-a23b-9d49fad035a3 --action gateway-create
-```
-
-```
-ibmcloud dl gateway-change-reject a771366f-2c8c-49f6-a23b-9d49fad035a3 --action gateway-create --output json
-```
+- `ibmcloud dl gateway-change-reject a771366f-2c8c-49f6-a23b-9d49fad035a3 --action gateway-create`
+- `ibmcloud dl gateway-change-reject a771366f-2c8c-49f6-a23b-9d49fad035a3 --action gateway-create --output json`
 
 ---
 
@@ -296,6 +273,7 @@ View details of a port.
 ```
 ibmcloud dl port PORT_ID [--help|-h] [--output format]
 ```
+{: pre}
 
 ### Command options
 {: #command-options-port}
@@ -307,13 +285,8 @@ ibmcloud dl port PORT_ID [--help|-h] [--output format]
 ### Examples
 {: #example-get-port}
 
-```
-ibmcloud dl port a771366f-2c8c-49f6-a23b-9d49fad035a3
-```
-
-```
-ibmcloud dl port a771366f-2c8c-49f6-a23b-9d49fad035a3 --output json
-```
+- `ibmcloud dl port a771366f-2c8c-49f6-a23b-9d49fad035a3`
+- `ibmcloud dl port a771366f-2c8c-49f6-a23b-9d49fad035a3 --output json`
 
 ---
 
@@ -325,6 +298,7 @@ List all ports.
 ```
 ibmcloud dl ports [--help|-h] [--output format]
 ```
+{: pre}
 
 ### Command options
 {: #command-options-ports}
@@ -335,13 +309,8 @@ ibmcloud dl ports [--help|-h] [--output format]
 ### Examples
 {: #example-list-ports}
 
-```
-ibmcloud dl ports
-```
-
-```
-ibmcloud dl port --output json
-```
+- `ibmcloud dl ports`
+- `ibmcloud dl port --output json`
 
 ---
 
@@ -353,6 +322,7 @@ Retrieves location-specific information for a specific offering type.
 ```
 ibmcloud dl location|loc LOCATION_NAME OFFERING_TYPE [--help|-h] [--output format]
 ```
+{: pre}
 
 ### Command options
 {: #command-options-location}
@@ -365,13 +335,8 @@ ibmcloud dl location|loc LOCATION_NAME OFFERING_TYPE [--help|-h] [--output forma
 ### Examples
 {: #example-update-location}
 
-```
-ibmcloud dl location "Washington 2" dedicated
-```
-
-```
-ibmcloud dl loc "Washington 2" dedicated --output json
-```
+- `ibmcloud dl location "Washington 2" dedicated`
+- `ibmcloud dl loc "Washington 2" dedicated --output json`
 
 ---
 
@@ -383,6 +348,7 @@ List the locations for a specific Direct Link offering type.
 ```
 ibmcloud dl locations|locs OFFERING_TYPE [–-output format] [--help|-h]
 ```
+{: pre}
 
 ### Command options
 {: #command-options-offering_type}
@@ -394,13 +360,8 @@ ibmcloud dl locations|locs OFFERING_TYPE [–-output format] [--help|-h]
 ### Examples
 {: #example-offering-type1}
 
-```
-ibmcloud dl locations dedicated
-```
-
-```
-ibmcloud dl locs dedicated --output json
-```
+- `ibmcloud dl locations dedicated`
+- `ibmcloud dl locs dedicated --output json`
 
 ---
 
@@ -412,6 +373,7 @@ Lists all offering speeds for an offering type.
 ```
 ibmcloud dl offering-speeds|ospeeds OFFERING_TYPE [--output format] [--help|-h]
 ```
+{: pre}
 
 ### Command options
 {: #command-options-offering-speeds-type}
@@ -423,13 +385,8 @@ ibmcloud dl offering-speeds|ospeeds OFFERING_TYPE [--output format] [--help|-h]
 ### Examples
 {: #example-offering-type}
 
-```
-ibmcloud dl offering-speeds dedicated
-```
-
-```
-ibmcloud dl ospeeds dedicated_hosting --output json
-```
+- `ibmcloud dl offering-speeds dedicated`
+- `ibmcloud dl ospeeds dedicated_hosting --output json`
 
 ---
 
@@ -441,6 +398,7 @@ List virtual connections.
 ```
 ibmcloud dl virtual-connections|vcs [--help|-h] [--output format]
 ```
+{: pre}
 
 ### Command options
 {: #command-options-offering-speeds}
@@ -451,13 +409,8 @@ ibmcloud dl virtual-connections|vcs [--help|-h] [--output format]
 ### Examples
 {: #example-list-details-virtual-connection}
 
-```
-ibmcloud dl virtual-connections a771366f-2c8c-49f6-a23b-9d49fad035a3
-```
-
-```
-ibmcloud dl vcs a771366f-2c8c-49f6-a23b-9d49fad035a3 --output json
-```
+- `ibmcloud dl virtual-connections a771366f-2c8c-49f6-a23b-9d49fad035a3`
+- `ibmcloud dl vcs a771366f-2c8c-49f6-a23b-9d49fad035a3 --output json`
 
 ---
 
@@ -469,6 +422,7 @@ View details of a virtual connection.
 ```
 ibmcloud dl virtual-connection|vc GATEWAY_ID VIRTUAL_CONNECTION_ID [--output format] [--help|-h]
 ```
+{: pre}
 
 ### Command options
 {: #command-options-view-details-virtual-connection}
@@ -481,13 +435,8 @@ ibmcloud dl virtual-connection|vc GATEWAY_ID VIRTUAL_CONNECTION_ID [--output for
 ### Examples
 {: #example-show-details-virtual-connection}
 
-```
-ibmcloud dl virtual-connection a771366f-2c8c-49f6-a23b-9d49fad035a3 dea35ba0-7323-4d8d-9c8d-d7ecda55e23d
-```
-
-```
-ibmcloud dl vc a771366f-2c8c-49f6-a23b-9d49fad035a3 dea35ba0-7323-4d8d-9c8d-d7ecda55e23d --output json
-```
+- `ibmcloud dl virtual-connection a771366f-2c8c-49f6-a23b-9d49fad035a3 dea35ba0-7323-4d8d-9c8d-d7ecda55e23d`
+- `ibmcloud dl vc a771366f-2c8c-49f6-a23b-9d49fad035a3 dea35ba0-7323-4d8d-9c8d-d7ecda55e23d --output json`
 
 ---
 
@@ -499,6 +448,7 @@ Creating a virtual connection.
 ```
 ibmcloud dl virtual-connection-create|vcc --type TYPE --network-id NETWORK_ID --name VIRTUAL_CONNECTION_NAME [--help|-h] [--output format]
 ```
+{: pre}
 
 ### Command options
 {: #command-options-create-virtual-connection}
@@ -512,13 +462,8 @@ ibmcloud dl virtual-connection-create|vcc --type TYPE --network-id NETWORK_ID --
 ### Examples
 {: #example-create-virtual-connection}
 
-```
-ibmcloud dl virtual-connection-create fb0df64a-ef8d-4b3c-b473-dc0230593529 --type vpc --network-id crn:v1:staging:public:is:us-south:a/28e4d90ac7504be694471ee66e70d0d5::vpc:r134-b8b62f60-f152-471f-971a-376da52721e0 --name newVC
-```
-
-```
-ibmcloud dl vcc fb0df64a-ef8d-4b3c-b473-dc0230593529 --type vpc --network-id crn:v1:staging:public:is:us-south:a/28e4d90ac7504be694471ee66e70d0d5::vpc:r134-b8b62f60-f152-471f-971a-376da52721e0 --name newVC --output json
-```
+- `ibmcloud dl virtual-connection-create fb0df64a-ef8d-4b3c-b473-dc0230593529 --type vpc --network-id crn:v1:staging:public:is:us-south:a/28e4d90ac7504be694471ee66e70d0d5::vpc:r134-b8b62f60-f152-471f-971a-376da52721e0 --name newVC`
+- `ibmcloud dl vcc fb0df64a-ef8d-4b3c-b473-dc0230593529 --type vpc --network-id crn:v1:staging:public:is:us-south:a/28e4d90ac7504be694471ee66e70d0d5::vpc:r134-b8b62f60-f152-471f-971a-376da52721e0 --name newVC --output json`
 
 ---
 
@@ -530,6 +475,7 @@ Delete a virtual connection.
 ```
 ibmcloud dl virtual-connection-delete|vcd GATEWAY_ID VIRTUAL_CONNECTION_ID [--help|-h] [--force|-f]
 ```
+{: pre}
 
 ### Command options
 {: #command-options-delete-virtual-connection}
@@ -541,14 +487,8 @@ ibmcloud dl virtual-connection-delete|vcd GATEWAY_ID VIRTUAL_CONNECTION_ID [--he
 
 ### Examples
 {: #example-delete-virtual-connection}
-
-```
-ibmcloud dl virtual-connection-delete fb0df64a-ef8d-4b3c-b473-dc0230593529 0b1e165c-a89c-4682-9771-dbe062e3acf7
-```
-
-```
-ibmcloud dl vcd fb0df64a-ef8d-4b3c-b473-dc0230593529 26284b6e-78a9-416c-ba5e-2b6ec085f18b -f
-```
+- `ibmcloud dl virtual-connection-delete fb0df64a-ef8d-4b3c-b473-dc0230593529 0b1e165c-a89c-4682-9771-dbe062e3acf7`
+- `ibmcloud dl vcd fb0df64a-ef8d-4b3c-b473-dc0230593529 26284b6e-78a9-416c-ba5e-2b6ec085f18b -f`
 
 ---
 
@@ -560,6 +500,7 @@ Update a virtual connection.
 ```
 ibmcloud dl virtual-connection-update|vcu [--name NAME] [--status STATUS] [--help|-h] [--output format]
 ```
+{: pre}
 
 ### Command options
 {: #command-options-update-virtual-connection}
@@ -572,13 +513,8 @@ ibmcloud dl virtual-connection-update|vcu [--name NAME] [--status STATUS] [--hel
 ### Examples
 {: #example-update-virtual}
 
-```
-ibmcloud dl virtual-connection-update fb0df64a-ef8d-4b3c-b473-dc0230593529 3d577350-9450-4fd0-94b6-2f6da21b828e --name newVCUpdated
-```
-
-```
-ibmcloud dl vcu adaa0879-3509-4e71-b02b-0c7587ccbcfa 9b11fa61-6e74-4a8f-b978-bca1bead097f --name newVCUpdated --output json
-```
+- `ibmcloud dl virtual-connection-update fb0df64a-ef8d-4b3c-b473-dc0230593529 3d577350-9450-4fd0-94b6-2f6da21b828e --name newVCUpdated`
+- `ibmcloud dl vcu adaa0879-3509-4e71-b02b-0c7587ccbcfa 9b11fa61-6e74-4a8f-b978-bca1bead097f --name newVCUpdated --output json`
 
 ---
 
@@ -590,6 +526,7 @@ Download the LOA for the specified gateway in either the current, working direct
 ```
 ibmcloud dl loa GATEWAY_ID [--file OUTPUT_DIRECTORY_PATH] [--help|-h]
 ```
+{: pre}
 
 ### Command options
 {: #command-options-loa-download}
@@ -601,13 +538,8 @@ ibmcloud dl loa GATEWAY_ID [--file OUTPUT_DIRECTORY_PATH] [--help|-h]
 ### Examples
 {: #example-loa-download}
 
-```
-ibmcloud dl loa 5cc19d0a-792c-4595-adfc-f90fc650de01
-```
-
-```
-ibmcloud dl loa 5cc19d0a-792c-4595-adfc-f90fc650de01 --file /tmp
-```
+- `ibmcloud dl loa 5cc19d0a-792c-4595-adfc-f90fc650de01`
+- `ibmcloud dl loa 5cc19d0a-792c-4595-adfc-f90fc650de01 --file /tmp`
 
 ---
 
@@ -619,6 +551,7 @@ Download the completion notice for the specified gateway in either the current, 
 ```
 ibmcloud dl completion-notice|cn GATEWAY_ID [--file OUTPUT_DIRECTORY_PATH][--help|-h]
 ```
+{: pre}
 
 ### Command options
 {: #command-options-completion-notice-download}
@@ -630,13 +563,8 @@ ibmcloud dl completion-notice|cn GATEWAY_ID [--file OUTPUT_DIRECTORY_PATH][--hel
 ### Examples
 {: #example-completion-notice-download}
 
-```
-ibmcloud dl completion-notice 0e28b9bc-06df-44f1-b5d7-08085b9fc935
-```
-
-```
-ibmcloud dl cn 0e28b9bc-06df-44f1-b5d7-08085b9fc935 --file /tmp
-```
+- `ibmcloud dl completion-notice 0e28b9bc-06df-44f1-b5d7-08085b9fc935`
+- `ibmcloud dl cn 0e28b9bc-06df-44f1-b5d7-08085b9fc935 --file /tmp`
 
 ---
 
@@ -648,6 +576,7 @@ Upload the completion notice from either the working directory or a specified di
 ```
 ibmcloud dl completion-notice-update GATEWAY_ID [-i INPUT_DIRECTORY_PATH]
 ```
+{: pre}
 
 ### Command options
 {: #command-options-completion-notice-upload}
@@ -658,10 +587,5 @@ ibmcloud dl completion-notice-update GATEWAY_ID [-i INPUT_DIRECTORY_PATH]
 ### Examples
 {: #example-completion-notice-upload}
 
-```
-ibmcloud dl completion-notice-update 5cc19d0a-792c-4595-adfc-f90fc650de01
-```
-
-```
-ibmcloud dl cnu 22f799e8-b4ab-44ca-856b-897be9b0e53d -i /tmp/
-```
+- `ibmcloud dl completion-notice-update 5cc19d0a-792c-4595-adfc-f90fc650de01`
+- `ibmcloud dl cnu 22f799e8-b4ab-44ca-856b-897be9b0e53d -i /tmp/`
