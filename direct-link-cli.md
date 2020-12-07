@@ -133,7 +133,7 @@ ibmcloud dl connect-gateway-create|conn-gwc {--file JSON_FILE | GATEWAY_NAME --b
 ```
 {: pre}
 
- ### Command options
+### Command options
 {: #command-options-connect-gateway-create}
 
 - **GATEWAY_NAME**<br />Specify a name for the new gateway.
@@ -174,7 +174,7 @@ ibmcloud dl dedicated-gateway-create|ded-gwc {--file JSON_FILE | GATEWAY_NAME --
 ```
 {: pre}
 
- ### Command options
+### Command options
 {: #command-options-dedicated-gateway-create}
 
 - **GATEWAY_NAME**<br />Specify a name for the new gateway.
@@ -302,7 +302,7 @@ ibmcloud dl gateway-create|gwc GATEWAY_NAME --billing BILLING --bgp-asn BGP_ASN 
 ```
 {: pre}
 
- ### Command options
+### Command options
 {: #command-options-gateway-create}
 
 - **GATEWAY_NAME**<br />Specify a name for the new gateway.
