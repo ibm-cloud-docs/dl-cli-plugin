@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-11-18"
+  years: 2020, 2021
+lastupdated: "2021-06-18"
 
 keywords: command line interface, commands, CLI
 
@@ -152,6 +152,9 @@ ibmcloud dl connect-gateway-create|conn-gwc {--file JSON_FILE | GATEWAY_NAME --b
 - **--help|-h**<br />(Optional) Get help on this command.
 - **--output value**<br />(Optional) Specify whether you want the output that is displayed in JSON format. Currently, **json** is the only supported format.
 
+To enable [MD5 authentication for BGP peers](/docs/dl?topic=dl-dl-md5), use the **--file** option to create the gateway as per the [template](/apidocs/direct_link#create-gateway).
+{: note}
+
 ### Examples
 {: #example-create-connect-gateway}
 
@@ -170,7 +173,7 @@ The BGP_BASE_CIDR parameter is deprecated, please remove this parameter as it wi
 {: deprecated}
 
 ```
-ibmcloud dl dedicated-gateway-create|ded-gwc {--file JSON_FILE | GATEWAY_NAME --billing BILLING --bgp-asn BGP_ASN --carrier-name CARRIER_NAME --ccr CROSS_CONNECT_ROUTER --customer-name CUSTOMER_NAME --location-name LOCATION_NAME --routing ROUTING --speed-mbps SPEED_MBPS [--bgp-base-cidr BGP_BASE_CIDR] [--bgp-cer-cidr BGP_CER_CIDR] [--bgp-ibm-cidr BGP_IBM_CIDR] [--resource-group-id RESOURCE_GROUP_ID]} [--output format] [--output format]
+ibmcloud dl dedicated-gateway-create|ded-gwc {--file JSON_FILE | GATEWAY_NAME --billing BILLING --bgp-asn BGP_ASN --carrier-name CARRIER_NAME --ccr CROSS_CONNECT_ROUTER --customer-name CUSTOMER_NAME --location-name LOCATION_NAME --routing ROUTING --speed-mbps SPEED_MBPS [--bgp-base-cidr BGP_BASE_CIDR] [--bgp-cer-cidr BGP_CER_CIDR] [--bgp-ibm-cidr BGP_IBM_CIDR] [--resource-group-id RESOURCE_GROUP_ID]} [-–help|-h] [--output format]
 ```
 {: pre}
 
@@ -193,6 +196,12 @@ ibmcloud dl dedicated-gateway-create|ded-gwc {--file JSON_FILE | GATEWAY_NAME --
 - **--speed-mbps SPEED_MBPS**<br />Specify a value for the speed.
 - **--help|-h**<br />(Optional) Get help on this command.
 - **--output value**<br />(Optional) Specify whether you want the output that is displayed in JSON format. Currently, **json** is the only supported format.
+
+To create a [MACsec-enabled gateway](docs/allowlist/dl-macsec?topic=dl-macsec-configure-macsec-direct-link), use the **--file** option to create the gateway as per the [template](/apidocs/direct_link#create-gateway).
+{: note}
+
+To enable [MD5 authentication for BGP peers](/docs/dl?topic=dl-dl-md5), use the **--file** option to create the gateway as per the [template](/apidocs/direct_link#create-gateway).
+{: note}
 
 ### Examples
 {: #example-create-dedicated-gateway}
@@ -234,7 +243,7 @@ ibmcloud dl gateway|gw GATEWAY_ID [-–help|-h] [--output format]
 Approve gateway change request.
 
 ```
-ibmcloud dl gateway-change-approve|gwca GATEWAY_ID [--action Action] [--billing BILLING] [--resource-group-id RESOURCE_GROUP_ID] [--routing ROUTING] [--speed-mbps SPEED_MBPS] [--help|-h] [--output format]
+ibmcloud dl gateway-change-approve|gwca GATEWAY_ID {--file JSON_FILE | [--action Action] [--billing BILLING] [--resource-group-id RESOURCE_GROUP_ID] [--routing ROUTING] [--speed-mbps SPEED_MBPS]} [--help|-h] [--output format]
 ```
 {: pre}
 
@@ -244,11 +253,15 @@ ibmcloud dl gateway-change-approve|gwca GATEWAY_ID [--action Action] [--billing 
 - **GATEWAY_ID**<br />Specify the ID of the gateway.
 - **--action ACTION**<br />Action request. One of gateway-create|gateway-delete|gateway-attribute-update.
 - **--billing VALUE**<br />Billing (metered | non-metered). Select metered to charge per gigabyte and non-metered for flat rate. Set for gateway-create requests to select the gateway's metered billing option.
+- **--file value**<br/>JSON file for input data
 - **--resource-group-id VALUE**<br />Resource group ID for this resource. Set for gateway-create requests to select the gateway's resource group.
 - **--routing ROUTING**<br />Gateway routing (global | local). Select global to connect resources across regions.Set for gateway-create requests to select the gateway's routing option.
 - **--speed-mbps SPEED_MBPS**<br />Speed of the Gateway in mbps
 - **--help|-h**<br />(Optional) Get help on this command.
 - **--output value**<br />(Optional) Specify whether you want the output that is displayed in JSON format. Currently, **json** is the only supported format.  
+
+To approve the provider-created gateways with [MD5 authentication for BGP peers](/docs/dl?topic=dl-dl-md5), use the **-file** option to approve the gateway as per the [template](/apidocs/direct_link#create-gateway-action).
+{: note}
 
 ### Examples
 {: #example-gateway-change-approve-ex}
@@ -402,6 +415,9 @@ ibmcloud dl gateway-update|gwu GATEWAY_ID {--file JSON_FILE | [--loa-reject-reas
 - **--routing VALUE**<br />Gateway routing of resources (global | local). Select global to connect resources across regions.
 - **--help|-h**<br />(Optional) Get help on this command.
 - **--output value**<br />(Optional) Specify whether you want the output that is displayed in JSON format. Currently, **json** is the only supported format.
+
+To clear/update the [MD5 authentication for BGP peers](/docs/dl?topic=dl-dl-md5), use the **--file** option to update the gateway as per the [template](/apidocs/direct_link#update-gateway).
+{: note}
 
 ### Examples
 {: #example-update-gateway1}
