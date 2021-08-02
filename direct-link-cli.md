@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-06-18"
+lastupdated: "2021-07-16"
 
 keywords: command line interface, commands, CLI
 
@@ -129,7 +129,7 @@ The BGP_BASE_CIDR parameter is deprecated, please remove this parameter as it wi
 {: deprecated}
 
 ```
-ibmcloud dl connect-gateway-create|conn-gwc {--file JSON_FILE | GATEWAY_NAME --billing BILLING --bgp-asn BGP_ASN --port-id PORT_ID --routing ROUTING --speed-mbps SPEED_MBPS [--bgp-base-cidr BGP_BASE_CIDR] [--bgp-cer-cidr BGP_CER_CIDR] [--bgp-ibm-cidr BGP_IBM_CIDR] [--resource-group-id RESOURCE_GROUP_ID]} [-–help|-h] [--output format]
+ibmcloud dl connect-gateway-create {--file JSON_FILE | GATEWAY_NAME --billing BILLING --bgp-asn BGP_ASN --port-id PORT_ID --routing ROUTING --speed-mbps SPEED_MBPS [--bgp-base-cidr BGP_BASE_CIDR] [--bgp-cer-cidr BGP_CER_CIDR] [--bgp-ibm-cidr BGP_IBM_CIDR] [--connection CONNECTION_TYPE] [--resource-group-id RESOURCE_GROUP_ID]} [--output format]
 ```
 {: pre}
 
@@ -144,6 +144,7 @@ ibmcloud dl connect-gateway-create|conn-gwc {--file JSON_FILE | GATEWAY_NAME --b
 - **--bgp-ibm-cidr BGP_IBM_CIDR:**<br />Specify the BGP IBM CIDR.
 - **--bgp-cer-cidr CIDR:**<br />Specify the CIDR.
 - **--bgp-ibm-cidr CIDR:**<br />Specify the CIDR.
+- **--connection value:**<br />Type of network connection that you want to bind to your direct link. One of: **direct**, **transit**.
 - **--file value**<br/>JSON file for input data
 - **--port-id**<br />Port ID for the Gateway. Required when type is connect.
 - **--resource-group-id value**<br />Resource group ID for this resource. If unspecified, the account's default resource group is used.
@@ -158,7 +159,7 @@ To enable [MD5 authentication for BGP peers](/docs/dl?topic=dl-dl-md5), use the 
 ### Examples
 {: #example-create-connect-gateway}
 
-- `ibmcloud dl connect-gateway-create dl-gw --billing metered --bgp-asn 64999 --bgp-base-cidr 169.254.0.51/30 --port-id 2f41cf65-e72a-4522-9526-e156e4ca02b5 --routing local --speed-mbps 1000 --bgp-cer-cidr 169.254.0.53/30 --bgp-ibm-cidr 169.254.0.52/30`
+- `ibmcloud dl connect-gateway-create dl-gw --billing metered --bgp-asn 64999 --bgp-base-cidr 169.254.0.51/30 --port-id 2f41cf65-e72a-4522-9526-e156e4ca02b5 --routing local --speed-mbps 1000 --bgp-cer-cidr 169.254.0.53/30 --bgp-ibm-cidr 169.254.0.52/30 --connection direct`
 - `ibmcloud dl connect-gateway-create dl-gw --billing metered --bgp-asn 64999 --bgp-base-cidr 169.254.0.51/30 --port-id 2f41cf65-e72a-4522-9526-e156e4ca02b5 --routing local --speed-mbps 1000 --bgp-cer-cidr 169.254.0.53/30 --bgp-ibm-cidr 169.254.0.52/30 --output json`
 - `ibmcloud dl connect-gateway-create --file ~/gateway.json`
 
@@ -173,7 +174,7 @@ The BGP_BASE_CIDR parameter is deprecated, please remove this parameter as it wi
 {: deprecated}
 
 ```
-ibmcloud dl dedicated-gateway-create|ded-gwc {--file JSON_FILE | GATEWAY_NAME --billing BILLING --bgp-asn BGP_ASN --carrier-name CARRIER_NAME --ccr CROSS_CONNECT_ROUTER --customer-name CUSTOMER_NAME --location-name LOCATION_NAME --routing ROUTING --speed-mbps SPEED_MBPS [--bgp-base-cidr BGP_BASE_CIDR] [--bgp-cer-cidr BGP_CER_CIDR] [--bgp-ibm-cidr BGP_IBM_CIDR] [--resource-group-id RESOURCE_GROUP_ID]} [-–help|-h] [--output format]
+ibmcloud dl dedicated-gateway-create {--file JSON_FILE | GATEWAY_NAME --billing BILLING --bgp-asn BGP_ASN --carrier-name CARRIER_NAME --ccr CROSS_CONNECT_ROUTER --customer-name CUSTOMER_NAME --location-name LOCATION_NAME --routing ROUTING --speed-mbps SPEED_MBPS [--bgp-base-cidr BGP_BASE_CIDR] [--bgp-cer-cidr BGP_CER_CIDR] [--bgp-ibm-cidr BGP_IBM_CIDR] [--connection CONNECTION_TYPE] [--resource-group-id RESOURCE_GROUP_ID]} [--output format]
 ```
 {: pre}
 
@@ -187,6 +188,7 @@ ibmcloud dl dedicated-gateway-create|ded-gwc {--file JSON_FILE | GATEWAY_NAME --
 - **--bgp-cer-cidr BGP_CER_CIDR:**<br />Specify the BGP customer edge router CIDR.
 - **--bgp-ibm-cidr BGP_IBM_CIDR:**<br />Specify the BGP IBM CIDR.
 - **--carrier-name value**<br />Specify the gateway CARRIER NAME.
+- **--connection value**<br />Type of network connection that you want to bind to your direct link. One of: **dedicated**, **connect**.
 - **--cross-connect-router XCR**<br />Select the IBM cross-connect router for the Direct Link connection.
 - **--customer-name value**<br />Specify the gateway CUSTOMER NAME.
 - **--file value**<br/>JSON file for input data
@@ -206,7 +208,7 @@ To enable [MD5 authentication for BGP peers](/docs/dl?topic=dl-dl-md5), use the 
 ### Examples
 {: #example-create-dedicated-gateway}
 
-- `ibmcloud dl dedicated-gateway-create dl-gw --billing metered --bgp-asn 64999 --bgp-base-cidr 169.254.0.51/30 --carrier-name carrier --ccr LAB-xcr01.dal09 --customer-name customer --location-name dal09 --routing local --speed-mbps 1000 --bgp-ibm-cidr 169.254.0.52/30 --bgp-cer-cidr 169.254.0.53/30`
+- `ibmcloud dl dedicated-gateway-create dl-gw --billing metered --bgp-asn 64999 --bgp-base-cidr 169.254.0.51/30 --carrier-name carrier --ccr LAB-xcr01.dal09 --customer-name customer --location-name dal09 --routing local --speed-mbps 1000 --bgp-ibm-cidr 169.254.0.52/30 --bgp-cer-cidr 169.254.0.53/30 --connection direct`
 - `ibmcloud dl dedicated-gateway-create dl-gw --billing metered --bgp-asn 64999 --bgp-base-cidr 169.254.0.51/30 --carrier-name carrier --ccr LAB-xcr01.dal09 --customer-name customer --location-name dal09 --routing local --speed-mbps 1000 --bgp-ibm-cidr 169.254.0.52/30 --bgp-cer-cidr 169.254.0.53/30 --output json`
 - `ibmcloud dl dedicated-gateway-create --file ~/gateway.json`
 
@@ -243,7 +245,7 @@ ibmcloud dl gateway|gw GATEWAY_ID [-–help|-h] [--output format]
 Approve gateway change request.
 
 ```
-ibmcloud dl gateway-change-approve|gwca GATEWAY_ID {--file JSON_FILE | [--action Action] [--billing BILLING] [--resource-group-id RESOURCE_GROUP_ID] [--routing ROUTING] [--speed-mbps SPEED_MBPS]} [--help|-h] [--output format]
+ibmcloud dl gateway-change-approve GATEWAY_ID {--file JSON_FILE | [--action Action] [--billing BILLING] [--connection CONNECTION_TYPE] [--resource-group-id RESOURCE_GROUP_ID] [--routing ROUTING] [--speed-mbps SPEED_MBPS]} [--output format]
 ```
 {: pre}
 
@@ -251,8 +253,9 @@ ibmcloud dl gateway-change-approve|gwca GATEWAY_ID {--file JSON_FILE | [--action
 {: #command-options-gateway-change-approval}
 
 - **GATEWAY_ID**<br />Specify the ID of the gateway.
-- **--action ACTION**<br />Action request. One of gateway-create|gateway-delete|gateway-attribute-update.
+- **--action ACTION**<br />Action request. One of: **gateway-create**, **gateway-delete**, **gateway-attribute-update**.
 - **--billing VALUE**<br />Billing (metered | non-metered). Select metered to charge per gigabyte and non-metered for flat rate. Set for gateway-create requests to select the gateway's metered billing option.
+- **-connection value**<br />Type of network connection that you want to bind to your direct link. One of: **dedicated**, **connect**.
 - **--file value**<br/>JSON file for input data
 - **--resource-group-id VALUE**<br />Resource group ID for this resource. Set for gateway-create requests to select the gateway's resource group.
 - **--routing ROUTING**<br />Gateway routing (global | local). Select global to connect resources across regions.Set for gateway-create requests to select the gateway's routing option.
@@ -267,7 +270,7 @@ To approve the provider-created gateways with [MD5 authentication for BGP peers]
 {: #example-gateway-change-approve-ex}
 
 - `ibmcloud dl gateway-change-approve a771366f-2c8c-49f6-a23b-9d49fad035a3 --action gateway-create --routing global --billing metered`
-- `ibmcloud dl gateway-change-approve a771366f-2c8c-49f6-a23b-9d49fad035a3 --action gateway-create --routing global --billing metered --output json`
+- `ibmcloud dl gateway-change-approve a771366f-2c8c-49f6-a23b-9d49fad035a3 --action gateway-create --routing global --billing metered --connection direct --output json`
 
 ---
 
@@ -285,7 +288,7 @@ ibmcloud dl gateway-change-reject|gwcr GATEWAY_ID [--action Action] [--speed-mbp
 {: #command-options-gateway-change-approve-parms}
 
 - **GATEWAY_ID**<br />Specify the ID of the gateway.
-- **--action ACTION**<br />Action request. One of gateway-create|gateway-delete|gateway-attribute-update.
+- **--action ACTION**<br />Action request. One of: **gateway-create**, **gateway-delete**, **gateway-attribute-update**.
 - **--speed-mbps SPEED_MBPS**<br />Speed of the Gateway in mbps
 - **--help|-h**<br />(Optional) Get help on this command.
 - **--output value**<br />(Optional) Specify whether you want the output that is displayed in JSON format. Currently, **json** is the only supported format.  
@@ -332,7 +335,7 @@ ibmcloud dl gateway-create|gwc GATEWAY_NAME --billing BILLING --bgp-asn BGP_ASN 
 - **--resource-group-id value**<br />Resource group ID for this resource. If unspecified, the account's default resource group is used.
 - **--routing value**<br />Gateway routing of resources (`global | local`). Select global to connect resources across regions.
 - **--speed-mbps SPEED_MBPS**<br />Specify a value for the speed.
-- **--type TYPE**<br />Specify the Direct Link offering type. One of **dedicated|connect**.
+- **--type TYPE**<br />Specify the Direct Link offering type. One of: **dedicated**, **connect**.
 - **--help|-h**<br />(Optional) Get help on this command.
 - **--output value**<br />(Optional) Specify whether you want the output that is displayed in JSON format. Currently, **json** is the only supported format.
 
@@ -383,7 +386,7 @@ ibmcloud dl gateway-statistics|gw-stats GATEWAY_ID --type STATISTIC_TYPE [--help
 {: #command-options-gateway-statistics}
 
 - **GATEWAY_ID**<br />Specify the ID of the gateway.
-- **type value**<br /> Type of the statistics to retrieve. One of `macsec_mka_session|macsec_mka_policy`.
+- **type value**<br /> Type of the statistics to retrieve. One of: **macsec_mka_session**, **macsec_mka_policy**.
 - **--help|-h**<br />(Optional) Get help on this command.
 
 ### Example
@@ -399,7 +402,7 @@ ibmcloud dl gateway-statistics|gw-stats GATEWAY_ID --type STATISTIC_TYPE [--help
 Update a specific gateway.
 
 ```
-ibmcloud dl gateway-update|gwu GATEWAY_ID {--file JSON_FILE | [--loa-reject-reason LOA_REJECT_REASON] [--name NAME] [--operational-status OPERATION_STATUS] [--routing ROUTING] [--speed-mbps SPEED_MBPS]} [--help|-h] [--output format]
+ibmcloud dl gateway-update GATEWAY_ID {--file JSON_FILE | [--billing BILLING] [--connection CONNECTION_TYPE] [--loa-reject-reason LOA_REJECT_REASON] [--name NAME] [--operational-status OPERATION_STATUS] [--routing ROUTING] [--speed-mbps SPEED_MBPS]} [--output format]
 ```
 {: pre}
 
@@ -407,6 +410,7 @@ ibmcloud dl gateway-update|gwu GATEWAY_ID {--file JSON_FILE | [--loa-reject-reas
 {: #command-options-specific-gateway}
 
 - **GATEWAY_ID**<br />Specify the ID of the gateway.
+- **--connection value<br />Type of network connection that you want to bind to your direct link. One of: **dedicated**, **connect**.
 - **--file value**<br/>JSON file for input data
 - **--loa-reject-reason LOA_REJECT_REASON**<br />Specify the reason for the Letter of Authorization (LOA) rejection.
 - **--name NAME**<br />Name of the Gateway.
@@ -424,6 +428,7 @@ To clear/update the [MD5 authentication for BGP peers](/docs/dl?topic=dl-dl-md5)
 
 - `ibmcloud dl gateway-update 8ba9e7b0-dded-400e-ad7e-6481dad0b157 --speed-mbps 5000 --name dl-gw-updated`
 - `ibmcloud dl gateway-update 8ba9e7b0-dded-400e-ad7e-6481dad0b157 --speed-mbps 5000 --name dl-gw-updated --output json`
+- `ibmcloud dl gateway-update 8ba9e7b0-dded-400e-ad7e-6481dad0b157 --connection transit --output json`
 - `ibmcloud dl gateway-update 8ba9e7b0-dded-400e-ad7e-6481dad0b157 --file ~/gateway-update.json`
 
 ---
