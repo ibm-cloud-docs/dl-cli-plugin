@@ -188,7 +188,7 @@ ibmcloud dl dedicated-gateway-create {--file JSON_FILE | GATEWAY_NAME --billing 
 - **--bgp-cer-cidr BGP_CER_CIDR:**<br />Specify the BGP customer edge router CIDR.
 - **--bgp-ibm-cidr BGP_IBM_CIDR:**<br />Specify the BGP IBM CIDR.
 - **--carrier-name value**<br />Specify the gateway CARRIER NAME.
-- **--connection value**<br />Type of network connection that you want to bind to your direct link. One of: **dedicated**, **connect**.
+- **--connection value**<br />Type of network connection that you want to bind to your direct link. One of: **dedicated**, **transit**.
 - **--cross-connect-router XCR**<br />Select the IBM cross-connect router for the Direct Link connection.
 - **--customer-name value**<br />Specify the gateway CUSTOMER NAME.
 - **--file value**<br/>JSON file for input data
@@ -255,7 +255,7 @@ ibmcloud dl gateway-change-approve GATEWAY_ID {--file JSON_FILE | [--action Acti
 - **GATEWAY_ID**<br />Specify the ID of the gateway.
 - **--action ACTION**<br />Action request. One of: **gateway-create**, **gateway-delete**, **gateway-attribute-update**.
 - **--billing VALUE**<br />Billing (metered | non-metered). Select metered to charge per gigabyte and non-metered for flat rate. Set for gateway-create requests to select the gateway's metered billing option.
-- **-connection value**<br />Type of network connection that you want to bind to your direct link. One of: **dedicated**, **connect**.
+- **-connection value**<br />Type of network connection that you want to bind to your direct link. One of: **dedicated**, **transit**.
 - **--file value**<br/>JSON file for input data
 - **--resource-group-id VALUE**<br />Resource group ID for this resource. Set for gateway-create requests to select the gateway's resource group.
 - **--routing ROUTING**<br />Gateway routing (global | local). Select global to connect resources across regions.Set for gateway-create requests to select the gateway's routing option.
