@@ -24,11 +24,11 @@ subcollection: dl
 {:download: .download}
 {:DomainName: data-hd-keyref="DomainName"}
 
-# Direct Link (2.0) CLI reference
+# Command reference
 {: #dl-cli}
 
 This document provides a reference of the command-line interface (CLI) commands available for {{site.data.keyword.cloud}} Direct Link. The commands are organized into the sections that are listed in the navigation pane on the right.  
-{:shortdesc}
+{: shortdesc}
 
 ## Before you begin
 {: #cli-ref-prereqs}
