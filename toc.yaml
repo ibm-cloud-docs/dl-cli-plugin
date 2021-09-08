@@ -19,4 +19,4 @@ toc:
   - navgroup:
       id: reference
       topics:
-      - /dl-cli-plugin/dl-cli-plugin-dl-cli
+      - direct-link-cli.md
