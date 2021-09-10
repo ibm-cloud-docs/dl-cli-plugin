@@ -84,9 +84,9 @@ ibmcloud dl completion-notice|cn GATEWAY_ID [--file OUTPUT_DIRECTORY_PATH][--hel
 ### Command options
 {: #command-options-completion-notice-download}
 
-- **GATEWAY_ID**<br />Specify the ID of the gateway.
-- **--file OUTPUT_DIRECTORY_PATH**<br />(Optional) Specify the output directory path where you want to download the completion notice. For example, specify to download the completion notice in the **/tmp** directory.
-- **--help|-h**<br />(Optional) Get help on this command.   
+- **GATEWAY_ID**: Specify the ID of the gateway.
+- **--file OUTPUT_DIRECTORY_PATH**: (Optional) Specify the output directory path where you want to download the completion notice. For example, specify to download the completion notice in the **/tmp** directory.
+- **--help|-h**: (Optional) Get help on this command.   
 
 ### Examples
 {: #example-completion-notice-download}
@@ -109,8 +109,8 @@ ibmcloud dl completion-notice-update GATEWAY_ID [-i INPUT_DIRECTORY_PATH]
 ### Command options
 {: #command-options-completion-notice-upload}
 
-- **GATEWAY_ID**<br />Specify the ID of the gateway.
-- **-i INPUT_DIRECTORY_PATH**<br />(Optional) Specify the directory in which you want to upload the completion notice.
+- **GATEWAY_ID**: Specify the ID of the gateway.
+- **-i INPUT_DIRECTORY_PATH**: (Optional) Specify the directory in which you want to upload the completion notice.
 
 ### Examples
 {: #example-completion-notice-upload}
@@ -136,22 +136,22 @@ ibmcloud dl connect-gateway-create {--file JSON_FILE | GATEWAY_NAME --billing BI
 ### Command options
 {: #command-options-connect-gateway-create}
 
-- **GATEWAY_NAME**<br />Specify a name for the new gateway.
-- **--billing VALUE**<br />Billing of resources (metered | non-metered). Select metered to charge per gigabyte and non-metered for flat rate.
-- **--bgp-asn VALUE**<br />Specify either the default value of **64999**, or select an ASN from allowed ranges.
-- **--bgp-base-cidr BGP_BASE_CIDR:**<br />Specify the BGP Base CIDR.
-- **--bgp-cer-cidr BGP_CER_CIDR:**<br />Specify the BGP customer edge router CIDR.
-- **--bgp-ibm-cidr BGP_IBM_CIDR:**<br />Specify the BGP IBM CIDR.
-- **--bgp-cer-cidr CIDR:**<br />Specify the CIDR.
-- **--bgp-ibm-cidr CIDR:**<br />Specify the CIDR.
-- **--connection value:**<br />Type of network connection that you want to bind to your direct link. One of: **direct**, **transit**.
-- **--file value**<br/>JSON file for input data
-- **--port-id**<br />Port ID for the Gateway. Required when type is connect.
-- **--resource-group-id value**<br />Resource group ID for this resource. If unspecified, the account's default resource group is used.
-- **--routing value**<br />Gateway routing of resources (global | local). Select global to connect resources across regions.
-- **--speed-mbps SPEED_MBPS**<br />Specify a value for the speed.
-- **--help|-h**<br />(Optional) Get help on this command.
-- **--output value**<br />(Optional) Specify whether you want the output that is displayed in JSON format. Currently, **json** is the only supported format.
+- **GATEWAY_NAME**: Specify a name for the new gateway.
+- **--billing VALUE**: Billing of resources (metered | non-metered). Select metered to charge per gigabyte and non-metered for flat rate.
+- **--bgp-asn VALUE**: Specify either the default value of **64999**, or select an ASN from allowed ranges.
+- **--bgp-base-cidr BGP_BASE_CIDR:**: Specify the BGP Base CIDR.
+- **--bgp-cer-cidr BGP_CER_CIDR:**: Specify the BGP customer edge router CIDR.
+- **--bgp-ibm-cidr BGP_IBM_CIDR:**: Specify the BGP IBM CIDR.
+- **--bgp-cer-cidr CIDR:**: Specify the CIDR.
+- **--bgp-ibm-cidr CIDR:**: Specify the CIDR.
+- **--connection value:**: Type of network connection that you want to bind to your direct link. One of: **direct**, **transit**.
+- **--file value**: JSON file for input data
+- **--port-id**: Port ID for the Gateway. Required when type is connect.
+- **--resource-group-id value**: Resource group ID for this resource. If unspecified, the account's default resource group is used.
+- **--routing value**: Gateway routing of resources (global | local). Select global to connect resources across regions.
+- **--speed-mbps SPEED_MBPS**: Specify a value for the speed.
+- **--help|-h**: (Optional) Get help on this command.
+- **--output value**: (Optional) Specify whether you want the output that is displayed in JSON format. Currently, **json** is the only supported format.
 
 To enable [MD5 authentication for BGP peers](/docs/dl?topic=dl-dl-md5), use the **--file** option to create the gateway as per the [template](/apidocs/direct_link#create-gateway).
 {: note}
@@ -181,23 +181,23 @@ ibmcloud dl dedicated-gateway-create {--file JSON_FILE | GATEWAY_NAME --billing 
 ### Command options
 {: #command-options-dedicated-gateway-create}
 
-- **GATEWAY_NAME**<br />Specify a name for the new gateway.
-- **--billing VALUE**<br />Billing of resources (metered | non-metered). Select metered to charge per gigabyte and non-metered for flat rate.
-- **--bgp-asn VALUE**<br />Specify either the default value of **64999**, or select an ASN from allowed ranges.
-- **--bgp-base-cidr BGP_BASE_CIDR:**<br />Specify the BGP Base CIDR.
-- **--bgp-cer-cidr BGP_CER_CIDR:**<br />Specify the BGP customer edge router CIDR.
-- **--bgp-ibm-cidr BGP_IBM_CIDR:**<br />Specify the BGP IBM CIDR.
-- **--carrier-name value**<br />Specify the gateway CARRIER NAME.
-- **--connection value**<br />Type of network connection that you want to bind to your direct link. One of: **direct**, **transit**.
-- **--cross-connect-router XCR**<br />Select the IBM cross-connect router for the Direct Link connection.
-- **--customer-name value**<br />Specify the gateway CUSTOMER NAME.
-- **--file value**<br/>JSON file for input data
-- **--location-name LOCATION**<br />Specify the location name; for example, **dal10**.
-- **--resource-group-id value**<br />Resource group ID for this resource. If unspecified, the account's default resource group is used.
-- **--routing value**<br />Gateway routing of resources (global | local). Select global to connect resources across regions.
-- **--speed-mbps SPEED_MBPS**<br />Specify a value for the speed.
-- **--help|-h**<br />(Optional) Get help on this command.
-- **--output value**<br />(Optional) Specify whether you want the output that is displayed in JSON format. Currently, **json** is the only supported format.
+- **GATEWAY_NAME**: Specify a name for the new gateway.
+- **--billing VALUE**: Billing of resources (metered | non-metered). Select metered to charge per gigabyte and non-metered for flat rate.
+- **--bgp-asn VALUE**: Specify either the default value of **64999**, or select an ASN from allowed ranges.
+- **--bgp-base-cidr BGP_BASE_CIDR:**: Specify the BGP Base CIDR.
+- **--bgp-cer-cidr BGP_CER_CIDR:**: Specify the BGP customer edge router CIDR.
+- **--bgp-ibm-cidr BGP_IBM_CIDR:**: Specify the BGP IBM CIDR.
+- **--carrier-name value**: Specify the gateway CARRIER NAME.
+- **--connection value**: Type of network connection that you want to bind to your direct link. One of: **direct**, **transit**.
+- **--cross-connect-router XCR**: Select the IBM cross-connect router for the Direct Link connection.
+- **--customer-name value**: Specify the gateway CUSTOMER NAME.
+- **--file value**: JSON file for input data
+- **--location-name LOCATION**: Specify the location name; for example, **dal10**.
+- **--resource-group-id value**: Resource group ID for this resource. If unspecified, the account's default resource group is used.
+- **--routing value**: Gateway routing of resources (global | local). Select global to connect resources across regions.
+- **--speed-mbps SPEED_MBPS**: Specify a value for the speed.
+- **--help|-h**: (Optional) Get help on this command.
+- **--output value**: (Optional) Specify whether you want the output that is displayed in JSON format. Currently, **json** is the only supported format.
 
 To create a [MACsec-enabled gateway](/docs/allowlist/dl-macsec?topic=dl-macsec-configure-macsec-direct-link), use the **--file** option to create the gateway as per the [template](/apidocs/direct_link#create-gateway).
 {: note}
@@ -227,9 +227,9 @@ ibmcloud dl gateway|gw GATEWAY_ID [-–help|-h] [--output format]
 ### Command options
 {: #command-options-gateway-view-details}
 
-- **GATEWAY_ID**<br />Specify the ID of the gateway.
-- **--help|-h**<br />(Optional) Get help on this command.
-- **--output value**<br />Optional: Specify whether you want the output that is displayed in JSON format. Currently, **json** is the only supported format.
+- **GATEWAY_ID**: Specify the ID of the gateway.
+- **--help|-h**: (Optional) Get help on this command.
+- **--output value**: Optional: Specify whether you want the output that is displayed in JSON format. Currently, **json** is the only supported format.
 
 ### Examples
 {: #example-get-gateway}
@@ -252,16 +252,16 @@ ibmcloud dl gateway-change-approve GATEWAY_ID {--file JSON_FILE | [--action Acti
 ### Command options
 {: #command-options-gateway-change-approval}
 
-- **GATEWAY_ID**<br />Specify the ID of the gateway.
-- **--action ACTION**<br />Action request. One of: **gateway-create**, **gateway-delete**, **gateway-attribute-update**.
-- **--billing VALUE**<br />Billing (metered | non-metered). Select metered to charge per gigabyte and non-metered for flat rate. Set for gateway-create requests to select the gateway's metered billing option.
-- **-connection value**<br />Type of network connection that you want to bind to your direct link. One of: **direct**, **transit**.
-- **--file value**<br/>JSON file for input data
-- **--resource-group-id VALUE**<br />Resource group ID for this resource. Set for gateway-create requests to select the gateway's resource group.
-- **--routing ROUTING**<br />Gateway routing (global | local). Select global to connect resources across regions.Set for gateway-create requests to select the gateway's routing option.
-- **--speed-mbps SPEED_MBPS**<br />Speed of the Gateway in mbps
-- **--help|-h**<br />(Optional) Get help on this command.
-- **--output value**<br />(Optional) Specify whether you want the output that is displayed in JSON format. Currently, **json** is the only supported format.  
+- **GATEWAY_ID**: Specify the ID of the gateway.
+- **--action ACTION**: Action request. One of: **gateway-create**, **gateway-delete**, **gateway-attribute-update**.
+- **--billing VALUE**: Billing (metered | non-metered). Select metered to charge per gigabyte and non-metered for flat rate. Set for gateway-create requests to select the gateway's metered billing option.
+- **-connection value**: Type of network connection that you want to bind to your direct link. One of: **direct**, **transit**.
+- **--file value**: JSON file for input data
+- **--resource-group-id VALUE**: Resource group ID for this resource. Set for gateway-create requests to select the gateway's resource group.
+- **--routing ROUTING**: Gateway routing (global | local). Select global to connect resources across regions.Set for gateway-create requests to select the gateway's routing option.
+- **--speed-mbps SPEED_MBPS**: Speed of the Gateway in mbps
+- **--help|-h**: (Optional) Get help on this command.
+- **--output value**: (Optional) Specify whether you want the output that is displayed in JSON format. Currently, **json** is the only supported format.  
 
 To approve the provider-created gateways with [MD5 authentication for BGP peers](/docs/dl?topic=dl-dl-md5), use the **-file** option to approve the gateway as per the [template](/apidocs/direct_link#create-gateway-action).
 {: note}
@@ -287,11 +287,11 @@ ibmcloud dl gateway-change-reject|gwcr GATEWAY_ID [--action Action] [--speed-mbp
 ### Command options
 {: #command-options-gateway-change-approve-parms}
 
-- **GATEWAY_ID**<br />Specify the ID of the gateway.
-- **--action ACTION**<br />Action request. One of: **gateway-create**, **gateway-delete**, **gateway-attribute-update**.
-- **--speed-mbps SPEED_MBPS**<br />Speed of the Gateway in mbps
-- **--help|-h**<br />(Optional) Get help on this command.
-- **--output value**<br />(Optional) Specify whether you want the output that is displayed in JSON format. Currently, **json** is the only supported format.  
+- **GATEWAY_ID**: Specify the ID of the gateway.
+- **--action ACTION**: Action request. One of: **gateway-create**, **gateway-delete**, **gateway-attribute-update**.
+- **--speed-mbps SPEED_MBPS**: Speed of the Gateway in mbps
+- **--help|-h**: (Optional) Get help on this command.
+- **--output value**: (Optional) Specify whether you want the output that is displayed in JSON format. Currently, **json** is the only supported format.  
 
 ### Examples
 {: #example-gateway-change-reject}
@@ -321,23 +321,23 @@ ibmcloud dl gateway-create|gwc GATEWAY_NAME --billing BILLING --bgp-asn BGP_ASN 
 ### Command options
 {: #command-options-gateway-create}
 
-- **GATEWAY_NAME**<br />Specify a name for the new gateway.
-- **--billing VALUE**<br />Billing of resources (metered | non-metered). Select metered to charge per gigabyte and non-metered for flat rate.
-- **--bgp-asn VALUE**<br />Specify either the default value of **64999**, or select an ASN from allowed ranges.
-- **--bgp-base-cidr BGP_BASE_CIDR:**<br />Specify the BGP Base CIDR.
-- **--bgp-cer-cidr BGP_CER_CIDR:**<br />Specify the BGP customer edge router CIDR.
-- **--bgp-ibm-cidr BGP_IBM_CIDR:**<br />Specify the BGP IBM CIDR.
-- **--carrier-name value**<br />Specify the gateway carrier name.
-- **--cross-connect-router XCR**<br />Select the IBM cross-connect router for the Direct Link connection.
-- **--customer-name value**<br />Specify the gateway customer name.
-- **--location-name LOCATION**<br />Specify the location name; for example, **dal10**.
-- **--port-id**<br />Port ID for the gateway. Required when type is `connect`.
-- **--resource-group-id value**<br />Resource group ID for this resource. If unspecified, the account's default resource group is used.
-- **--routing value**<br />Gateway routing of resources (`global | local`). Select global to connect resources across regions.
-- **--speed-mbps SPEED_MBPS**<br />Specify a value for the speed.
-- **--type TYPE**<br />Specify the Direct Link offering type. One of: **dedicated**, **connect**.
-- **--help|-h**<br />(Optional) Get help on this command.
-- **--output value**<br />(Optional) Specify whether you want the output that is displayed in JSON format. Currently, **json** is the only supported format.
+- **GATEWAY_NAME**: Specify a name for the new gateway.
+- **--billing VALUE**: Billing of resources (metered | non-metered). Select metered to charge per gigabyte and non-metered for flat rate.
+- **--bgp-asn VALUE**: Specify either the default value of **64999**, or select an ASN from allowed ranges.
+- **--bgp-base-cidr BGP_BASE_CIDR:**: Specify the BGP Base CIDR.
+- **--bgp-cer-cidr BGP_CER_CIDR:**: Specify the BGP customer edge router CIDR.
+- **--bgp-ibm-cidr BGP_IBM_CIDR:**: Specify the BGP IBM CIDR.
+- **--carrier-name value**: Specify the gateway carrier name.
+- **--cross-connect-router XCR**: Select the IBM cross-connect router for the Direct Link connection.
+- **--customer-name value**: Specify the gateway customer name.
+- **--location-name LOCATION**: Specify the location name; for example, **dal10**.
+- **--port-id**: Port ID for the gateway. Required when type is `connect`.
+- **--resource-group-id value**: Resource group ID for this resource. If unspecified, the account's default resource group is used.
+- **--routing value**: Gateway routing of resources (`global | local`). Select global to connect resources across regions.
+- **--speed-mbps SPEED_MBPS**: Specify a value for the speed.
+- **--type TYPE**: Specify the Direct Link offering type. One of: **dedicated**, **connect**.
+- **--help|-h**: (Optional) Get help on this command.
+- **--output value**: (Optional) Specify whether you want the output that is displayed in JSON format. Currently, **json** is the only supported format.
 
 ### Examples
 {: #example-create-gateway}
@@ -360,9 +360,9 @@ ibmcloud dl gateway-delete|gwd GATEWAY_ID [--help|-h] [--force|-f]
 ### Command options
 {: #command-options-gateway-delete}
 
-- **GATEWAY_ID**<br />Specify the ID of the gateway.
-- **--help|-h**<br />(Optional) Get help on this command.   
-- **--force|-f**<br />(Optional) Force the delete operation without confirmation.
+- **GATEWAY_ID**: Specify the ID of the gateway.
+- **--help|-h**: (Optional) Get help on this command.   
+- **--force|-f**: (Optional) Force the delete operation without confirmation.
 
 ### Examples
 {: #example-delete-gateway1}
@@ -375,7 +375,7 @@ ibmcloud dl gateway-delete|gwd GATEWAY_ID [--help|-h] [--force|-f]
 ## ibmcloud dl gateway-statistics
 {: #gateway-statistics}
 
-Fetch the stastics for a specific gateway.
+Fetch the statistics for a specific gateway.
 
 ```
 ibmcloud dl gateway-statistics|gw-stats GATEWAY_ID --type STATISTIC_TYPE [--help|-h]
@@ -385,9 +385,9 @@ ibmcloud dl gateway-statistics|gw-stats GATEWAY_ID --type STATISTIC_TYPE [--help
 ### Command options
 {: #command-options-gateway-statistics}
 
-- **GATEWAY_ID**<br />Specify the ID of the gateway.
-- **type value**<br /> Type of the statistics to retrieve. One of: **macsec_mka_session**, **macsec_mka_policy**.
-- **--help|-h**<br />(Optional) Get help on this command.
+- **GATEWAY_ID**: Specify the ID of the gateway.
+- **type value**: Type of the statistics to retrieve. One of: **macsec_mka_session**, **macsec_mka_policy**.
+- **--help|-h**: (Optional) Get help on this command.
 
 ### Example
 {: #example-gateway1-statistics}
@@ -409,16 +409,16 @@ ibmcloud dl gateway-update GATEWAY_ID {--file JSON_FILE | [--billing BILLING] [-
 ### Command options
 {: #command-options-specific-gateway}
 
-- **GATEWAY_ID**<br />Specify the ID of the gateway.
-- **--connection value<br />Type of network connection that you want to bind to your direct link. One of: **dedicated**, **connect**.
-- **--file value**<br/>JSON file for input data
-- **--loa-reject-reason LOA_REJECT_REASON**<br />Specify the reason for the Letter of Authorization (LOA) rejection.
-- **--name NAME**<br />Name of the Gateway.
-- **--operational-status OPERATIONAL_STATUS**<br />Specify the gateway's operational status. Values are **loa_accepted** or **loa_rejected**.
-- **--speed-mbps SPEED_MBPS**<br />Specify the speed of the gateway in MBPS.
-- **--routing VALUE**<br />Gateway routing of resources (global | local). Select global to connect resources across regions.
-- **--help|-h**<br />(Optional) Get help on this command.
-- **--output value**<br />(Optional) Specify whether you want the output that is displayed in JSON format. Currently, **json** is the only supported format.
+- **GATEWAY_ID**: Specify the ID of the gateway.
+- **--connection value: Type of network connection that you want to bind to your direct link. One of: **dedicated**, **connect**.
+- **--file value**: JSON file for input data
+- **--loa-reject-reason LOA_REJECT_REASON**: Specify the reason for the Letter of Authorization (LOA) rejection.
+- **--name NAME**: Name of the Gateway.
+- **--operational-status OPERATIONAL_STATUS**: Specify the gateway's operational status. Values are **loa_accepted** or **loa_rejected**.
+- **--speed-mbps SPEED_MBPS**: Specify the speed of the gateway in MBPS.
+- **--routing VALUE**: Gateway routing of resources (global | local). Select global to connect resources across regions.
+- **--help|-h**: (Optional) Get help on this command.
+- **--output value**: (Optional) Specify whether you want the output that is displayed in JSON format. Currently, **json** is the only supported format.
 
 To clear/update the [MD5 authentication for BGP peers](/docs/dl?topic=dl-dl-md5), use the **--file** option to update the gateway as per the [template](/apidocs/direct_link#update-gateway).
 {: note}
@@ -446,8 +446,8 @@ ibmcloud dl gateways|gws [-–help|-h] [--output format]
 ### Command options
 {: #command-options-help-list-gateways}
 
-- **--help|-h**<br />(Optional) Get help on this command.
-- **--output value**<br />Optional: Specify whether you want the output that is displayed in JSON format. Currently, **json** is the only supported format.
+- **--help|-h**: (Optional) Get help on this command.
+- **--output value**: Optional: Specify whether you want the output that is displayed in JSON format. Currently, **json** is the only supported format.
 
 ---
 
@@ -464,9 +464,9 @@ ibmcloud dl loa GATEWAY_ID [--file OUTPUT_DIRECTORY_PATH] [--help|-h]
 ### Command options
 {: #command-options-loa-download}
 
-- **GATEWAY_ID**<br />Specify the ID of the gateway.
-- **--file OUTPUT_DIRECTORY_PATH**<br />(Optional) Specify the output directory path. For example, specify to download the LOA in the **/tmp** directory.
-- **--help|-h**<br />(Optional) Get help on this command.   
+- **GATEWAY_ID**: Specify the ID of the gateway.
+- **--file OUTPUT_DIRECTORY_PATH**: (Optional) Specify the output directory path. For example, specify to download the LOA in the **/tmp** directory.
+- **--help|-h**: (Optional) Get help on this command.   
 
 ### Examples
 {: #example-loa-download}
@@ -489,10 +489,10 @@ ibmcloud dl location|loc LOCATION_NAME OFFERING_TYPE [--help|-h] [--output forma
 ### Command options
 {: #command-options-location}
 
-- **LOCATION_NAME**<br />Specify the name of the location.
-- **OFFERING_TYPE**<br />Specify the Direct Link offering type. Currently only **dedicated** is supported.
-- **--help|-h**<br />(Optional) Get help on this command.
-- **--output value**<br />(Optional) Specify whether you want the output that is displayed in JSON format. Currently, **json** is the only supported format.  
+- **LOCATION_NAME**: Specify the name of the location.
+- **OFFERING_TYPE**: Specify the Direct Link offering type. Currently only **dedicated** is supported.
+- **--help|-h**: (Optional) Get help on this command.
+- **--output value**: (Optional) Specify whether you want the output that is displayed in JSON format. Currently, **json** is the only supported format.  
 
 ### Examples
 {: #example-update-location}
@@ -515,9 +515,9 @@ ibmcloud dl locations|locs OFFERING_TYPE [–-output format] [--help|-h]
 ### Command options
 {: #command-options-offering_type}
 
-- **OFFERING_TYPE**<br />Specify the Direct Link offering type. Values are **dedicated** or **connect**.
-- **--output value**<br />(Optional) Specify whether you want the output that is displayed in JSON format. Currently, **json** is the only supported format.
-- **--help|-h**<br />(Optional) Get help on this command.   
+- **OFFERING_TYPE**: Specify the Direct Link offering type. Values are **dedicated** or **connect**.
+- **--output value**: (Optional) Specify whether you want the output that is displayed in JSON format. Currently, **json** is the only supported format.
+- **--help|-h**: (Optional) Get help on this command.   
 
 ### Examples
 {: #example-offering-type1}
@@ -540,9 +540,9 @@ ibmcloud dl offering-speeds|ospeeds OFFERING_TYPE [--output format] [--help|-h]
 ### Command options
 {: #command-options-offering-speeds-type}
 
-- **OFFERING_TYPE**<br />Specify the Direct Link offering type. Values are **dedicated** or **dedicated_hosting**.
-- **--output value**<br />(Optional) Specify whether you want the output that is displayed in JSON format. Currently, **json** is the only supported format.
-- **--help|-h**<br />(Optional) Get help on this command.   
+- **OFFERING_TYPE**: Specify the Direct Link offering type. Values are **dedicated** or **dedicated_hosting**.
+- **--output value**: (Optional) Specify whether you want the output that is displayed in JSON format. Currently, **json** is the only supported format.
+- **--help|-h**: (Optional) Get help on this command.   
 
 ### Examples
 {: #example-offering-type}
@@ -565,9 +565,9 @@ ibmcloud dl port PORT_ID [--help|-h] [--output format]
 ### Command options
 {: #command-options-port}
 
-- **PORT_ID**<br />Specify the ID of the port.
-- **--help|-h**<br />(Optional) Get help on this command.
-- **--output value**<br />(Optional) Specify whether you want the output that is displayed in JSON format. Currently, **json** is the only supported format.  
+- **PORT_ID**: Specify the ID of the port.
+- **--help|-h**: (Optional) Get help on this command.
+- **--output value**: (Optional) Specify whether you want the output that is displayed in JSON format. Currently, **json** is the only supported format.  
 
 ### Examples
 {: #example-get-port}
@@ -590,8 +590,8 @@ ibmcloud dl ports [--help|-h] [--output format]
 ### Command options
 {: #command-options-ports}
 
-- **--help|-h**<br />(Optional) Get help on this command.
-- **--output value**<br />(Optional) Specify whether you want the output that is displayed in JSON format. Currently, **json** is the only supported format.  
+- **--help|-h**: (Optional) Get help on this command.
+- **--output value**: (Optional) Specify whether you want the output that is displayed in JSON format. Currently, **json** is the only supported format.  
 
 ### Examples
 {: #example-list-ports}
@@ -614,10 +614,10 @@ ibmcloud dl virtual-connection|vc GATEWAY_ID VIRTUAL_CONNECTION_ID [--output for
 ### Command options
 {: #command-options-view-details-virtual-connection}
 
-- **GATEWAY_ID**<br />Specify the ID of the gateway.
-- **VIRTUAL_CONNECTION_ID**<br />Specify the ID of the virtual connection.
-- **--output value**<br />(Optional) Specify whether you want the output that is displayed in JSON format. Currently, **json** is the only supported format.
-- **--help|-h**<br />(Optional) Get help on this command.   
+- **GATEWAY_ID**: Specify the ID of the gateway.
+- **VIRTUAL_CONNECTION_ID**: Specify the ID of the virtual connection.
+- **--output value**: (Optional) Specify whether you want the output that is displayed in JSON format. Currently, **json** is the only supported format.
+- **--help|-h**: (Optional) Get help on this command.   
 
 ### Examples
 {: #example-show-details-virtual-connection}
@@ -640,11 +640,11 @@ ibmcloud dl virtual-connection-create|vcc --type TYPE --network-id NETWORK_ID --
 ### Command options
 {: #command-options-create-virtual-connection}
 
-- **--type TYPE**<br />Specify the type of virtual connection. Values are **classic** or **vpc**.
-- **--network-id NETWORK_ID**<br />Specify the ID of the network. Not required when using **classic** type.
-- **--name NAME**<br />Specify the name of the virtual connection.
-- **--output value**<br />(Optional) Specify whether you want the output that is displayed in JSON format. Currently, **json** is the only supported format.
-- **--help|-h**<br />(Optional) Get help on this command.   
+- **--type TYPE**: Specify the type of virtual connection. Values are **classic** or **vpc**.
+- **--network-id NETWORK_ID**: Specify the ID of the network. Not required when using **classic** type.
+- **--name NAME**: Specify the name of the virtual connection.
+- **--output value**: (Optional) Specify whether you want the output that is displayed in JSON format. Currently, **json** is the only supported format.
+- **--help|-h**: (Optional) Get help on this command.   
 
 ### Examples
 {: #example-create-virtual-connection}
@@ -667,10 +667,10 @@ ibmcloud dl virtual-connection-delete|vcd GATEWAY_ID VIRTUAL_CONNECTION_ID [--he
 ### Command options
 {: #command-options-delete-virtual-connection}
 
-- **GATEWAY_ID**<br />Specify the ID of the gateway.
-- **VIRTUAL_CONNECTION_ID**<br />Specify the ID of the virtual connection.
-- **--help|-h**<br />(Optional) Get help on this command.   
-- **--force|-f**<br />(Optional) Force the delete operation without confirmation.
+- **GATEWAY_ID**: Specify the ID of the gateway.
+- **VIRTUAL_CONNECTION_ID**: Specify the ID of the virtual connection.
+- **--help|-h**: (Optional) Get help on this command.   
+- **--force|-f**: (Optional) Force the delete operation without confirmation.
 
 ### Examples
 {: #example-delete-virtual-connection}
@@ -692,10 +692,10 @@ ibmcloud dl virtual-connection-update|vcu [--name NAME] [--status STATUS] [--hel
 ### Command options
 {: #command-options-update-virtual-connection}
 
-- **--name NAME**<br />Specify the name of the virtual connection.
-- **--status STATUS**<br />Specify the virtual connection status. Values are **attached** or **rejected**.
-- **--help|-h**<br />(Optional) Get help on this command.
-- **--output value**<br />(Optional) Specify whether you want the output that is displayed in JSON format. Currently, **json** is the only supported format.
+- **--name NAME**: Specify the name of the virtual connection.
+- **--status STATUS**: Specify the virtual connection status. Values are **attached** or **rejected**.
+- **--help|-h**: (Optional) Get help on this command.
+- **--output value**: (Optional) Specify whether you want the output that is displayed in JSON format. Currently, **json** is the only supported format.
 
 ### Examples
 {: #example-update-virtual}
@@ -718,8 +718,8 @@ ibmcloud dl virtual-connections|vcs [--help|-h] [--output format]
 ### Command options
 {: #command-options-offering-speeds}
 
-- **--help|-h**<br />(Optional) Get help on this command.  
-- **--output value**<br />(Optional) Specify whether you want the output that is displayed in JSON format. Currently, **json** is the only supported format.
+- **--help|-h**: (Optional) Get help on this command.  
+- **--output value**: (Optional) Specify whether you want the output that is displayed in JSON format. Currently, **json** is the only supported format.
 
 ### Examples
 {: #example-list-details-virtual-connection}
