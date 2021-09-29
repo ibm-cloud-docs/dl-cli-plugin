@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-16"
+lastupdated: "2021-09-16"
 
 keywords: command line interface, commands, CLI
 
@@ -125,11 +125,11 @@ ibmcloud dl completion-notice-update GATEWAY_ID [-i INPUT_DIRECTORY_PATH]
 
 Create a connect gateway.
 
-The BGP_BASE_CIDR parameter is deprecated, please remove this parameter as it will ignored. See BGP_CER_CIDR and BGP_IBM_CIDR to create a gateway using either automatic or explicit IP assignment.
+The **BGP_BASE_CIDR** option is deprecated. Remove this option as it will ignored. See **BGP_CER_CIDR** and **BGP_IBM_CIDR** to create a gateway using either automatic or explicit IP assignment.
 {: deprecated}
 
 ```
-ibmcloud dl connect-gateway-create {--file JSON_FILE | GATEWAY_NAME --billing BILLING --bgp-asn BGP_ASN --port-id PORT_ID --routing ROUTING --speed-mbps SPEED_MBPS [--bgp-base-cidr BGP_BASE_CIDR] [--bgp-cer-cidr BGP_CER_CIDR] [--bgp-ibm-cidr BGP_IBM_CIDR] [--connection CONNECTION_TYPE] [--resource-group-id RESOURCE_GROUP_ID]} [--output format]
+ibmcloud dl connect-gateway-create {--file JSON_FILE | GATEWAY_NAME --billing BILLING --bgp-asn BGP_ASN --port-id PORT_ID --routing ROUTING --speed-mbps SPEED_MBPS [--bfd-interval interval] [--bfd-multiplier multiplier] [--bgp-base-cidr BGP_BASE_CIDR] [--bgp-cer-cidr BGP_CER_CIDR] [--bgp-ibm-cidr BGP_IBM_CIDR] [--connection CONNECTION_TYPE] [--resource-group-id RESOURCE_GROUP_ID]} [--output format]
 ```
 {: pre}
 
@@ -137,16 +137,18 @@ ibmcloud dl connect-gateway-create {--file JSON_FILE | GATEWAY_NAME --billing BI
 {: #command-options-connect-gateway-create}
 
 - **GATEWAY_NAME**: Specify a name for the new gateway.
-- **--billing VALUE**: Billing of resources (metered | non-metered). Select metered to charge per gigabyte and non-metered for flat rate.
+- **--file value**: JSON file for input data.
+- **--bfd-interval value**: Configures the minimum interval (in milliseconds) between the transmitted and received BFD packets. Range [300 - 255000]
+- **--bfd-multiplier value**: The number of BFD packets not received by a neighbor that causes the originating interface to be declared down. Range [1 - 255]
 - **--bgp-asn VALUE**: Specify either the default value of **64999**, or select an ASN from allowed ranges.
 - **--bgp-base-cidr BGP_BASE_CIDR:**: Specify the BGP Base CIDR.
 - **--bgp-cer-cidr BGP_CER_CIDR:**: Specify the BGP customer edge router CIDR.
 - **--bgp-ibm-cidr BGP_IBM_CIDR:**: Specify the BGP IBM CIDR.
 - **--bgp-cer-cidr CIDR:**: Specify the CIDR.
 - **--bgp-ibm-cidr CIDR:**: Specify the CIDR.
+- **--billing VALUE**: Billing of resources (**metered** | **non-metered**). Select **metered** to charge per GB and **non-metered** for a flat rate.
 - **--connection value:**: Type of network connection that you want to bind to your direct link. One of: **direct**, **transit**.
-- **--file value**: JSON file for input data
-- **--port-id**: Port ID for the Gateway. Required when type is connect.
+- **--port-id**: Port ID for the gateway. Required when type is **connect**.
 - **--resource-group-id value**: Resource group ID for this resource. If unspecified, the account's default resource group is used.
 - **--routing value**: Gateway routing of resources (global | local). Select global to connect resources across regions.
 - **--speed-mbps SPEED_MBPS**: Specify a value for the speed.
@@ -170,11 +172,11 @@ To enable [MD5 authentication for BGP peers](/docs/dl?topic=dl-dl-md5), use the 
 
 Create a dedicated gateway.
 
-The BGP_BASE_CIDR parameter is deprecated, please remove this parameter as it will ignored. See BGP_CER_CIDR and BGP_IBM_CIDR to create a gateway using either automatic or explicit IP assignment.
+The **BGP_BASE_CIDR** option is deprecated. Remove this option as it will ignored. See **BGP_CER_CIDR** and **BGP_IBM_CIDR** to create a gateway using either automatic or explicit IP assignment.
 {: deprecated}
 
 ```
-ibmcloud dl dedicated-gateway-create {--file JSON_FILE | GATEWAY_NAME --billing BILLING --bgp-asn BGP_ASN --carrier-name CARRIER_NAME --ccr CROSS_CONNECT_ROUTER --customer-name CUSTOMER_NAME --location-name LOCATION_NAME --routing ROUTING --speed-mbps SPEED_MBPS [--bgp-base-cidr BGP_BASE_CIDR] [--bgp-cer-cidr BGP_CER_CIDR] [--bgp-ibm-cidr BGP_IBM_CIDR] [--connection CONNECTION_TYPE] [--resource-group-id RESOURCE_GROUP_ID]} [--output format]
+ibmcloud dl dedicated-gateway-create {--file JSON_FILE | GATEWAY_NAME --billing BILLING --bgp-asn BGP_ASN --carrier-name CARRIER_NAME --ccr CROSS_CONNECT_ROUTER --customer-name CUSTOMER_NAME --location-name LOCATION_NAME --routing ROUTING --speed-mbps SPEED_MBPS [--bfd-interval interval] [--bfd-multiplier multiplier] [--bgp-base-cidr BGP_BASE_CIDR] [--bgp-cer-cidr BGP_CER_CIDR] [--bgp-ibm-cidr BGP_IBM_CIDR] [--connection CONNECTION_TYPE] [--resource-group-id RESOURCE_GROUP_ID]} [--output format]
 ```
 {: pre}
 
@@ -182,19 +184,21 @@ ibmcloud dl dedicated-gateway-create {--file JSON_FILE | GATEWAY_NAME --billing 
 {: #command-options-dedicated-gateway-create}
 
 - **GATEWAY_NAME**: Specify a name for the new gateway.
-- **--billing VALUE**: Billing of resources (metered | non-metered). Select metered to charge per gigabyte and non-metered for flat rate.
+- **--file value**: JSON file for input data.
+- **--bfd-interval value**: Configures the minimum interval (in milliseconds) between the transmitted and received BFD packets. Range [300 - 255000]
+- **--bfd-multiplier value**: The number of BFD packets not received by a neighbor that causes the originating interface to be declared down. Range [1 - 255]
 - **--bgp-asn VALUE**: Specify either the default value of **64999**, or select an ASN from allowed ranges.
 - **--bgp-base-cidr BGP_BASE_CIDR:**: Specify the BGP Base CIDR.
 - **--bgp-cer-cidr BGP_CER_CIDR:**: Specify the BGP customer edge router CIDR.
 - **--bgp-ibm-cidr BGP_IBM_CIDR:**: Specify the BGP IBM CIDR.
+- **--billing VALUE**: Billing of resources (**metered** | **non-metered**). Select **metered** to charge per GB and **non-metered** for a flat rate.
 - **--carrier-name value**: Specify the gateway CARRIER NAME.
 - **--connection value**: Type of network connection that you want to bind to your direct link. One of: **direct**, **transit**.
-- **--cross-connect-router XCR**: Select the IBM cross-connect router for the Direct Link connection.
+- **--ccr XCR**: Select the IBM cross-connect router for the Direct Link connection.
 - **--customer-name value**: Specify the gateway CUSTOMER NAME.
-- **--file value**: JSON file for input data
 - **--location-name LOCATION**: Specify the location name; for example, **dal10**.
 - **--resource-group-id value**: Resource group ID for this resource. If unspecified, the account's default resource group is used.
-- **--routing value**: Gateway routing of resources (global | local). Select global to connect resources across regions.
+- **--routing value**: Gateway routing of resources (**global** | **local**). Select **global** to connect resources across regions.
 - **--speed-mbps SPEED_MBPS**: Specify a value for the speed.
 - **--help|-h**: (Optional) Get help on this command.
 - **--output value**: (Optional) Specify whether you want the output that is displayed in JSON format. Currently, **json** is the only supported format.
@@ -245,7 +249,7 @@ ibmcloud dl gateway|gw GATEWAY_ID [-–help|-h] [--output format]
 Approve gateway change request.
 
 ```
-ibmcloud dl gateway-change-approve GATEWAY_ID {--file JSON_FILE | [--action Action] [--billing BILLING] [--connection CONNECTION_TYPE] [--resource-group-id RESOURCE_GROUP_ID] [--routing ROUTING] [--speed-mbps SPEED_MBPS]} [--output format]
+ibmcloud dl gateway-change-approve GATEWAY_ID {--file JSON_FILE | [--action Action] [--bfd-interval interval] [--bfd-multiplier multiplier] [--bgp-asn BGP_ASN] [--bgp-cer-cidr BGP_CER_CIDR] [--bgp-ibm-cidr BGP_IBM_CIDR] [--billing BILLING] [--connection CONNECTION_TYPE] [--resource-group-id RESOURCE_GROUP_ID] [--routing ROUTING] [--speed-mbps SPEED_MBPS]} [--output format]
 ```
 {: pre}
 
@@ -253,13 +257,18 @@ ibmcloud dl gateway-change-approve GATEWAY_ID {--file JSON_FILE | [--action Acti
 {: #command-options-gateway-change-approval}
 
 - **GATEWAY_ID**: Specify the ID of the gateway.
+- **--file value**: JSON file for input data.
 - **--action ACTION**: Action request. One of: **gateway-create**, **gateway-delete**, **gateway-attribute-update**.
-- **--billing VALUE**: Billing (metered | non-metered). Select metered to charge per gigabyte and non-metered for flat rate. Set for gateway-create requests to select the gateway's metered billing option.
+- **--bfd-interval value**: Configures the minimum interval (in milliseconds) between the transmitted and received BFD packets. Range [300 - 255000]
+- **--bfd-multiplier value**: The number of BFD packets not received by a neighbor that causes the originating interface to be declared down. Range [1 - 255]
+- **--bgp-asn value**: Gateway BGP-ASN. Excluded ASNs: 0, 13884, 36351, 64512, 64513, 65100, 65201‍–‍65234, 65402‍–‍65433, 65500, and 4201065000‍–‍4201065999
+- **--bgp-cer-cidr value**: BGP customer edge router CIDR
+- **--bgp-ibm-cidr value**: BGP IBM CIDR
+- **--billing VALUE**: Billing (**metered** | **non-metered**). Select **metered** to charge per GB and **non-metered** for a flat rate. Set for gateway-create requests to select the gateway's metered billing option.
 - **-connection value**: Type of network connection that you want to bind to your direct link. One of: **direct**, **transit**.
-- **--file value**: JSON file for input data
 - **--resource-group-id VALUE**: Resource group ID for this resource. Set for gateway-create requests to select the gateway's resource group.
-- **--routing ROUTING**: Gateway routing (global | local). Select global to connect resources across regions.Set for gateway-create requests to select the gateway's routing option.
-- **--speed-mbps SPEED_MBPS**: Speed of the Gateway in mbps
+- **--routing ROUTING**: Gateway routing (**global** | **local**). Select **global** to connect resources across regions. Set for gateway-create requests to select the gateway's routing option.
+- **--speed-mbps SPEED_MBPS**: Speed of the gateway in Mbps.
 - **--help|-h**: (Optional) Get help on this command.
 - **--output value**: (Optional) Specify whether you want the output that is displayed in JSON format. Currently, **json** is the only supported format.  
 
@@ -280,7 +289,7 @@ To approve the provider-created gateways with [MD5 authentication for BGP peers]
 Reject gateway change request.
 
 ```
-ibmcloud dl gateway-change-reject|gwcr GATEWAY_ID [--action Action] [--speed-mbps SPEED_MBPS] [--help|-h] [--output format]
+ibmcloud dl gateway-change-reject|gwcr GATEWAY_ID [--action Action] [--bgp-asn BGP_ASN] [--bgp-cer-cidr BGP_CER_CIDR] [--bgp-ibm-cidr BGP_IBM_CID] [--speed-mbps SPEED_MBPS] [--help|-h] [--output format]
 ```
 {: pre}
 
@@ -289,7 +298,10 @@ ibmcloud dl gateway-change-reject|gwcr GATEWAY_ID [--action Action] [--speed-mbp
 
 - **GATEWAY_ID**: Specify the ID of the gateway.
 - **--action ACTION**: Action request. One of: **gateway-create**, **gateway-delete**, **gateway-attribute-update**.
-- **--speed-mbps SPEED_MBPS**: Speed of the Gateway in mbps
+- **--bgp-asn value**: Gateway BGP-ASN. Excluded ASNs: 0, 13884, 36351, 64512, 64513, 65100, 65201‍–‍65234, 65402‍–‍65433, 65500, and 4201065000‍–‍4201065999
+- **--bgp-cer-cidr value**: BGP customer edge router CIDR
+- **--bgp-ibm-cidr value**: BGP IBM CIDR
+- **--speed-mbps SPEED_MBPS**: Speed of the gateway in Mbps.
 - **--help|-h**: (Optional) Get help on this command.
 - **--output value**: (Optional) Specify whether you want the output that is displayed in JSON format. Currently, **json** is the only supported format.  
 
@@ -309,7 +321,7 @@ Create a gateway.
 This command is deprecated. See [create-connect-gateway](/docs/dl?topic=dl-cli-plugin-dl-cli#create-connect-gateway) and [create-dedicated-gateway](/docs/dl?topic=dl-cli-plugin-dl-cli#create-dedicated-gateway) for creating connect and dedicated gateways respectively.
 {: deprecated}
 
-The BGP_BASE_CIDR parameter is deprecated, please remove this parameter as it will ignored. See BGP_CER_CIDR and BGP_IBM_CIDR to create a gateway using either automatic or explicit IP assignment.
+The **BGP_BASE_CIDR** option is deprecated. Remove this option as it will ignored. See **BGP_CER_CIDR** and **BGP_IBM_CIDR** to create a gateway using either automatic or explicit IP assignment.
 {: deprecated}
 
 
@@ -386,7 +398,32 @@ ibmcloud dl gateway-statistics|gw-stats GATEWAY_ID --type STATISTIC_TYPE [--help
 {: #command-options-gateway-statistics}
 
 - **GATEWAY_ID**: Specify the ID of the gateway.
-- **type value**: Type of the statistics to retrieve. One of: **macsec_mka_session**, **macsec_mka_policy**.
+- **type value**: Type of the statistics to retrieve. One of: **macsec_mka_session**, **macsec_policy**, **macsec_mka_statistics**, **bfd_session**.
+- **--help|-h**: (Optional) Get help on this command.
+
+### Example
+{: #example-gateway1-statistics}
+
+`ibmcloud dl gateway-statistics e281b18b-0dba-49ee-9c64-aea588b7f1fd --type macsec_mka_session`
+
+---
+
+## ibmcloud dl gateway-status
+{: #gateway-status}
+
+Retrieve gateway status
+
+```
+ibmcloud dl gateway-status GATEWAY_ID --type STATUS_TYPE [--output format] [--help|-h]
+```
+{: pre}
+
+### Command options
+{: #command-options-gateway-statistics}
+
+- **GATEWAY_ID**: Specify the ID of the gateway.
+- **--type value**: Specify status to retrieve. One of **bgp**|**bfd**|**link**.
+- **--output value**: Specify output format. Only JSON is supported.
 - **--help|-h**: (Optional) Get help on this command.
 
 ### Example
@@ -402,7 +439,7 @@ ibmcloud dl gateway-statistics|gw-stats GATEWAY_ID --type STATISTIC_TYPE [--help
 Update a specific gateway.
 
 ```
-ibmcloud dl gateway-update GATEWAY_ID {--file JSON_FILE | [--billing BILLING] [--connection CONNECTION_TYPE] [--loa-reject-reason LOA_REJECT_REASON] [--name NAME] [--operational-status OPERATION_STATUS] [--routing ROUTING] [--speed-mbps SPEED_MBPS]} [--output format]
+ibmcloud dl gateway-update GATEWAY_ID {--file JSON_FILE | [--bfd-interval interval] [--bfd-multiplier multiplier] [--bgp-asn BGP_ASN] [--bgp-cer-cidr BGP_CER_CIDR] [--bgp-ibm-cidr BGP_IBM_CIDR] [--billing BILLING] [--connection CONNECTIOON_TYPE] [--loa-reject-reason LOA_REJECT_REASON] [--name NAME] [--operational-status OPERATION_STATUS] [--routing ROUTING] [--speed-mbps SPEED_MBPS]} [--output format]
 ```
 {: pre}
 
@@ -410,13 +447,19 @@ ibmcloud dl gateway-update GATEWAY_ID {--file JSON_FILE | [--billing BILLING] [-
 {: #command-options-specific-gateway}
 
 - **GATEWAY_ID**: Specify the ID of the gateway.
-- **--connection value: Type of network connection that you want to bind to your direct link. One of: **dedicated**, **connect**.
-- **--file value**: JSON file for input data
+- **--file value**: JSON file for input data.
+- **--bfd-interval value**: Configures the minimum interval (in milliseconds) between the transmitted and received BFD packets. Range [300 - 255000]
+- **--bfd-multiplier value**: The number of BFD packets not received by a neighbor that causes the originating interface to be declared down. Range [1 - 255]
+- **--bgp-asn value**: Gateway BGP-ASN. Excluded ASNs: 0, 13884, 36351, 64512, 64513, 65100, 65201‍–‍65234, 65402‍–‍65433, 65500, and 4201065000‍–‍4201065999
+- **--bgp-cer-cidr value**: BGP customer edge router CIDR.
+- **--bgp-ibm-cidr value**: BGP IBM CIDR.
+- **--billing value**: Billing of resources (**metered** | **non-metered**). Select **metered** to charge per GB and **non-metered** for a flat rate.
+- **--connection value**: Type of network connection that you want to bind to your direct link. One of: **dedicated**, **connect**.
 - **--loa-reject-reason LOA_REJECT_REASON**: Specify the reason for the Letter of Authorization (LOA) rejection.
-- **--name NAME**: Name of the Gateway.
+- **--name NAME**: Name of the gateway.
 - **--operational-status OPERATIONAL_STATUS**: Specify the gateway's operational status. Values are **loa_accepted** or **loa_rejected**.
-- **--speed-mbps SPEED_MBPS**: Specify the speed of the gateway in MBPS.
-- **--routing VALUE**: Gateway routing of resources (global | local). Select global to connect resources across regions.
+- **--routing VALUE**: Gateway routing of resources (**global** | **local**). Select **global** to connect resources across regions.
+- **--speed-mbps SPEED_MBPS**: Specify the speed of the gateway in Mbps.
 - **--help|-h**: (Optional) Get help on this command.
 - **--output value**: (Optional) Specify whether you want the output that is displayed in JSON format. Currently, **json** is the only supported format.
 
