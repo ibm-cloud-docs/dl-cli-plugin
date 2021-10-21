@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-09-16"
+lastupdated: "2021-10-21"
 
 keywords: command line interface, commands, CLI
 
@@ -40,7 +40,7 @@ Complete these steps to use the Direct Link CLI, which is implemented as an {{si
 
    To install the plug-in, enter the following command.
 
-   ```
+   ```sh
    ibmcloud plugin install dl-cli
    ```
    {: pre}
@@ -52,7 +52,7 @@ Complete these steps to use the Direct Link CLI, which is implemented as an {{si
 
 Show Direct Link CLI plug-in information.
 
-```
+```sh
 ibmcloud plugin show dl-cli
 ```
 {: pre}
@@ -64,7 +64,7 @@ ibmcloud plugin show dl-cli
 
 Get help on Direct Link commands.
 
-```
+```sh
 ibmcloud dl -h|--help
 ```
 {: pre}
@@ -76,7 +76,7 @@ ibmcloud dl -h|--help
 
 Download the completion notice for the specified gateway in either the current, working directory or in a specified output directory path.
 
-```
+```sh
 ibmcloud dl completion-notice|cn GATEWAY_ID [--file OUTPUT_DIRECTORY_PATH][--help|-h]
 ```
 {: pre}
@@ -101,7 +101,7 @@ ibmcloud dl completion-notice|cn GATEWAY_ID [--file OUTPUT_DIRECTORY_PATH][--hel
 
 Upload the completion notice from either the working directory or a specified directory.
 
-```
+```sh
 ibmcloud dl completion-notice-update GATEWAY_ID [-i INPUT_DIRECTORY_PATH]
 ```
 {: pre}
@@ -128,7 +128,7 @@ Create a connect gateway.
 The **BGP_BASE_CIDR** option is deprecated. Remove this option as it will ignored. See **BGP_CER_CIDR** and **BGP_IBM_CIDR** to create a gateway using either automatic or explicit IP assignment.
 {: deprecated}
 
-```
+```sh
 ibmcloud dl connect-gateway-create {--file JSON_FILE | GATEWAY_NAME --billing BILLING --bgp-asn BGP_ASN --port-id PORT_ID --routing ROUTING --speed-mbps SPEED_MBPS [--bfd-interval interval] [--bfd-multiplier multiplier] [--bgp-base-cidr BGP_BASE_CIDR] [--bgp-cer-cidr BGP_CER_CIDR] [--bgp-ibm-cidr BGP_IBM_CIDR] [--connection CONNECTION_TYPE] [--resource-group-id RESOURCE_GROUP_ID]} [--output format]
 ```
 {: pre}
@@ -175,7 +175,7 @@ Create a dedicated gateway.
 The **BGP_BASE_CIDR** option is deprecated. Remove this option as it will ignored. See **BGP_CER_CIDR** and **BGP_IBM_CIDR** to create a gateway using either automatic or explicit IP assignment.
 {: deprecated}
 
-```
+```sh
 ibmcloud dl dedicated-gateway-create {--file JSON_FILE | GATEWAY_NAME --billing BILLING --bgp-asn BGP_ASN --carrier-name CARRIER_NAME --ccr CROSS_CONNECT_ROUTER --customer-name CUSTOMER_NAME --location-name LOCATION_NAME --routing ROUTING --speed-mbps SPEED_MBPS [--bfd-interval interval] [--bfd-multiplier multiplier] [--bgp-base-cidr BGP_BASE_CIDR] [--bgp-cer-cidr BGP_CER_CIDR] [--bgp-ibm-cidr BGP_IBM_CIDR] [--connection CONNECTION_TYPE] [--resource-group-id RESOURCE_GROUP_ID]} [--output format]
 ```
 {: pre}
@@ -223,7 +223,7 @@ To enable [MD5 authentication for BGP peers](/docs/dl?topic=dl-dl-md5), use the 
 
 View details of a specific gateway.
 
-```
+```sh
 ibmcloud dl gateway|gw GATEWAY_ID [-–help|-h] [--output format]
 ```
 {: pre}
@@ -248,7 +248,7 @@ ibmcloud dl gateway|gw GATEWAY_ID [-–help|-h] [--output format]
 
 Approve gateway change request.
 
-```
+```sh
 ibmcloud dl gateway-change-approve GATEWAY_ID {--file JSON_FILE | [--action Action] [--bfd-interval interval] [--bfd-multiplier multiplier] [--bgp-asn BGP_ASN] [--bgp-cer-cidr BGP_CER_CIDR] [--bgp-ibm-cidr BGP_IBM_CIDR] [--billing BILLING] [--connection CONNECTION_TYPE] [--resource-group-id RESOURCE_GROUP_ID] [--routing ROUTING] [--speed-mbps SPEED_MBPS]} [--output format]
 ```
 {: pre}
@@ -288,7 +288,7 @@ To approve the provider-created gateways with [MD5 authentication for BGP peers]
 
 Reject gateway change request.
 
-```
+```sh
 ibmcloud dl gateway-change-reject|gwcr GATEWAY_ID [--action Action] [--bgp-asn BGP_ASN] [--bgp-cer-cidr BGP_CER_CIDR] [--bgp-ibm-cidr BGP_IBM_CID] [--speed-mbps SPEED_MBPS] [--help|-h] [--output format]
 ```
 {: pre}
@@ -325,7 +325,7 @@ The **BGP_BASE_CIDR** option is deprecated. Remove this option as it will ignore
 {: deprecated}
 
 
-```
+```sh
 ibmcloud dl gateway-create|gwc GATEWAY_NAME --billing BILLING --bgp-asn BGP_ASN  --bgp-base-cidr BGP_BASE_CIDR --routing ROUTING --speed-mbps SPEED_MBPS --type TYPE [--bgp-cer-cidr BGP_CER_CIDR] [--bgp-ibm-cidr BGP_IBM_CIDR] [--carrier-name CARRIER_NAME] [--cross-connect-router CROSS_CONNECT_ROUTER] [--customer-name CUSTOMER_NAME] [--location-name LOCATION_NAME] [--port-id PORT_ID] [--resource-group-id RESOURCE_GROUP_ID] [-–help|-h] [--output format]
 ```
 {: pre}
@@ -364,7 +364,7 @@ ibmcloud dl gateway-create|gwc GATEWAY_NAME --billing BILLING --bgp-asn BGP_ASN 
 
 Delete a specific gateway.
 
-```
+```sh
 ibmcloud dl gateway-delete|gwd GATEWAY_ID [--help|-h] [--force|-f]
 ```
 {: pre}
@@ -389,7 +389,7 @@ ibmcloud dl gateway-delete|gwd GATEWAY_ID [--help|-h] [--force|-f]
 
 Fetch the statistics for a specific gateway.
 
-```
+```sh
 ibmcloud dl gateway-statistics|gw-stats GATEWAY_ID --type STATISTIC_TYPE [--help|-h]
 ```
 {: pre}
@@ -413,7 +413,7 @@ ibmcloud dl gateway-statistics|gw-stats GATEWAY_ID --type STATISTIC_TYPE [--help
 
 Retrieve gateway status
 
-```
+```sh
 ibmcloud dl gateway-status GATEWAY_ID --type STATUS_TYPE [--output format] [--help|-h]
 ```
 {: pre}
@@ -438,7 +438,7 @@ ibmcloud dl gateway-status GATEWAY_ID --type STATUS_TYPE [--output format] [--he
 
 Update a specific gateway.
 
-```
+```sh
 ibmcloud dl gateway-update GATEWAY_ID {--file JSON_FILE | [--bfd-interval interval] [--bfd-multiplier multiplier] [--bgp-asn BGP_ASN] [--bgp-cer-cidr BGP_CER_CIDR] [--bgp-ibm-cidr BGP_IBM_CIDR] [--billing BILLING] [--connection CONNECTIOON_TYPE] [--loa-reject-reason LOA_REJECT_REASON] [--name NAME] [--operational-status OPERATION_STATUS] [--routing ROUTING] [--speed-mbps SPEED_MBPS]} [--output format]
 ```
 {: pre}
@@ -481,7 +481,7 @@ To clear/update the [MD5 authentication for BGP peers](/docs/dl?topic=dl-dl-md5)
 
 List all gateways.
 
-```
+```sh
 ibmcloud dl gateways|gws [-–help|-h] [--output format]
 ```
 {: pre}
@@ -499,7 +499,7 @@ ibmcloud dl gateways|gws [-–help|-h] [--output format]
 
 Download the LOA for the specified gateway in either the current, working directory or in the specified directory.
 
-```
+```sh
 ibmcloud dl loa GATEWAY_ID [--file OUTPUT_DIRECTORY_PATH] [--help|-h]
 ```
 {: pre}
@@ -524,7 +524,7 @@ ibmcloud dl loa GATEWAY_ID [--file OUTPUT_DIRECTORY_PATH] [--help|-h]
 
 Retrieves location-specific information for a specific offering type.
 
-```
+```sh
 ibmcloud dl location|loc LOCATION_NAME OFFERING_TYPE [--help|-h] [--output format]
 ```
 {: pre}
@@ -550,7 +550,7 @@ ibmcloud dl location|loc LOCATION_NAME OFFERING_TYPE [--help|-h] [--output forma
 
 List the locations for a specific Direct Link offering type.
 
-```
+```sh
 ibmcloud dl locations|locs OFFERING_TYPE [–-output format] [--help|-h]
 ```
 {: pre}
@@ -575,7 +575,7 @@ ibmcloud dl locations|locs OFFERING_TYPE [–-output format] [--help|-h]
 
 Lists all offering speeds for an offering type.
 
-```
+```sh
 ibmcloud dl offering-speeds|ospeeds OFFERING_TYPE [--output format] [--help|-h]
 ```
 {: pre}
@@ -600,7 +600,7 @@ ibmcloud dl offering-speeds|ospeeds OFFERING_TYPE [--output format] [--help|-h]
 
 View details of a port.
 
-```
+```sh
 ibmcloud dl port PORT_ID [--help|-h] [--output format]
 ```
 {: pre}
@@ -625,7 +625,7 @@ ibmcloud dl port PORT_ID [--help|-h] [--output format]
 
 List all ports.
 
-```
+```sh
 ibmcloud dl ports [--help|-h] [--output format]
 ```
 {: pre}
@@ -649,7 +649,7 @@ ibmcloud dl ports [--help|-h] [--output format]
 
 View details of a virtual connection.
 
-```
+```sh
 ibmcloud dl virtual-connection|vc GATEWAY_ID VIRTUAL_CONNECTION_ID [--output format] [--help|-h]
 ```
 {: pre}
@@ -675,7 +675,7 @@ ibmcloud dl virtual-connection|vc GATEWAY_ID VIRTUAL_CONNECTION_ID [--output for
 
 Creating a virtual connection.
 
-```
+```sh
 ibmcloud dl virtual-connection-create|vcc --type TYPE --network-id NETWORK_ID --name VIRTUAL_CONNECTION_NAME [--help|-h] [--output format]
 ```
 {: pre}
@@ -702,7 +702,7 @@ ibmcloud dl virtual-connection-create|vcc --type TYPE --network-id NETWORK_ID --
 
 Delete a virtual connection.
 
-```
+```sh
 ibmcloud dl virtual-connection-delete|vcd GATEWAY_ID VIRTUAL_CONNECTION_ID [--help|-h] [--force|-f]
 ```
 {: pre}
@@ -727,7 +727,7 @@ ibmcloud dl virtual-connection-delete|vcd GATEWAY_ID VIRTUAL_CONNECTION_ID [--he
 
 Update a virtual connection.
 
-```
+```sh
 ibmcloud dl virtual-connection-update|vcu [--name NAME] [--status STATUS] [--help|-h] [--output format]
 ```
 {: pre}
@@ -753,7 +753,7 @@ ibmcloud dl virtual-connection-update|vcu [--name NAME] [--status STATUS] [--hel
 
 List virtual connections.
 
-```
+```sh
 ibmcloud dl virtual-connections|vcs [--help|-h] [--output format]
 ```
 {: pre}
