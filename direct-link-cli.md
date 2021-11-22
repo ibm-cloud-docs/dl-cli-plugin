@@ -7,22 +7,10 @@ lastupdated: "2021-10-21"
 keywords: command line interface, commands, CLI
 
 subcollection: dl
+
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:term: .term}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
-{:external: target="_blank" .external}
-{:generic: data-hd-programlang="generic"}
-{:download: .download}
-{:DomainName: data-hd-keyref="DomainName"}
+{{site.data.keyword.attribute-definition-list}}
 
 # Direct Link CLI
 {: #dl-cli}
@@ -395,14 +383,14 @@ ibmcloud dl gateway-statistics|gw-stats GATEWAY_ID --type STATISTIC_TYPE [--help
 {: pre}
 
 ### Command options
-{: #command-options-gateway-statistics}
+{: #command-options-gateway-stats}
 
 - **GATEWAY_ID**: Specify the ID of the gateway.
 - **type value**: Type of the statistics to retrieve. One of: **macsec_mka_session**, **macsec_policy**, **macsec_mka_statistics**, **bfd_session**.
 - **--help|-h**: (Optional) Get help on this command.
 
 ### Example
-{: #example-gateway1-statistics}
+{: #example-gateway1-stats}
 
 `ibmcloud dl gateway-statistics e281b18b-0dba-49ee-9c64-aea588b7f1fd --type macsec_mka_session`
 
