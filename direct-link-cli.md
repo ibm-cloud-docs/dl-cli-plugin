@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-10-21"
+lastupdated: "2022-01-27"
 
 keywords: command line interface, commands, CLI
 
@@ -237,7 +237,7 @@ ibmcloud dl gateway|gw GATEWAY_ID [-–help|-h] [--output format]
 Approve gateway change request.
 
 ```sh
-ibmcloud dl gateway-change-approve GATEWAY_ID {--file JSON_FILE | [--action Action] [--bfd-interval interval] [--bfd-multiplier multiplier] [--bgp-asn BGP_ASN] [--bgp-cer-cidr BGP_CER_CIDR] [--bgp-ibm-cidr BGP_IBM_CIDR] [--billing BILLING] [--connection CONNECTION_TYPE] [--resource-group-id RESOURCE_GROUP_ID] [--routing ROUTING] [--speed-mbps SPEED_MBPS]} [--output format]
+ibmcloud dl gateway-change-approve GATEWAY_ID {--file JSON_FILE | [--action Action] [--bfd-interval interval] [--bfd-multiplier multiplier] [--bgp-asn BGP_ASN] [--bgp-cer-cidr BGP_CER_CIDR] [--bgp-ibm-cidr BGP_IBM_CIDR] [--billing BILLING] [--connection CONNECTION_TYPE] [--resource-group-id RESOURCE_GROUP_ID] [--routing ROUTING] [--speed-mbps SPEED_MBPS] [--vlan VLAN]} [--output format]
 ```
 {: pre}
 
@@ -245,7 +245,7 @@ ibmcloud dl gateway-change-approve GATEWAY_ID {--file JSON_FILE | [--action Acti
 {: #command-options-gateway-change-approval}
 
 - **GATEWAY_ID**: Specify the ID of the gateway.
-- **--file value**: JSON file for input data.
+- **--file value**: JSON file for input data
 - **--action ACTION**: Action request. One of: **gateway-create**, **gateway-delete**, **gateway-attribute-update**.
 - **--bfd-interval value**: Configures the minimum interval (in milliseconds) between the transmitted and received BFD packets. Range [300 - 255000]
 - **--bfd-multiplier value**: The number of BFD packets not received by a neighbor that causes the originating interface to be declared down. Range [1 - 255]
@@ -257,8 +257,9 @@ ibmcloud dl gateway-change-approve GATEWAY_ID {--file JSON_FILE | [--action Acti
 - **--resource-group-id VALUE**: Resource group ID for this resource. Set for gateway-create requests to select the gateway's resource group.
 - **--routing ROUTING**: Gateway routing (**global** | **local**). Select **global** to connect resources across regions. Set for gateway-create requests to select the gateway's routing option.
 - **--speed-mbps SPEED_MBPS**: Speed of the gateway in Mbps.
+- **--vlan value**: Gateway VLAN ID
+- **--output value**: (Optional) Specify whether you want the output that is displayed in JSON format. Currently, **json** is the only supported format.
 - **--help|-h**: (Optional) Get help on this command.
-- **--output value**: (Optional) Specify whether you want the output that is displayed in JSON format. Currently, **json** is the only supported format.  
 
 To approve the provider-created gateways with [MD5 authentication for BGP peers](/docs/dl?topic=dl-dl-md5), use the **-file** option to approve the gateway as per the [template](/apidocs/direct_link#create-gateway-action).
 {: note}
@@ -277,7 +278,7 @@ To approve the provider-created gateways with [MD5 authentication for BGP peers]
 Reject gateway change request.
 
 ```sh
-ibmcloud dl gateway-change-reject|gwcr GATEWAY_ID [--action Action] [--bgp-asn BGP_ASN] [--bgp-cer-cidr BGP_CER_CIDR] [--bgp-ibm-cidr BGP_IBM_CID] [--speed-mbps SPEED_MBPS] [--help|-h] [--output format]
+ibmcloud dl gateway-change-reject|gwcr GATEWAY_ID [--action Action] [--bgp-asn BGP_ASN] [--bgp-cer-cidr BGP_CER_CIDR] [--bgp-ibm-cidr BGP_IBM_CID] [--speed-mbps SPEED_MBPS] [--vlan VLAN] [--output format]
 ```
 {: pre}
 
@@ -290,8 +291,9 @@ ibmcloud dl gateway-change-reject|gwcr GATEWAY_ID [--action Action] [--bgp-asn B
 - **--bgp-cer-cidr value**: BGP customer edge router CIDR
 - **--bgp-ibm-cidr value**: BGP IBM CIDR
 - **--speed-mbps SPEED_MBPS**: Speed of the gateway in Mbps.
-- **--help|-h**: (Optional) Get help on this command.
+- **--vlan VLAN**: Gateway VLAN ID
 - **--output value**: (Optional) Specify whether you want the output that is displayed in JSON format. Currently, **json** is the only supported format.  
+- **--help|-h**: (Optional) Get help on this command.
 
 ### Examples
 {: #example-gateway-change-reject}
