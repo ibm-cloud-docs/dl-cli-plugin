@@ -191,7 +191,7 @@ ibmcloud dl dedicated-gateway-create {--file JSON_FILE | GATEWAY_NAME --billing 
 - **--help|-h**: (Optional) Get help on this command.
 - **--output value**: (Optional) Specify whether you want the output that is displayed in JSON format. Currently, **json** is the only supported format.
 
-To create a [MACsec-enabled gateway](/docs/allowlist/dl-macsec?topic=dl-macsec-configure-macsec-direct-link), use the **--file** option to create the gateway as per the [template](/apidocs/direct_link#create-gateway).
+To create a MACsec-enabled gateway or to enable [MD5 authentication for BGP peers](/docs/dl?topic=dl-dl-md5), use the **--file** option to create the gateway as per the [template](/apidocs/direct_link#create-gateway).
 {: note}
 
 To enable [MD5 authentication for BGP peers](/docs/dl?topic=dl-dl-md5), use the **--file** option to create the gateway as per the [template](/apidocs/direct_link#create-gateway).
