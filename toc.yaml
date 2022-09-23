@@ -6,7 +6,6 @@ toc:
   properties:
     subcollection: dl-cli-plugin
     version: 2
-    category: network_interconnectivity
     audience: service
     href: /docs/dl-cli-plugin
     console-page: /interconnectivity
@@ -20,3 +19,4 @@ toc:
       id: reference
       topics:
       - direct-link-cli.md
+      - /dl/dl-direct-link-cli-change-log
