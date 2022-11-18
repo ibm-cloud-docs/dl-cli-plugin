@@ -120,7 +120,7 @@ ibmcloud dl connect-gateway-create {--file JSON_FILE | GATEWAY_NAME --billing BI
 {: #command-options-connect-gateway-create}
 
 `--file JSON_FILE` 
-:   JSON file for input data. Input method for AS Prepend values. Required or specify `GATEWAY_NAME'.
+:   JSON file for input data. Input method for AS Prepend values. Required or specify `GATEWAY_NAME`.
 
 `GATEWAY_NAME` 
 :   Specify a name for the new gateway. Required or specify `--file JSON_FILE`.
