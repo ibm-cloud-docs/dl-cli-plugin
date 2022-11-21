@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-09-21"
+  years: 2020, 2022 
+lastupdated: "2022-11-21"
 
 subcollection: dl
 
@@ -52,6 +52,55 @@ Get help on Direct Link commands.
 ```sh
 ibmcloud dl -h|--help
 ``` 
+
+## `ibmcloud dl asprepends`
+{: #list-all-asprepends}
+
+List all AS Prepends on the given gateway.
+
+```sh
+ibmcloud dl asprepends GATEWAY_ID
+```
+
+### Command options
+{: #command-options-list-all-asprepends}
+
+`GATEWAY_ID`
+:   Specify the ID of the gateway. Required.
+
+
+### Examples
+{: #example-list-all-asprepends}
+
+- `ibmcloud dl asprepends 5cc19d0a-792c-4595-adfc-f90fc650de01`
+- `ibmcloud dl asps 22f799e8-b4ab-44ca-856b-897be9b0e53d`
+
+## `ibmcloud dl asprepends-replace`
+{: #replace-all-asprepends}
+
+Replace all AS Prepends on the given gateway.
+
+```sh
+ibmcloud dl asprepends-replace GATEWAY_ID --file JSON_FILE --etag ETAG
+```
+
+### Command options
+{: #command-options-replace-all-asprepends}
+
+`GATEWAY_ID`
+:   Specify the ID of the gateway. Required.
+
+`-file JSON_FILE`
+:   JSON file for input data.  This contaims the AS Prepends to be applied to the gateway.  
+
+`--etag ETAG`
+:   Etag value for the currently defined AS Prepends.  This value is returned on `ibmcloud dl asprepends` and the response of the command after applying the update.
+
+### Examples
+{: #example-replace-all-asprepends}
+
+- `ibmcloud dl asprepends-replace 5cc19d0a-792c-4595-adfc-f90fc650de01 --file update.json --etag 'W/\"20-3e8f21374fef9e548af910e4ad4322abe25bfb41\"'`
+- `ibmcloud dl aspsr 22f799e8-b4ab-44ca-856b-897be9b0e53d --file update.json --etag 'W/\"20-3e8f21374fef9e5477770e4ad4322abe25bfb41\"'`
 
 ## `ibmcloud dl completion-notice`
 {: #completion-notice-download}
@@ -572,8 +621,8 @@ ibmcloud dl gateway-update GATEWAY_ID {--file JSON_FILE | [--bfd-interval interv
 `GATEWAY_ID` 
 :   Specify the ID of the gateway.
 
-`--file value` 
-:   JSON file for input data. 
+`--file value`  
+:   JSON file for input data.
 
 `--bfd-interval value` 
 :   Configures the minimum interval (in milliseconds) between the transmitted and received BFD packets. Range [300 - 255000]
@@ -875,7 +924,7 @@ ibmcloud dl route-report-delete|rrd GATEWAY_ID REPORT_ID [--output format] [--he
 ```
 
 ### Command options
-{: #command-options-create-route-report}
+{: #command-options-delete-route-report}
 
 `GATEWAY_ID` 
 :   Specify the ID of the gateway.
@@ -890,7 +939,7 @@ ibmcloud dl route-report-delete|rrd GATEWAY_ID REPORT_ID [--output format] [--he
 :   Get help on this command. Optional.   
 
 ### Examples
-{: #example-create-route-report}
+{: #example-delete-route-report}
 
 - `ibmcloud dl route-report-delete a771366f-2c8c-49f6-a23b-9d49fad035a3 dea35ba0-7323-4d8d-9c8d-d7ecda55e23d`
 - `ibmcloud dl rrd a771366f-2c8c-49f6-a23b-9d49fad035a3 dea35ba0-7323-4d8d-9c8d-d7ecda55e23d --output json`
