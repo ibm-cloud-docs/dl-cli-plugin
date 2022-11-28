@@ -91,7 +91,7 @@ ibmcloud dl asprepends-replace GATEWAY_ID --file JSON_FILE --etag ETAG
 :   Specify the ID of the gateway. Required.
 
 `-file JSON_FILE`
-:   JSON file for input data.  This contaims the AS Prepends to be applied to the gateway.  
+:   JSON file for input data.  This contains the AS Prepends to be applied to the gateway.  
 
 `--etag ETAG`
 :   Etag value for the currently defined AS Prepends.  This value is returned on `ibmcloud dl asprepends` and the response of the command after applying the update.
