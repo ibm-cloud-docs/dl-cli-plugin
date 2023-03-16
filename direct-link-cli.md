@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022 
-lastupdated: "2022-11-21"
+  years: 2020, 2023
+lastupdated: "2023-03-16"
 
 subcollection: dl
 
@@ -56,7 +56,7 @@ ibmcloud dl -h|--help
 ## `ibmcloud dl asprepends`
 {: #list-all-asprepends}
 
-List all AS Prepends on the given gateway.
+List all AS prepends on the given gateway.
 
 ```sh
 ibmcloud dl asprepends GATEWAY_ID
@@ -78,7 +78,7 @@ ibmcloud dl asprepends GATEWAY_ID
 ## `ibmcloud dl asprepends-replace`
 {: #replace-all-asprepends}
 
-Replace all AS Prepends on the given gateway.
+Replace all AS prepends on the given gateway.
 
 ```sh
 ibmcloud dl asprepends-replace GATEWAY_ID --file JSON_FILE --etag ETAG
@@ -91,10 +91,10 @@ ibmcloud dl asprepends-replace GATEWAY_ID --file JSON_FILE --etag ETAG
 :   Specify the ID of the gateway. Required.
 
 `-file JSON_FILE`
-:   JSON file for input data.  This contains the AS Prepends to be applied to the gateway.  
+:   JSON file for input data.  This contains the AS prepends to be applied to the gateway.  
 
 `--etag ETAG`
-:   Etag value for the currently defined AS Prepends.  This value is returned on `ibmcloud dl asprepends` and the response of the command after applying the update.
+:   Etag value for the currently defined AS prepends.  This value is returned on `ibmcloud dl asprepends` and the response of the command after applying the update.
 
 ### Examples
 {: #example-replace-all-asprepends}
@@ -169,7 +169,7 @@ ibmcloud dl connect-gateway-create {--file JSON_FILE | GATEWAY_NAME --billing BI
 {: #command-options-connect-gateway-create}
 
 `--file JSON_FILE` 
-:   JSON file for input data. Input method for AS Prepend values. Required or specify `GATEWAY_NAME`.
+:   JSON file for input data. Input method for AS Prepend and Route Filter values. Required or specify `GATEWAY_NAME`.
 
 `GATEWAY_NAME` 
 :   Specify a name for the new gateway. Required or specify `--file JSON_FILE`.
@@ -206,6 +206,12 @@ ibmcloud dl connect-gateway-create {--file JSON_FILE | GATEWAY_NAME --billing BI
 
 `--connection CONNECTION_TYPE:` 
 :   Type of network connection that you want to bind to your direct link. One of: `direct`, `transit`.  
+
+`--default-export-route-filter value`
+:   Default export route filter. One of `permit`, `deny`.
+ 
+`--default-import-route-filter value`
+:   Default import route filter. One of `permit`, `deny`.
 
 `--resource-group-id RESOURCE_GROUP_ID` 
 :   Resource group ID for this resource. If unspecified, the account's default resource group is used.  
@@ -245,7 +251,7 @@ ibmcloud dl dedicated-gateway-create {--file JSON_FILE | GATEWAY_NAME --billing 
 :   Specify a name for the new gateway.
 
 `--file value` 
-:   JSON file for input data. Input method for AS Prepend values.
+:   JSON file for input data. Input method for AS Prepend and Route Filter values.
 
 `--bfd-interval value` 
 :   Configures the minimum interval (in milliseconds) between the transmitted and received BFD packets. Range [300 - 255000]
@@ -280,6 +286,12 @@ ibmcloud dl dedicated-gateway-create {--file JSON_FILE | GATEWAY_NAME --billing 
 `--customer-name value` 
 :   Specify the gateway CUSTOMER NAME.
 
+`--default-export-route-filter value`
+:   Default export route filter. One of `permit`, `deny`.
+ 
+`--default-import-route-filter value`
+:   Default import route filter. One of `permit`, `deny`.
+
 `--location-name LOCATION` 
 :   Specify the location name; for example, `dal10`.
 
@@ -307,6 +319,206 @@ To create a MACsec-enabled gateway, enable [MD5 authentication for BGP peers](/d
 - `ibmcloud dl dedicated-gateway-create dl-gw --billing metered --bgp-asn 64999 --bgp-base-cidr 169.254.0.51/30 --carrier-name carrier --ccr LAB-xcr01.dal09 --customer-name customer --location-name dal09 --routing local --speed-mbps 1000 --bgp-ibm-cidr 169.254.0.52/30 --bgp-cer-cidr 169.254.0.53/30 --connection direct`
 - `ibmcloud dl dedicated-gateway-create dl-gw --billing metered --bgp-asn 64999 --bgp-base-cidr 169.254.0.51/30 --carrier-name carrier --ccr LAB-xcr01.dal09 --customer-name customer --location-name dal09 --routing local --speed-mbps 1000 --bgp-ibm-cidr 169.254.0.52/30 --bgp-cer-cidr 169.254.0.53/30 --output json`
 - `ibmcloud dl dedicated-gateway-create --file ~/gateway.json`
+
+## `ibmcloud dl export-route-filter`
+{: #export-route-filter}
+
+View details of an export route filter by ID.
+
+```sh
+ibmcloud dl export-route-filter|erf GATEWAY_ID FILTER_ID [-–help|-h] [--output format]
+```
+
+### Command options
+{: #command-options-export-route-filter-details}
+
+`GATEWAY_ID` 
+:   Specify the ID of the gateway.
+
+`FILTER_ID` 
+:   Specify the ID of the export route filter that you want to list.
+
+`--help|-h` 
+:   Get help on this command. Optional. 
+
+`--output value` 
+:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional. 
+
+### Examples
+{: #example-exportroutefilter}
+
+- `ibmcloud dl erf beec5de0-a1c0-4730-8888-2ce4a3020ec8 c3df351b-ff64-4444-ba64-92cb7622dfd6`
+
+## `ibmcloud dl export-route-filters`
+{: #export-route-filters}
+
+List all export route filters.
+
+```sh
+ibmcloud dl export-route-filters|erfs GATEWAY_ID [-–help|-h] [--output format]
+```
+
+### Command options
+{: #command-options-export-route-filters-details}
+
+`GATEWAY_ID` 
+:   Specify the ID of the gateway.
+
+`--help|-h` 
+:   Get help on this command. Optional. 
+
+`--output value` 
+:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional. 
+
+### Example
+{: #example-exportroutefilters}
+
+`ibmcloud dl erfs beec5de0-a1c0-4730-8888-2ce4a3020ec8`
+
+## `ibmcloud dl export-route-filter-create`
+{: #export-route-filter-create}
+
+Create an export route filter.
+
+```sh
+ibmcloud dl export-route-filter-create|erfc GATEWAY_ID --action ACTION --prefix PREFIX [--before BEFORE] [--ge GE] [--le LE] [-–help|-h] [--output format]
+```
+
+### Command options
+{: #command-options-export-route-filter-create}
+
+`GATEWAY_ID` 
+:   Specify the ID of the gateway.
+
+`--action ACTION` 
+:   Specify the export route filter action. One of `permit`, `deny`.
+
+`--prefix PREFIX` 
+:   Specify an IPv4 subnet CIDR indicating both the address and mask length.
+
+`--before BEFORE` 
+:   To prioritize this filter in the export route filter list, specify the ID of the route filter that comes _before_ this filter. Optional.
+
+`--ge GE` 
+:   Specify a minimum matching length (GE, greater than or equal to). Optional. For more information, see [Route filtering rules](/docs/dl?topic=dl-filter-routes&interface=ui#route-filtering-rules).
+
+`--le LE` 
+:   Specify a maximum matching length (LE, less than or equal to). Optional. For more information, see [Route filtering rules](/docs/dl?topic=dl-filter-routes&interface=ui#route-filtering-rules).
+
+`--help|-h` 
+:   Get help on this command. Optional. 
+
+`--output value` 
+:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional. 
+
+### Examples
+{: #example-exportroutefilter-create}
+
+- `ibmcloud dl erfc dc206f57-5693-442f-8888-6d43b6c82d73 --action permit --prefix 10.10.0.0/24`
+- `ibmcloud dl erfc dc206f57-5693-442f-8888-6d43b6c82d73 --action deny --prefix 10.10.0.0/24 -le 29`
+
+## `ibmcloud dl export-route-filter-delete`
+{: #export-route-filter-delete}
+
+Delete an export route filter.
+
+```sh
+ibmcloud dl export-route-filter-delete|erfd GATEWAY_ID FILTER_ID [-–help|-h] [--output format]
+```
+
+### Command options
+{: #command-options-export-route-filter-delete}
+
+`GATEWAY_ID` 
+:   Specify the ID of the gateway.
+
+`FILTER_ID` 
+:   Specify the ID of the export route filter that you want to delete.
+
+`--help|-h` 
+:   Get help on this command. Optional. 
+
+`--output value` 
+:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional. 
+
+### Examples
+{: #example-exportroutefilter-delete}
+
+- `ibmcloud dl erfd beec5de0-a1c0-4730-8888-2ce4a3020ec8 c3df351b-ff64-4444-ba64-92cb7622dfd6`
+
+## `ibmcloud dl export-route-filter-replace`
+{: #export-route-filter-replace}
+
+Replace all export route filters.
+
+```sh
+ibmcloud dl export-route-filter-replace|erfr GATEWAY_ID --file JSON_FILE --etag ETAG [-–help|-h] [--output format]
+```
+
+### Command options
+{: #command-options-export-route-filter-replace}
+
+`GATEWAY_ID` 
+:   Specify the ID of the gateway.
+
+`--file JSON_FILE` 
+:   Specify the JSON file for input data.
+
+`--etag ETAG` 
+:   Specify the eTag.
+
+`--help|-h` 
+:   Get help on this command. Optional. 
+
+`--output value` 
+:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional. 
+
+### Example
+{: #example-exportroutefilter-replace}
+
+`ibmcloud dl erfr 58e4f46f-0dab-4025-9999-3df974db0618 --etag 'W/"182-9c1ba4f4ab697f4080f662c18e664d5763ae4b8dcb0542b4b473d661"' --file ~/export.txt`
+
+## `ibmcloud dl export-route-filter-update`
+{: #export-route-filter-update}
+
+Update an export route filter.
+
+```sh
+ibmcloud dl export-route-filter-update|erfu GATEWAY_ID [--action ACTION] [--prefix PREFIX] [--before BEFORE] [--ge GE] [--le LE] [-–help|-h] [--output format]
+```
+
+### Command options
+{: #command-options-export-route-filter-update}
+
+`GATEWAY_ID` 
+:   Specify the ID of the gateway.
+
+`--action ACTION` 
+:   Specify the export route filter action. One of `permit`, `deny`. Optional. 
+
+`--prefix PREFIX` 
+:   Specify an IPv4 subnet CIDR indicating both the address and mask length. Optional.
+
+`--before BEFORE` 
+:   To prioritize this filter in the export route filter list, specify the ID of the route filter that comes _before_ this filter. Optional.  
+
+`--ge GE` 
+:   Specify a minimum matching length (GE, greater than or equal to). Optional. For more information, see [Route filtering rules](/docs/dl?topic=dl-filter-routes&interface=ui#route-filtering-rules).
+
+`--le LE` 
+:   Specify a maximum matching length (LE, less than or equal to). Optional. For more information, see [Route filtering rules](/docs/dl?topic=dl-filter-routes&interface=ui#route-filtering-rules).
+
+`--help|-h` 
+:   Get help on this command. Optional. 
+
+`--output value` 
+:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional. 
+
+### Examples
+{: #example-exportroutefilter-update}
+
+- `ibmcloud dl erfu beec5de0-a1c0-4730-8888-2ce4a3020ec8 c3df351b-ff64-4444-ba64-92cb7622dfd6 --action permit`
+- `ibmcloud dl erfu beec5de0-a1c0-4730-8888-2ce4a3020ec8 c3df351b-ff64-4444-ba64-92cb7622dfd6 --le 28`
 
 ## `ibmcloud dl gateway`
 {: #get-help-specific-gateway}
@@ -694,6 +906,206 @@ ibmcloud dl gateways|gws [-–help|-h] [--output format]
 
 `--output value` 
 :   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional. 
+
+## `ibmcloud dl import-route-filter`
+{: #import-route-filter}
+
+View details of an import route filter by ID.
+
+```sh
+ibmcloud dl import-route-filter|irf GATEWAY_ID FILTER_ID [-–help|-h] [--output format]
+```
+
+### Command options
+{: #command-options-import-route-filter-details}
+
+`GATEWAY_ID` 
+:   Specify the ID of the gateway.
+
+`FILTER_ID` 
+:   Specify the ID of the import route filter that you want to list.
+
+`--help|-h` 
+:   Get help on this command. Optional. 
+
+`--output value` 
+:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional. 
+
+### Example
+{: #example-importroutefilter}
+
+`ibmcloud dl irf beec5de0-a1c0-4730-8888-2ce4a3020ec8 c3df351b-ff64-4444-ba64-92cb7622dfd6`
+
+## `ibmcloud dl import-route-filters`
+{: #import-route-filters}
+
+List all import route filters.
+
+```sh
+ibmcloud dl import-route-filters|irfs GATEWAY_ID [-–help|-h] [--output format]
+```
+
+### Command options
+{: #command-options-import-route-filters-details}
+
+`GATEWAY_ID` 
+:   Specify the ID of the gateway.
+
+`--help|-h` 
+:   Get help on this command. Optional. 
+
+`--output value` 
+:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional. 
+
+### Example
+{: #example-importroutefilters}
+
+`ibmcloud dl irfs beec5de0-a1c0-4730-8888-2ce4a3020ec8`
+
+## `ibmcloud dl import-route-filter-create`
+{: #import-route-filter-create}
+
+Create an import route filter.
+
+```sh
+ibmcloud dl import-route-filter-create|irfc GATEWAY_ID --action ACTION --prefix PREFIX [--before BEFORE] [--ge GE] [--le LE] [-–help|-h] [--output format]
+```
+
+### Command options
+{: #command-options-import-route-filter-create}
+
+`GATEWAY_ID` 
+:   Specify the ID of the gateway.
+
+`--action ACTION` 
+:   Specify the import route filter action. One of `permit`, `deny`.
+
+`--prefix PREFIX`
+:   Specify an IPv4 subnet CIDR indicating both the address and mask length.
+
+`--before BEFORE` 
+:   To prioritize this filter in the import route filter list, specify the ID of the route filter that comes _before_ this filter. Optional.  
+
+`--ge GE` 
+:   Specify a minimum matching length (GE, greater than or equal to). Optional. For more information, see [Route filtering rules](/docs/dl?topic=dl-filter-routes&interface=ui#route-filtering-rules).
+
+`--le LE` 
+:   Specify a maximum matching length (LE, less than or equal to). Optional. For more information, see [Route filtering rules](/docs/dl?topic=dl-filter-routes&interface=ui#route-filtering-rules).
+
+`--help|-h` 
+:   Get help on this command. Optional. 
+
+`--output value` 
+:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional. 
+
+### Examples
+{: #example-importroutefilter-create}
+
+- `ibmcloud dl irfc dc206f57-5693-442f-8888-6d43b6c82d73 --action permit --prefix 10.10.0.0/24`
+- `ibmcloud dl irfc dc206f57-5693-442f-8888-6d43b6c82d73 --action deny --prefix 10.10.0.0/24 -le 29`
+
+## `ibmcloud dl import-route-filter-delete`
+{: #import-route-filter-delete}
+
+Import an export route filter.
+
+```sh
+ibmcloud dl import-route-filter-delete|irfd GATEWAY_ID FILTER_ID [-–help|-h] [--output format]
+```
+
+### Command options
+{: #command-options-import-route-filter-delete}
+
+`GATEWAY_ID` 
+:   Specify the ID of the gateway.
+
+`FILTER_ID` 
+:   Specify the ID of the import route filter that you want to delete.
+
+`--help|-h` 
+:   Get help on this command. Optional. 
+
+`--output value` 
+:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional. 
+
+### Example
+{: #example-importroutefilter-delete}
+
+`ibmcloud dl irfd beec5de0-a1c0-4730-8888-2ce4a3020ec8 c3df351b-ff64-4444-ba64-92cb7622dfd6`
+
+## `ibmcloud dl import-route-filter-replace`
+{: #import-route-filter-replace}
+
+Replace all import route filters.
+
+```sh
+ibmcloud dl import-route-filter-replace|irfr GATEWAY_ID --file JSON_FILE --etag ETAG [-–help|-h] [--output format]
+```
+
+### Command options
+{: #command-options-import-route-filter-replace}
+
+`GATEWAY_ID` 
+:   Specify the ID of the gateway.
+
+`--file JSON_FILE` 
+:   Specify the JSON file for input data.
+
+`--etag ETAG` 
+:   Specify the eTag.
+
+`--help|-h` 
+:   Get help on this command. Optional. 
+
+`--output value` 
+:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional. 
+
+### Example
+{: #example-importroutefilter-replace}
+
+`ibmcloud dl irfr 58e4f46f-0dab-4025-9999-3df974db0618 --etag 'W/"182-9c1ba4f4ab697f4080f662c18e664d5763ae4b8dcb0542b4b473d661"' --file ~/import.txt`
+
+## `ibmcloud dl import-route-filter-update`
+{: #import-route-filter-update}
+
+Update an import route filter.
+
+```sh
+ibmcloud dl import-route-filter-update|irfu GATEWAY_ID [--action ACTION] [--prefix PREFIX] [--before BEFORE] [--ge GE] [--le LE] [-–help|-h] [--output format]
+```
+
+### Command options
+{: #command-options-import-route-filter-update}
+
+`GATEWAY_ID` 
+:   Specify the ID of the gateway.
+
+`--action ACTION` 
+:   Specify the import route filter action. One of `permit`, `deny`. Optional. 
+
+`--prefix PREFIX` 
+:   Specify an IPv4 subnet CIDR indicating both the address and mask length. Optional.
+
+`--before BEFORE` 
+:   To prioritize this filter in the import route filter list, specify the ID of the route filter that comes _before_ this filter. Optional.  
+
+`--ge GE` 
+:   Specify a minimum matching length (GE, greater than or equal to). Optional. For more information, see [Route filtering rules](/docs/dl?topic=dl-filter-routes&interface=ui#route-filtering-rules).
+
+`--le LE` 
+:   Specify a maximum matching length (LE, less than or equal to). Optional. For more information, see [Route filtering rules](/docs/dl?topic=dl-filter-routes&interface=ui#route-filtering-rules).
+
+`--help|-h`
+:   Get help on this command. Optional. 
+
+`--output value` 
+:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional. 
+
+### Examples
+{: #example-importroutefilter-update}
+
+- `ibmcloud dl irfu beec5de0-a1c0-4730-8888-2ce4a3020ec8 c3df351b-ff64-4444-ba64-92cb7622dfd6 --action permit`
+- `ibmcloud dl irfu beec5de0-a1c0-4730-8888-2ce4a3020ec8 c3df351b-ff64-4444-ba64-92cb7622dfd6 --le 28`
 
 ## `ibmcloud dl loa`
 {: #loa-download}
