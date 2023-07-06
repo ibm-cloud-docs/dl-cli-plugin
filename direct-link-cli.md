@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-03-16"
+lastupdated: "2023-07-06"
 
 subcollection: dl
 
@@ -15,7 +15,7 @@ keywords: command line interface, commands, CLI
 # Direct Link CLI
 {: #dl-cli}
 
-The {{site.data.keyword.dl_full}} command-line interface (CLI) is organized into sections, which are listed in the navigation pane on the right.  
+The {{site.data.keyword.dl_full}} command-line interface (CLI) is organized into sections, which are listed in the navigation pane on the right.
 {: shortdesc}
 
 ## Before you begin
@@ -42,7 +42,7 @@ Show Direct Link CLI plug-in information.
 
 ```sh
 ibmcloud plugin show dl-cli
-``` 
+```
 
 ## `ibmcloud dl --help`
 {: #command-help}
@@ -51,7 +51,7 @@ Get help on Direct Link commands.
 
 ```sh
 ibmcloud dl -h|--help
-``` 
+```
 
 ## `ibmcloud dl asprepends`
 {: #list-all-asprepends}
@@ -91,7 +91,7 @@ ibmcloud dl asprepends-replace GATEWAY_ID --file JSON_FILE --etag ETAG
 :   Specify the ID of the gateway. Required.
 
 `-file JSON_FILE`
-:   JSON file for input data.  This contains the AS prepends to be applied to the gateway.  
+:   JSON file for input data.  This contains the AS prepends to be applied to the gateway.
 
 `--etag ETAG`
 :   Etag value for the currently defined AS prepends.  This value is returned on `ibmcloud dl asprepends` and the response of the command after applying the update.
@@ -109,7 +109,7 @@ Download the completion notice for the specified gateway in either the current, 
 
 ```sh
 ibmcloud dl completion-notice|cn GATEWAY_ID [--file OUTPUT_DIRECTORY_PATH][--help|-h]
-``` 
+```
 
 ### Command options
 {: #command-options-completion-notice-download}
@@ -117,18 +117,18 @@ ibmcloud dl completion-notice|cn GATEWAY_ID [--file OUTPUT_DIRECTORY_PATH][--hel
 `GATEWAY_ID`
 :   Specify the ID of the gateway. Required.
 
-`--file OUTPUT_DIRECTORY_PATH` 
-:   Specify the output directory path where you want to download the completion notice. For example, specify to download the completion notice in the `/tmp` directory.  
+`--file OUTPUT_DIRECTORY_PATH`
+:   Specify the output directory path where you want to download the completion notice. For example, specify to download the completion notice in the `/tmp` directory.
 
 `--help|-h`
-:   Get help on this command.  
+:   Get help on this command.
 
 ### Examples
 {: #example-completion-notice-download}
 
 - `ibmcloud dl completion-notice 0e28b9bc-06df-44f1-b5d7-08085b9fc935`
 - `ibmcloud dl cn 0e28b9bc-06df-44f1-b5d7-08085b9fc935 --file /tmp`
- 
+
 ## `ibmcloud dl completion-notice-update`
 {: #completion-notice-upload}
 
@@ -145,7 +145,7 @@ ibmcloud dl completion-notice-update GATEWAY_ID [-i INPUT_DIRECTORY_PATH]
 :   Specify the ID of the gateway. Required.
 
 `-i INPUT_DIRECTORY_PATH`
-:   Specify the directory in which you want to upload the completion notice.  
+:   Specify the directory in which you want to upload the completion notice.
 
 ### Examples
 {: #example-completion-notice-upload}
@@ -163,64 +163,64 @@ The `BGP_BASE_CIDR` option is deprecated. Remove this option as it will ignored.
 
 ```sh
 ibmcloud dl connect-gateway-create {--file JSON_FILE | GATEWAY_NAME --billing BILLING --bgp-asn BGP_ASN --port-id PORT_ID --routing ROUTING --speed-mbps SPEED_MBPS [--bfd-interval interval] [--bfd-multiplier multiplier] [--bgp-base-cidr BGP_BASE_CIDR] [--bgp-cer-cidr BGP_CER_CIDR] [--bgp-ibm-cidr BGP_IBM_CIDR] [--connection CONNECTION_TYPE] [--resource-group-id RESOURCE_GROUP_ID]} [--help|-h] [--output format]
-``` 
+```
 
 ### Command options
 {: #command-options-connect-gateway-create}
 
-`--file JSON_FILE` 
+`--file JSON_FILE`
 :   JSON file for input data. Input method for AS Prepend and Route Filter values. Required or specify `GATEWAY_NAME`.
 
-`GATEWAY_NAME` 
+`GATEWAY_NAME`
 :   Specify a name for the new gateway. Required or specify `--file JSON_FILE`.
 
-`--billing BILLING` 
+`--billing BILLING`
 :   Billing of resources (`metered` | `non-metered`). Select `metered` to charge per GB and `non-metered` for a flat rate. Required.
 
-`--bgp-asn BGP_ASN` 
+`--bgp-asn BGP_ASN`
 :   Specify either the default value of `64999`, or select an ASN from allowed ranges. Required.
 
-`--port-id PORT_ID` 
+`--port-id PORT_ID`
 :   Port ID for the gateway. Required when type is `connect`. Required.
 
-`--routing ROUTING` 
+`--routing ROUTING`
 :   Gateway routing of resources (global | local). Select global to connect resources across regions. Required.
 
-`--speed-mbps SPEED_MBPS` 
+`--speed-mbps SPEED_MBPS`
 :   Specify a value for the speed. Required.
 
-`--bfd-interval value` 
+`--bfd-interval value`
 :   Configures the minimum interval (in milliseconds) between the transmitted and received BFD packets. Range [300 - 255000]
 
-`--bfd-multiplier value` 
+`--bfd-multiplier value`
 :   The number of BFD packets not received by a neighbor that causes the originating interface to be declared down. Range [1 - 255]
 
-`--bgp-base-cidr BGP_BASE_CIDR` 
+`--bgp-base-cidr BGP_BASE_CIDR`
 :   Specify the BGP Base CIDR.
 
-`--bgp-cer-cidr BGP_CER_CIDR` 
+`--bgp-cer-cidr BGP_CER_CIDR`
 :   Specify the BGP customer edge router CIDR.
 
-`--bgp-ibm-cidr BGP_IBM_CIDR` 
+`--bgp-ibm-cidr BGP_IBM_CIDR`
 :   Specify the BGP IBM CIDR.
 
-`--connection CONNECTION_TYPE:` 
-:   Type of network connection that you want to bind to your direct link. One of: `direct`, `transit`.  
+`--connection CONNECTION_TYPE:`
+:   Type of network connection that you want to bind to your direct link. One of: `direct`, `transit`.
 
 `--default-export-route-filter value`
 :   Default export route filter. One of `permit`, `deny`.
- 
+
 `--default-import-route-filter value`
 :   Default import route filter. One of `permit`, `deny`.
 
-`--resource-group-id RESOURCE_GROUP_ID` 
-:   Resource group ID for this resource. If unspecified, the account's default resource group is used.  
+`--resource-group-id RESOURCE_GROUP_ID`
+:   Resource group ID for this resource. If unspecified, the account's default resource group is used.
 
-`--help|-h` 
-:   Get help on this command.  
+`--help|-h`
+:   Get help on this command.
 
-`--output value` 
-:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. 
+`--output value`
+:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format.
 
 To enable [MD5 authentication for BGP peers](/docs/dl?topic=dl-dl-md5), or create [BGP AS prepends](/docs/dl?topic=dl-models-for-diversity-and-redundancy-in-direct-link&interface=ui#dl-bgp-path-selection), use the `--file` option to create the gateway as per the [template](/apidocs/direct_link#create-gateway).
 {: note}
@@ -231,7 +231,7 @@ To enable [MD5 authentication for BGP peers](/docs/dl?topic=dl-dl-md5), or creat
 - `ibmcloud dl connect-gateway-create dl-gw --billing metered --bgp-asn 64999 --bgp-base-cidr 169.254.0.51/30 --port-id 2f41cf65-e72a-4522-9526-e156e4ca02b5 --routing local --speed-mbps 1000 --bgp-cer-cidr 169.254.0.53/30 --bgp-ibm-cidr 169.254.0.52/30 --connection direct`
 - `ibmcloud dl connect-gateway-create dl-gw --billing metered --bgp-asn 64999 --bgp-base-cidr 169.254.0.51/30 --port-id 2f41cf65-e72a-4522-9526-e156e4ca02b5 --routing local --speed-mbps 1000 --bgp-cer-cidr 169.254.0.53/30 --bgp-ibm-cidr 169.254.0.52/30 --output json`
 - `ibmcloud dl connect-gateway-create --file ~/gateway.json`
- 
+
 ## `ibmcloud dl dedicated-gateway-create`
 {: #create-dedicated-gateway}
 
@@ -247,68 +247,68 @@ ibmcloud dl dedicated-gateway-create {--file JSON_FILE | GATEWAY_NAME --billing 
 ### Command options
 {: #command-options-dedicated-gateway-create}
 
-`GATEWAY_NAME` 
+`GATEWAY_NAME`
 :   Specify a name for the new gateway.
 
-`--file value` 
+`--file value`
 :   JSON file for input data. Input method for AS Prepend and Route Filter values.
 
-`--bfd-interval value` 
+`--bfd-interval value`
 :   Configures the minimum interval (in milliseconds) between the transmitted and received BFD packets. Range [300 - 255000]
 
-`--bfd-multiplier value` 
+`--bfd-multiplier value`
 :   The number of BFD packets not received by a neighbor that causes the originating interface to be declared down. Range [1 - 255]
 
-`--bgp-asn VALUE` 
+`--bgp-asn VALUE`
 :   Specify either the default value of `64999`, or select an ASN from allowed ranges.
 
-`--bgp-base-cidr BGP_BASE_CIDR` 
+`--bgp-base-cidr BGP_BASE_CIDR`
 :   Specify the BGP Base CIDR.
 
-`--bgp-cer-cidr BGP_CER_CIDR` 
+`--bgp-cer-cidr BGP_CER_CIDR`
 :   Specify the BGP customer edge router CIDR.
 
-`--bgp-ibm-cidr BGP_IBM_CIDR` 
+`--bgp-ibm-cidr BGP_IBM_CIDR`
 :   Specify the BGP IBM CIDR.
 
-`--billing VALUE` 
+`--billing VALUE`
 :   Billing of resources (`metered` | `non-metered`). Select `metered` to charge per GB and `non-metered` for a flat rate.
 
-`--carrier-name value` 
+`--carrier-name value`
 :   Specify the gateway CARRIER NAME.
 
-`--connection value` 
+`--connection value`
 :   Type of network connection that you want to bind to your direct link. One of: `direct`, `transit`.
 
-`--ccr XCR` 
+`--ccr XCR`
 :   Select the IBM cross-connect router for the Direct Link connection.
 
-`--customer-name value` 
+`--customer-name value`
 :   Specify the gateway CUSTOMER NAME.
 
 `--default-export-route-filter value`
 :   Default export route filter. One of `permit`, `deny`.
- 
+
 `--default-import-route-filter value`
 :   Default import route filter. One of `permit`, `deny`.
 
-`--location-name LOCATION` 
+`--location-name LOCATION`
 :   Specify the location name; for example, `dal10`.
 
-`--resource-group-id value` 
+`--resource-group-id value`
 :   Resource group ID for this resource. If unspecified, the account's default resource group is used.
 
-`--routing value` 
+`--routing value`
 :   Gateway routing of resources (`global` | `local`). Select `global` to connect resources across regions.
 
-`--speed-mbps SPEED_MBPS` 
+`--speed-mbps SPEED_MBPS`
 :   Specify a value for the speed.
 
-`--help|-h` 
-:   Get help on this command. Optional. 
+`--help|-h`
+:   Get help on this command. Optional.
 
-`--output value` 
-:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional. 
+`--output value`
+:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional.
 
 To create a MACsec-enabled gateway, enable [MD5 authentication for BGP peers](/docs/dl?topic=dl-dl-md5), or create [BGP AS prepends](/docs/dl?topic=dl-models-for-diversity-and-redundancy-in-direct-link&interface=ui#dl-bgp-path-selection), use the `--file` option to create the gateway as per the [template](/apidocs/direct_link#create-gateway).
 {: note}
@@ -332,17 +332,17 @@ ibmcloud dl export-route-filter|erf GATEWAY_ID FILTER_ID [-–help|-h] [--output
 ### Command options
 {: #command-options-export-route-filter-details}
 
-`GATEWAY_ID` 
+`GATEWAY_ID`
 :   Specify the ID of the gateway.
 
-`FILTER_ID` 
+`FILTER_ID`
 :   Specify the ID of the export route filter that you want to list.
 
-`--help|-h` 
-:   Get help on this command. Optional. 
+`--help|-h`
+:   Get help on this command. Optional.
 
-`--output value` 
-:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional. 
+`--output value`
+:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional.
 
 ### Examples
 {: #example-exportroutefilter}
@@ -361,14 +361,14 @@ ibmcloud dl export-route-filters|erfs GATEWAY_ID [-–help|-h] [--output format]
 ### Command options
 {: #command-options-export-route-filters-details}
 
-`GATEWAY_ID` 
+`GATEWAY_ID`
 :   Specify the ID of the gateway.
 
-`--help|-h` 
-:   Get help on this command. Optional. 
+`--help|-h`
+:   Get help on this command. Optional.
 
-`--output value` 
-:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional. 
+`--output value`
+:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional.
 
 ### Example
 {: #example-exportroutefilters}
@@ -387,29 +387,29 @@ ibmcloud dl export-route-filter-create|erfc GATEWAY_ID --action ACTION --prefix 
 ### Command options
 {: #command-options-export-route-filter-create}
 
-`GATEWAY_ID` 
+`GATEWAY_ID`
 :   Specify the ID of the gateway.
 
-`--action ACTION` 
+`--action ACTION`
 :   Specify the export route filter action. One of `permit`, `deny`.
 
-`--prefix PREFIX` 
+`--prefix PREFIX`
 :   Specify an IPv4 subnet CIDR indicating both the address and mask length.
 
-`--before BEFORE` 
+`--before BEFORE`
 :   To prioritize this filter in the export route filter list, specify the ID of the route filter that comes _before_ this filter. Optional.
 
-`--ge GE` 
+`--ge GE`
 :   Specify a minimum matching length (GE, greater than or equal to). Optional. For more information, see [Route filtering rules](/docs/dl?topic=dl-filter-routes&interface=ui#route-filtering-rules).
 
-`--le LE` 
+`--le LE`
 :   Specify a maximum matching length (LE, less than or equal to). Optional. For more information, see [Route filtering rules](/docs/dl?topic=dl-filter-routes&interface=ui#route-filtering-rules).
 
-`--help|-h` 
-:   Get help on this command. Optional. 
+`--help|-h`
+:   Get help on this command. Optional.
 
-`--output value` 
-:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional. 
+`--output value`
+:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional.
 
 ### Examples
 {: #example-exportroutefilter-create}
@@ -429,17 +429,17 @@ ibmcloud dl export-route-filter-delete|erfd GATEWAY_ID FILTER_ID [-–help|-h] [
 ### Command options
 {: #command-options-export-route-filter-delete}
 
-`GATEWAY_ID` 
+`GATEWAY_ID`
 :   Specify the ID of the gateway.
 
-`FILTER_ID` 
+`FILTER_ID`
 :   Specify the ID of the export route filter that you want to delete.
 
-`--help|-h` 
-:   Get help on this command. Optional. 
+`--help|-h`
+:   Get help on this command. Optional.
 
-`--output value` 
-:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional. 
+`--output value`
+:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional.
 
 ### Examples
 {: #example-exportroutefilter-delete}
@@ -458,20 +458,20 @@ ibmcloud dl export-route-filter-replace|erfr GATEWAY_ID --file JSON_FILE --etag 
 ### Command options
 {: #command-options-export-route-filter-replace}
 
-`GATEWAY_ID` 
+`GATEWAY_ID`
 :   Specify the ID of the gateway.
 
-`--file JSON_FILE` 
+`--file JSON_FILE`
 :   Specify the JSON file for input data.
 
-`--etag ETAG` 
+`--etag ETAG`
 :   Specify the eTag.
 
-`--help|-h` 
-:   Get help on this command. Optional. 
+`--help|-h`
+:   Get help on this command. Optional.
 
-`--output value` 
-:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional. 
+`--output value`
+:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional.
 
 ### Example
 {: #example-exportroutefilter-replace}
@@ -490,29 +490,29 @@ ibmcloud dl export-route-filter-update|erfu GATEWAY_ID [--action ACTION] [--pref
 ### Command options
 {: #command-options-export-route-filter-update}
 
-`GATEWAY_ID` 
+`GATEWAY_ID`
 :   Specify the ID of the gateway.
 
-`--action ACTION` 
-:   Specify the export route filter action. One of `permit`, `deny`. Optional. 
+`--action ACTION`
+:   Specify the export route filter action. One of `permit`, `deny`. Optional.
 
-`--prefix PREFIX` 
+`--prefix PREFIX`
 :   Specify an IPv4 subnet CIDR indicating both the address and mask length. Optional.
 
-`--before BEFORE` 
-:   To prioritize this filter in the export route filter list, specify the ID of the route filter that comes _before_ this filter. Optional.  
+`--before BEFORE`
+:   To prioritize this filter in the export route filter list, specify the ID of the route filter that comes _before_ this filter. Optional.
 
-`--ge GE` 
+`--ge GE`
 :   Specify a minimum matching length (GE, greater than or equal to). Optional. For more information, see [Route filtering rules](/docs/dl?topic=dl-filter-routes&interface=ui#route-filtering-rules).
 
-`--le LE` 
+`--le LE`
 :   Specify a maximum matching length (LE, less than or equal to). Optional. For more information, see [Route filtering rules](/docs/dl?topic=dl-filter-routes&interface=ui#route-filtering-rules).
 
-`--help|-h` 
-:   Get help on this command. Optional. 
+`--help|-h`
+:   Get help on this command. Optional.
 
-`--output value` 
-:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional. 
+`--output value`
+:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional.
 
 ### Examples
 {: #example-exportroutefilter-update}
@@ -532,14 +532,14 @@ ibmcloud dl gateway|gw GATEWAY_ID [-–help|-h] [--output format]
 ### Command options
 {: #command-options-gateway-view-details}
 
-`GATEWAY_ID` 
+`GATEWAY_ID`
 :   Specify the ID of the gateway.
 
-`--help|-h` 
-:   Get help on this command. Optional. 
+`--help|-h`
+:   Get help on this command. Optional.
 
-`--output value` 
-:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional. 
+`--output value`
+:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional.
 
 ### Examples
 {: #example-get-gateway}
@@ -559,53 +559,53 @@ ibmcloud dl gateway-change-approve GATEWAY_ID {--file JSON_FILE | [--action Acti
 ### Command options
 {: #command-options-gateway-change-approval}
 
-`GATEWAY_ID` 
+`GATEWAY_ID`
 :   Specify the ID of the gateway.
 
-`--file value` 
+`--file value`
 :   JSON file for input data. Input method for AS Prepend values.
 
-`--action ACTION` 
+`--action ACTION`
 :   Action request. One of: `gateway-create`, `gateway-delete`, `gateway-attribute-update`.
 
-`--bfd-interval value` 
+`--bfd-interval value`
 :   Configures the minimum interval (in milliseconds) between the transmitted and received BFD packets. Range [300 - 255000]
 
-`--bfd-multiplier value` 
+`--bfd-multiplier value`
 :   The number of BFD packets not received by a neighbor that causes the originating interface to be declared down. Range [1 - 255]
 
-`--bgp-asn value` 
+`--bgp-asn value`
 :   Gateway BGP-ASN. Excluded ASNs: 0, 13884, 36351, 64512, 64513, 65100, 65201‍–‍65234, 65402‍–‍65433, 65500, and 4201065000‍–‍4201065999
 
-`--bgp-cer-cidr value` 
+`--bgp-cer-cidr value`
 :   BGP customer edge router CIDR
 
-`--bgp-ibm-cidr value` 
+`--bgp-ibm-cidr value`
 :   BGP IBM CIDR
 
-`--billing VALUE` 
+`--billing VALUE`
 :   Billing (`metered` | `non-metered`). Select `metered` to charge per GB and `non-metered` for a flat rate. Set for gateway-create requests to select the gateway's metered billing option.
 
-`-connection value` 
+`-connection value`
 :   Type of network connection that you want to bind to your direct link. One of: `direct`, `transit`.
 
-`--resource-group-id VALUE` 
+`--resource-group-id VALUE`
 :   Resource group ID for this resource. Set for gateway-create requests to select the gateway's resource group.
 
-`--routing ROUTING` 
+`--routing ROUTING`
 :   Gateway routing (`global` | `local`). Select `global` to connect resources across regions. Set for gateway-create requests to select the gateway's routing option.
 
-`--speed-mbps SPEED_MBPS` 
+`--speed-mbps SPEED_MBPS`
 :   Speed of the gateway in Mbps.
 
-`--vlan value` 
+`--vlan value`
 :   Gateway VLAN ID
 
-`--output value` 
-:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional. 
+`--output value`
+:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional.
 
-`--help|-h` 
-:   Get help on this command. Optional. 
+`--help|-h`
+:   Get help on this command. Optional.
 
 To approve the provider-created gateways with [MD5 authentication for BGP peers](/docs/dl?topic=dl-dl-md5), or create [BGP AS prepends](/docs/dl?topic=dl-models-for-diversity-and-redundancy-in-direct-link&interface=ui#dl-bgp-path-selection), use the `-file` option to approve the gateway as per the [template](/apidocs/direct_link#create-gateway-action).
 {: note}
@@ -628,32 +628,32 @@ ibmcloud dl gateway-change-reject|gwcr GATEWAY_ID [--action Action] [--bgp-asn B
 ### Command options
 {: #command-options-gateway-change-approve-parms}
 
-`GATEWAY_ID` 
+`GATEWAY_ID`
 :   Specify the ID of the gateway.
 
-`--action ACTION` 
+`--action ACTION`
 :   Action request. One of: `gateway-create`, `gateway-delete`, `gateway-attribute-update`.
 
-`--bgp-asn value` 
+`--bgp-asn value`
 :   Gateway BGP-ASN. Excluded ASNs: 0, 13884, 36351, 64512, 64513, 65100, 65201‍–‍65234, 65402‍–‍65433, 65500, and 4201065000‍–‍4201065999
 
-`--bgp-cer-cidr value` 
+`--bgp-cer-cidr value`
 :   BGP customer edge router CIDR
 
-`--bgp-ibm-cidr value` 
+`--bgp-ibm-cidr value`
 :   BGP IBM CIDR
 
-`--speed-mbps SPEED_MBPS` 
+`--speed-mbps SPEED_MBPS`
 :   Speed of the gateway in Mbps.
 
-`--vlan VLAN` 
+`--vlan VLAN`
 :   Gateway VLAN ID
 
-`--output value` 
-:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional. 
+`--output value`
+:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional.
 
-`--help|-h` 
-:   Get help on this command. Optional. 
+`--help|-h`
+:   Get help on this command. Optional.
 
 ### Examples
 {: #example-gateway-change-reject}
@@ -679,56 +679,56 @@ ibmcloud dl gateway-create|gwc GATEWAY_NAME --billing BILLING --bgp-asn BGP_ASN 
 ### Command options
 {: #command-options-gateway-create}
 
-`GATEWAY_NAME` 
+`GATEWAY_NAME`
 :   Specify a name for the new gateway.
 
-`--billing VALUE` 
+`--billing VALUE`
 :   Billing of resources (metered | non-metered). Select metered to charge per gigabyte and non-metered for flat rate.
 
-`--bgp-asn VALUE` 
+`--bgp-asn VALUE`
 :   Specify either the default value of `64999`, or select an ASN from allowed ranges.
 
-`--bgp-base-cidr BGP_BASE_CIDR` 
+`--bgp-base-cidr BGP_BASE_CIDR`
 :   Specify the BGP Base CIDR.
 
-`--bgp-cer-cidr BGP_CER_CIDR` 
+`--bgp-cer-cidr BGP_CER_CIDR`
 :   Specify the BGP customer edge router CIDR.
 
-`--bgp-ibm-cidr BGP_IBM_CIDR` 
+`--bgp-ibm-cidr BGP_IBM_CIDR`
 :   Specify the BGP IBM CIDR.
 
-`--carrier-name value` 
+`--carrier-name value`
 :   Specify the gateway carrier name.
 
-`--cross-connect-router XCR` 
+`--cross-connect-router XCR`
 :   Select the IBM cross-connect router for the Direct Link connection.
 
-`--customer-name value` 
+`--customer-name value`
 :   Specify the gateway customer name.
 
-`--location-name LOCATION` 
+`--location-name LOCATION`
 :   Specify the location name; for example, `dal10`.
 
-`--port-id` 
+`--port-id`
 :   Port ID for the gateway. Required when type is `connect`.
 
-`--resource-group-id value` 
+`--resource-group-id value`
 :   Resource group ID for this resource. If unspecified, the account's default resource group is used.
 
-`--routing value` 
+`--routing value`
 :   Gateway routing of resources (`global | local`). Select global to connect resources across regions.
 
-`--speed-mbps SPEED_MBPS` 
+`--speed-mbps SPEED_MBPS`
 :   Specify a value for the speed.
 
-`--type TYPE` 
+`--type TYPE`
 :   Specify the Direct Link offering type. One of: `dedicated`, `connect`.
 
-`--help|-h` 
-:   Get help on this command. Optional. 
+`--help|-h`
+:   Get help on this command. Optional.
 
-`--output value` 
-:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional. 
+`--output value`
+:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional.
 
 ### Examples
 {: #example-create-gateway}
@@ -748,14 +748,14 @@ ibmcloud dl gateway-delete|gwd GATEWAY_ID [--help|-h] [--force|-f]
 ### Command options
 {: #command-options-gateway-delete}
 
-`GATEWAY_ID` 
+`GATEWAY_ID`
 :   Specify the ID of the gateway.
 
-`--help|-h` 
-:   Get help on this command. Optional. 
+`--help|-h`
+:   Get help on this command. Optional.
 
-`--force|-f` 
-:   Force the delete operation without confirmation. Optional. 
+`--force|-f`
+:   Force the delete operation without confirmation. Optional.
 
 ### Examples
 {: #example-delete-gateway1}
@@ -775,14 +775,14 @@ ibmcloud dl gateway-statistics|gw-stats GATEWAY_ID --type STATISTIC_TYPE [--help
 ### Command options
 {: #command-options-gateway-stats}
 
-`GATEWAY_ID` 
+`GATEWAY_ID`
 :   Specify the ID of the gateway.
 
-`type value` 
+`type value`
 :   Type of the statistics to retrieve. One of: `macsec_mka_session`, `macsec_policy`, `macsec_mka_statistics`, `bfd_session`.
 
-`--help|-h` 
-:   Get help on this command. Optional. 
+`--help|-h`
+:   Get help on this command. Optional.
 
 ### Example
 {: #example-gateway1-stats}
@@ -801,17 +801,17 @@ ibmcloud dl gateway-status GATEWAY_ID --type STATUS_TYPE [--output format] [--he
 ### Command options
 {: #command-options-gateway-statistics}
 
-`GATEWAY_ID` 
+`GATEWAY_ID`
 :   Specify the ID of the gateway.
 
-`--type value` 
+`--type value`
 :   Specify status to retrieve. One of `bgp`|`bfd`|`link`.
 
-`--output value` 
+`--output value`
 :   Specify output format. Only JSON is supported.
 
-`--help|-h` 
-:   Get help on this command. Optional. 
+`--help|-h`
+:   Get help on this command. Optional.
 
 ### Example
 {: #example-gateway1-statistics}
@@ -830,53 +830,53 @@ ibmcloud dl gateway-update GATEWAY_ID {--file JSON_FILE | [--bfd-interval interv
 ### Command options
 {: #command-options-specific-gateway}
 
-`GATEWAY_ID` 
+`GATEWAY_ID`
 :   Specify the ID of the gateway.
 
-`--file value`  
+`--file value`
 :   JSON file for input data.
 
-`--bfd-interval value` 
+`--bfd-interval value`
 :   Configures the minimum interval (in milliseconds) between the transmitted and received BFD packets. Range [300 - 255000]
 
-`--bfd-multiplier value` 
+`--bfd-multiplier value`
 :   The number of BFD packets not received by a neighbor that causes the originating interface to be declared down. Range [1 - 255]
 
-`--bgp-asn value` 
+`--bgp-asn value`
 :   Gateway BGP-ASN. Excluded ASNs: 0, 13884, 36351, 64512, 64513, 65100, 65201‍–‍65234, 65402‍–‍65433, 65500, and 4201065000‍–‍4201065999
 
-`--bgp-cer-cidr value` 
+`--bgp-cer-cidr value`
 :   BGP customer edge router CIDR.
 
-`--bgp-ibm-cidr value` 
+`--bgp-ibm-cidr value`
 :   BGP IBM CIDR.
 
-`--billing value` 
+`--billing value`
 :   Billing of resources (`metered` | `non-metered`). Select `metered` to charge per GB and `non-metered` for a flat rate.
 
-`--connection value` 
+`--connection value`
 :   Type of network connection that you want to bind to your direct link. One of: `dedicated`, `connect`.
 
-`--loa-reject-reason LOA_REJECT_REASON` 
+`--loa-reject-reason LOA_REJECT_REASON`
 :   Specify the reason for the Letter of Authorization (LOA) rejection.
 
-`--name NAME` 
+`--name NAME`
 :   Name of the gateway.
 
-`--operational-status OPERATIONAL_STATUS` 
+`--operational-status OPERATIONAL_STATUS`
 :   Specify the gateway's operational status. Values are `loa_accepted` or `loa_rejected`.
 
-`--routing VALUE` 
+`--routing VALUE`
 :   Gateway routing of resources (`global` | `local`). Select `global` to connect resources across regions.
 
-`--speed-mbps SPEED_MBPS` 
+`--speed-mbps SPEED_MBPS`
 :   Specify the speed of the gateway in Mbps.
 
-`--help|-h` 
-:   Get help on this command. Optional. 
+`--help|-h`
+:   Get help on this command. Optional.
 
-`--output value` 
-:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional. 
+`--output value`
+:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional.
 
 To clear/update the [MD5 authentication for BGP peers](/docs/dl?topic=dl-dl-md5), use the `--file` option to update the gateway as per the [template](/apidocs/direct_link#update-gateway).
 {: note}
@@ -901,11 +901,11 @@ ibmcloud dl gateways|gws [-–help|-h] [--output format]
 ### Command options
 {: #command-options-help-list-gateways}
 
-`--help|-h` 
-:   Get help on this command. Optional. 
+`--help|-h`
+:   Get help on this command. Optional.
 
-`--output value` 
-:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional. 
+`--output value`
+:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional.
 
 ## `ibmcloud dl import-route-filter`
 {: #import-route-filter}
@@ -919,17 +919,17 @@ ibmcloud dl import-route-filter|irf GATEWAY_ID FILTER_ID [-–help|-h] [--output
 ### Command options
 {: #command-options-import-route-filter-details}
 
-`GATEWAY_ID` 
+`GATEWAY_ID`
 :   Specify the ID of the gateway.
 
-`FILTER_ID` 
+`FILTER_ID`
 :   Specify the ID of the import route filter that you want to list.
 
-`--help|-h` 
-:   Get help on this command. Optional. 
+`--help|-h`
+:   Get help on this command. Optional.
 
-`--output value` 
-:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional. 
+`--output value`
+:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional.
 
 ### Example
 {: #example-importroutefilter}
@@ -948,14 +948,14 @@ ibmcloud dl import-route-filters|irfs GATEWAY_ID [-–help|-h] [--output format]
 ### Command options
 {: #command-options-import-route-filters-details}
 
-`GATEWAY_ID` 
+`GATEWAY_ID`
 :   Specify the ID of the gateway.
 
-`--help|-h` 
-:   Get help on this command. Optional. 
+`--help|-h`
+:   Get help on this command. Optional.
 
-`--output value` 
-:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional. 
+`--output value`
+:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional.
 
 ### Example
 {: #example-importroutefilters}
@@ -974,29 +974,29 @@ ibmcloud dl import-route-filter-create|irfc GATEWAY_ID --action ACTION --prefix 
 ### Command options
 {: #command-options-import-route-filter-create}
 
-`GATEWAY_ID` 
+`GATEWAY_ID`
 :   Specify the ID of the gateway.
 
-`--action ACTION` 
+`--action ACTION`
 :   Specify the import route filter action. One of `permit`, `deny`.
 
 `--prefix PREFIX`
 :   Specify an IPv4 subnet CIDR indicating both the address and mask length.
 
-`--before BEFORE` 
-:   To prioritize this filter in the import route filter list, specify the ID of the route filter that comes _before_ this filter. Optional.  
+`--before BEFORE`
+:   To prioritize this filter in the import route filter list, specify the ID of the route filter that comes _before_ this filter. Optional.
 
-`--ge GE` 
+`--ge GE`
 :   Specify a minimum matching length (GE, greater than or equal to). Optional. For more information, see [Route filtering rules](/docs/dl?topic=dl-filter-routes&interface=ui#route-filtering-rules).
 
-`--le LE` 
+`--le LE`
 :   Specify a maximum matching length (LE, less than or equal to). Optional. For more information, see [Route filtering rules](/docs/dl?topic=dl-filter-routes&interface=ui#route-filtering-rules).
 
-`--help|-h` 
-:   Get help on this command. Optional. 
+`--help|-h`
+:   Get help on this command. Optional.
 
-`--output value` 
-:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional. 
+`--output value`
+:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional.
 
 ### Examples
 {: #example-importroutefilter-create}
@@ -1016,17 +1016,17 @@ ibmcloud dl import-route-filter-delete|irfd GATEWAY_ID FILTER_ID [-–help|-h] [
 ### Command options
 {: #command-options-import-route-filter-delete}
 
-`GATEWAY_ID` 
+`GATEWAY_ID`
 :   Specify the ID of the gateway.
 
-`FILTER_ID` 
+`FILTER_ID`
 :   Specify the ID of the import route filter that you want to delete.
 
-`--help|-h` 
-:   Get help on this command. Optional. 
+`--help|-h`
+:   Get help on this command. Optional.
 
-`--output value` 
-:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional. 
+`--output value`
+:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional.
 
 ### Example
 {: #example-importroutefilter-delete}
@@ -1045,20 +1045,20 @@ ibmcloud dl import-route-filter-replace|irfr GATEWAY_ID --file JSON_FILE --etag 
 ### Command options
 {: #command-options-import-route-filter-replace}
 
-`GATEWAY_ID` 
+`GATEWAY_ID`
 :   Specify the ID of the gateway.
 
-`--file JSON_FILE` 
+`--file JSON_FILE`
 :   Specify the JSON file for input data.
 
-`--etag ETAG` 
+`--etag ETAG`
 :   Specify the eTag.
 
-`--help|-h` 
-:   Get help on this command. Optional. 
+`--help|-h`
+:   Get help on this command. Optional.
 
-`--output value` 
-:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional. 
+`--output value`
+:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional.
 
 ### Example
 {: #example-importroutefilter-replace}
@@ -1077,29 +1077,29 @@ ibmcloud dl import-route-filter-update|irfu GATEWAY_ID [--action ACTION] [--pref
 ### Command options
 {: #command-options-import-route-filter-update}
 
-`GATEWAY_ID` 
+`GATEWAY_ID`
 :   Specify the ID of the gateway.
 
-`--action ACTION` 
-:   Specify the import route filter action. One of `permit`, `deny`. Optional. 
+`--action ACTION`
+:   Specify the import route filter action. One of `permit`, `deny`. Optional.
 
-`--prefix PREFIX` 
+`--prefix PREFIX`
 :   Specify an IPv4 subnet CIDR indicating both the address and mask length. Optional.
 
-`--before BEFORE` 
-:   To prioritize this filter in the import route filter list, specify the ID of the route filter that comes _before_ this filter. Optional.  
+`--before BEFORE`
+:   To prioritize this filter in the import route filter list, specify the ID of the route filter that comes _before_ this filter. Optional.
 
-`--ge GE` 
+`--ge GE`
 :   Specify a minimum matching length (GE, greater than or equal to). Optional. For more information, see [Route filtering rules](/docs/dl?topic=dl-filter-routes&interface=ui#route-filtering-rules).
 
-`--le LE` 
+`--le LE`
 :   Specify a maximum matching length (LE, less than or equal to). Optional. For more information, see [Route filtering rules](/docs/dl?topic=dl-filter-routes&interface=ui#route-filtering-rules).
 
 `--help|-h`
-:   Get help on this command. Optional. 
+:   Get help on this command. Optional.
 
-`--output value` 
-:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional. 
+`--output value`
+:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional.
 
 ### Examples
 {: #example-importroutefilter-update}
@@ -1119,14 +1119,14 @@ ibmcloud dl loa GATEWAY_ID [--file OUTPUT_DIRECTORY_PATH] [--help|-h]
 ### Command options
 {: #command-options-loa-download}
 
-`GATEWAY_ID` 
+`GATEWAY_ID`
 :   Specify the ID of the gateway.
 
-`--file OUTPUT_DIRECTORY_PATH` 
-:   Specify the output directory path. For example, specify to download the LOA in the `/tmp` directory. Optional. 
+`--file OUTPUT_DIRECTORY_PATH`
+:   Specify the output directory path. For example, specify to download the LOA in the `/tmp` directory. Optional.
 
-`--help|-h` 
-:   Get help on this command. Optional. 
+`--help|-h`
+:   Get help on this command. Optional.
 
 ### Examples
 {: #example-loa-download}
@@ -1146,17 +1146,17 @@ ibmcloud dl location|loc LOCATION_NAME OFFERING_TYPE [--help|-h] [--output forma
 ### Command options
 {: #command-options-location}
 
-`LOCATION_NAME` 
+`LOCATION_NAME`
 :   Specify the name of the location.
 
-`OFFERING_TYPE` 
+`OFFERING_TYPE`
 :   Specify the Direct Link offering type. Currently only `dedicated` is supported.
 
-`--help|-h` 
-:   Get help on this command. Optional. 
+`--help|-h`
+:   Get help on this command. Optional.
 
-`--output value` 
-:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional. 
+`--output value`
+:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional.
 
 ### Examples
 {: #example-update-location}
@@ -1176,14 +1176,14 @@ ibmcloud dl locations|locs OFFERING_TYPE [–-output format] [--help|-h]
 ### Command options
 {: #command-options-offering_type}
 
-`OFFERING_TYPE` 
+`OFFERING_TYPE`
 :   Specify the Direct Link offering type. Values are `dedicated` or `connect`.
 
-`--output value` 
-:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional. 
+`--output value`
+:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional.
 
-`--help|-h` 
-:   Get help on this command. Optional. 
+`--help|-h`
+:   Get help on this command. Optional.
 
 ### Examples
 {: #example-offering-type1}
@@ -1203,14 +1203,14 @@ ibmcloud dl offering-speeds|ospeeds OFFERING_TYPE [--output format] [--help|-h]
 ### Command options
 {: #command-options-offering-speeds-type}
 
-`OFFERING_TYPE` 
+`OFFERING_TYPE`
 :   Specify the Direct Link offering type. Values are `dedicated` or `dedicated_hosting`.
 
-`--output value` 
-:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional. 
+`--output value`
+:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional.
 
-`--help|-h` 
-:   Get help on this command. Optional.  
+`--help|-h`
+:   Get help on this command. Optional.
 
 ### Examples
 {: #example-offering-type}
@@ -1230,14 +1230,14 @@ ibmcloud dl port PORT_ID [--help|-h] [--output format]
 ### Command options
 {: #command-options-port}
 
-`PORT_ID` 
+`PORT_ID`
 :   Specify the ID of the port.
 
-`--help|-h` 
-:   Get help on this command. Optional. 
+`--help|-h`
+:   Get help on this command. Optional.
 
-`--output value` 
-:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional. 
+`--output value`
+:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional.
 
 ### Examples
 {: #example-get-port}
@@ -1257,11 +1257,11 @@ ibmcloud dl ports [--help|-h] [--output format]
 ### Command options
 {: #command-options-ports}
 
-`--help|-h` 
-:   Get help on this command. Optional. 
+`--help|-h`
+:   Get help on this command. Optional.
 
-`--output value` 
-:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional. 
+`--output value`
+:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional.
 
 ### Examples
 {: #example-list-ports}
@@ -1281,17 +1281,17 @@ ibmcloud dl route-report|rr GATEWAY_ID REPORT_ID [--output format] [--help|-h]
 ### Command options
 {: #command-options-view-details-route-report}
 
-`GATEWAY_ID` 
+`GATEWAY_ID`
 :   Specify the ID of the gateway.
 
-`REPORT_ID` 
+`REPORT_ID`
 :   Specify the ID of the route report ID.
 
-`--output value` 
-:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional. 
+`--output value`
+:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional.
 
-`--help|-h` 
-:   Get help on this command. Optional.   
+`--help|-h`
+:   Get help on this command. Optional.
 
 ### Examples
 {: #example-show-details-route-report}
@@ -1311,14 +1311,14 @@ ibmcloud dl route-report-create|rrc GATEWAY_ID [--output format] [--help|-h]
 ### Command options
 {: #command-options-create-route-report}
 
-`GATEWAY_ID` 
+`GATEWAY_ID`
 :   Specify the ID of the gateway.
 
-`--output value` 
-:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional. 
+`--output value`
+:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional.
 
-`--help|-h` 
-:   Get help on this command. Optional. 
+`--help|-h`
+:   Get help on this command. Optional.
 
 ### Examples
 {: #example-create-route-report}
@@ -1338,17 +1338,17 @@ ibmcloud dl route-report-delete|rrd GATEWAY_ID REPORT_ID [--output format] [--he
 ### Command options
 {: #command-options-delete-route-report}
 
-`GATEWAY_ID` 
+`GATEWAY_ID`
 :   Specify the ID of the gateway.
 
-`REPORT_ID` 
+`REPORT_ID`
 :   Specify the ID of the route report ID.
 
-`--output value` 
-:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional. 
+`--output value`
+:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional.
 
-`--help|-h` 
-:   Get help on this command. Optional.   
+`--help|-h`
+:   Get help on this command. Optional.
 
 ### Examples
 {: #example-delete-route-report}
@@ -1368,14 +1368,14 @@ ibmcloud dl route-reports|rrs GATEWAY_ID [--output format] [--help|-h]
 ### Command options
 {: #command-options-list-route-report}
 
-`GATEWAY_ID` 
+`GATEWAY_ID`
 :   Specify the ID of the gateway.
 
-`--output value` 
-:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional. 
+`--output value`
+:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional.
 
-`--help|-h` 
-:   Get help on this command. Optional. 
+`--help|-h`
+:   Get help on this command. Optional.
 
 ### Examples
 {: #example-list-route-report}
@@ -1395,17 +1395,17 @@ ibmcloud dl virtual-connection|vc GATEWAY_ID VIRTUAL_CONNECTION_ID [--output for
 ### Command options
 {: #command-options-view-details-virtual-connection}
 
-`GATEWAY_ID` 
+`GATEWAY_ID`
 :   Specify the ID of the gateway.
 
-`VIRTUAL_CONNECTION_ID` 
+`VIRTUAL_CONNECTION_ID`
 :   Specify the ID of the virtual connection.
 
-`--output value` 
-:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional. 
+`--output value`
+:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional.
 
-`--help|-h` 
-:   Get help on this command. Optional. 
+`--help|-h`
+:   Get help on this command. Optional.
 
 ### Examples
 {: #example-show-details-virtual-connection}
@@ -1425,20 +1425,20 @@ ibmcloud dl virtual-connection-create|vcc --type TYPE --network-id NETWORK_ID --
 ### Command options
 {: #command-options-create-virtual-connection}
 
-`--type TYPE` 
+`--type TYPE`
 :   Specify the type of virtual connection. Values are `classic` or `vpc`.
 
-`--network-id NETWORK_ID` 
+`--network-id NETWORK_ID`
 :   Specify the ID of the network. Not required when using `classic` type.
 
-`--name NAME` 
+`--name NAME`
 :   Specify the name of the virtual connection.
 
-`--output value` 
-:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional. 
+`--output value`
+:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional.
 
-`--help|-h` 
-:   Get help on this command. Optional.  
+`--help|-h`
+:   Get help on this command. Optional.
 
 ### Examples
 {: #example-create-virtual-connection}
@@ -1458,17 +1458,17 @@ ibmcloud dl virtual-connection-delete|vcd GATEWAY_ID VIRTUAL_CONNECTION_ID [--he
 ### Command options
 {: #command-options-delete-virtual-connection}
 
-`GATEWAY_ID` 
+`GATEWAY_ID`
 :   Specify the ID of the gateway.
 
-`VIRTUAL_CONNECTION_ID` 
+`VIRTUAL_CONNECTION_ID`
 :   Specify the ID of the virtual connection.
 
-`--help|-h` 
-:   Get help on this command. Optional. 
+`--help|-h`
+:   Get help on this command. Optional.
 
-`--force|-f` 
-:   Force the delete operation without confirmation. Optional. 
+`--force|-f`
+:   Force the delete operation without confirmation. Optional.
 
 ### Examples
 {: #example-delete-virtual-connection}
@@ -1488,17 +1488,17 @@ ibmcloud dl virtual-connection-update|vcu [--name NAME] [--status STATUS] [--hel
 ### Command options
 {: #command-options-update-virtual-connection}
 
-`--name NAME` 
+`--name NAME`
 :   Specify the name of the virtual connection.
 
-`--status STATUS` 
+`--status STATUS`
 :   Specify the virtual connection status. Values are `attached` or `rejected`.
 
-`--help|-h` 
-:   Get help on this command. Optional. 
+`--help|-h`
+:   Get help on this command. Optional.
 
-`--output value` 
-:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional. 
+`--output value`
+:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional.
 
 ### Examples
 {: #example-update-virtual}
@@ -1518,11 +1518,11 @@ ibmcloud dl virtual-connections|vcs [--help|-h] [--output format]
 ### Command options
 {: #command-options-offering-speeds}
 
-`--help|-h` 
-:   Get help on this command. Optional. 
+`--help|-h`
+:   Get help on this command. Optional.
 
-`--output value` 
-:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional. 
+`--output value`
+:   Specify whether you want the output displayed in JSON format. Currently, `json` is the only supported format. Optional.
 
 ### Examples
 {: #example-list-details-virtual-connection}
