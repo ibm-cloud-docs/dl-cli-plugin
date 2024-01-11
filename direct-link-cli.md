@@ -666,7 +666,7 @@ ibmcloud dl gateway-change-reject|gwcr GATEWAY_ID [--action Action] [--bgp-asn B
 
 Create a gateway.
 
-This command is deprecated. See [create-connect-gateway](/docs/dl?topic=dl-cli-plugin-dl-cli#create-connect-gateway) and [create-dedicated-gateway](/docs/dl?topic=dl-cli-plugin-dl-cli#create-dedicated-gateway) for creating connect and dedicated gateways respectively.
+This command is deprecated. See [connect-gateway-create](/docs/dl?topic=dl-dl-cli&interface=ui#create-connect-gateway) and [dedicated-gateway-create](/docs/dl?topic=dl-dl-cli&interface=ui#create-dedicated-gateway) for creating connect and dedicated gateways respectively.
 {: deprecated}
 
 The `BGP_BASE_CIDR` option is deprecated. Remove this option as it will ignored. See `BGP_CER_CIDR` and `BGP_IBM_CIDR` to create a gateway using either automatic or explicit IP assignment.
