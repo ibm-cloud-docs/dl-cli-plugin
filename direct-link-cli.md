@@ -400,10 +400,10 @@ ibmcloud dl export-route-filter-create|erfc GATEWAY_ID --action ACTION --prefix 
 :   To prioritize this filter in the export route filter list, specify the ID of the route filter that comes _before_ this filter. Optional.
 
 `--ge GE`
-:   Specify a minimum matching length (GE, greater than or equal to). Optional. For more information, see [Route filtering rules](/docs/dl?topic=dl-filter-routes&interface=ui#route-filtering-rules).
+:   Specify a minimum matching length (GE, greater than or equal to). Optional. For more information, see [About route filtering](/docs/dl?topic=dl-filter-routes&interface=ui).
 
 `--le LE`
-:   Specify a maximum matching length (LE, less than or equal to). Optional. For more information, see [Route filtering rules](/docs/dl?topic=dl-filter-routes&interface=ui#route-filtering-rules).
+:   Specify a maximum matching length (LE, less than or equal to). Optional. For more information, see [About route filtering](/docs/dl?topic=dl-filter-routes&interface=ui).
 
 `--help|-h`
 :   Get help on this command. Optional.
@@ -503,10 +503,10 @@ ibmcloud dl export-route-filter-update|erfu GATEWAY_ID [--action ACTION] [--pref
 :   To prioritize this filter in the export route filter list, specify the ID of the route filter that comes _before_ this filter. Optional.
 
 `--ge GE`
-:   Specify a minimum matching length (GE, greater than or equal to). Optional. For more information, see [Route filtering rules](/docs/dl?topic=dl-filter-routes&interface=ui#route-filtering-rules).
+:   Specify a minimum matching length (GE, greater than or equal to). Optional. For more information, see [About route filtering](/docs/dl?topic=dl-filter-routes&interface=ui).
 
 `--le LE`
-:   Specify a maximum matching length (LE, less than or equal to). Optional. For more information, see [Route filtering rules](/docs/dl?topic=dl-filter-routes&interface=ui#route-filtering-rules).
+:   Specify a maximum matching length (LE, less than or equal to). Optional. For more information, see [About route filtering](/docs/dl?topic=dl-filter-routes&interface=ui).
 
 `--help|-h`
 :   Get help on this command. Optional.
@@ -987,10 +987,10 @@ ibmcloud dl import-route-filter-create|irfc GATEWAY_ID --action ACTION --prefix 
 :   To prioritize this filter in the import route filter list, specify the ID of the route filter that comes _before_ this filter. Optional.
 
 `--ge GE`
-:   Specify a minimum matching length (GE, greater than or equal to). Optional. For more information, see [Route filtering rules](/docs/dl?topic=dl-filter-routes&interface=ui#route-filtering-rules).
+:   Specify a minimum matching length (GE, greater than or equal to). Optional. For more information, see [About route filtering](/docs/dl?topic=dl-filter-routes&interface=ui).
 
 `--le LE`
-:   Specify a maximum matching length (LE, less than or equal to). Optional. For more information, see [Route filtering rules](/docs/dl?topic=dl-filter-routes&interface=ui#route-filtering-rules).
+:   Specify a maximum matching length (LE, less than or equal to). Optional. For more information, see [About route filtering](/docs/dl?topic=dl-filter-routes&interface=ui).
 
 `--help|-h`
 :   Get help on this command. Optional.
@@ -1090,10 +1090,10 @@ ibmcloud dl import-route-filter-update|irfu GATEWAY_ID [--action ACTION] [--pref
 :   To prioritize this filter in the import route filter list, specify the ID of the route filter that comes _before_ this filter. Optional.
 
 `--ge GE`
-:   Specify a minimum matching length (GE, greater than or equal to). Optional. For more information, see [Route filtering rules](/docs/dl?topic=dl-filter-routes&interface=ui#route-filtering-rules).
+:   Specify a minimum matching length (GE, greater than or equal to). Optional. For more information, see [About route filtering](/docs/dl?topic=dl-filter-routes&interface=ui).
 
 `--le LE`
-:   Specify a maximum matching length (LE, less than or equal to). Optional. For more information, see [Route filtering rules](/docs/dl?topic=dl-filter-routes&interface=ui#route-filtering-rules).
+:   Specify a maximum matching length (LE, less than or equal to). Optional. For more information, see [About route filtering](/docs/dl?topic=dl-filter-routes&interface=ui).
 
 `--help|-h`
 :   Get help on this command. Optional.
