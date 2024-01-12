@@ -4,7 +4,7 @@ copyright:
   years: 2020, 2023
 lastupdated: "2023-07-06"
 
-subcollection: dl
+subcollection: dl-cli-plugin
 
 keywords: command line interface, commands, CLI
 
