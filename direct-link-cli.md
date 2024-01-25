@@ -21,7 +21,7 @@ The {{site.data.keyword.dl_full}} command line interface (CLI) is organized into
 ## Before you begin
 {: #cli-ref-prereqs}
 
-Complete these steps to use the Direct Link CLI, which is implemented as an {{site.data.keyword.cloud_notm}} CLI plug-in. This plug-in provides you with the means to manage your service instance and its associated resources through a command line user interface.
+Complete these steps to use the Direct Link CLI, which is implemented as an {{site.data.keyword.cloud_notm}} CLI plug-in. This plug-in provides you with the means to manage your service instance and its associated resources through a CLI interface.
 
 1. Install the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-install-ibmcloud-cli){: external}.
 1. Install the `dl-cli` plug-in to the {{site.data.keyword.cloud_notm}} CLI.
@@ -105,7 +105,7 @@ ibmcloud dl asprepends-replace GATEWAY_ID --file JSON_FILE --etag ETAG
 ## `ibmcloud dl completion-notice`
 {: #completion-notice-download}
 
-Download the completion notice for the specified gateway in either the current working directory or in a specified output directory path.
+Download the completion notice for the gateway in either the current working directory or in an output directory path.
 
 ```sh
 ibmcloud dl completion-notice|cn GATEWAY_ID [--file OUTPUT_DIRECTORY_PATH][--help|-h]
@@ -391,13 +391,13 @@ ibmcloud dl export-route-filter-create|erfc GATEWAY_ID --action ACTION --prefix 
 :   Specify the ID of the gateway.
 
 `--action ACTION`
-:   Specify the export route filter action. One of `permit`, `deny`.
+:   Specify the action for the export route filter. One of `permit`, `deny`.
 
 `--prefix PREFIX`
 :   Specify an IPv4 subnet CIDR indicating both the address and mask length.
 
 `--before BEFORE`
-:   To prioritize this filter in the export route filter list, specify the ID of the route filter that comes _before_ this filter.
+:   To prioritize this filter in the export route filter list, specify the ID of the route filter that comes before this filter.
 
 `--ge GE`
 :   Specify a minimum matching length (GE, greater than or equal to). For more information, see [About route filtering](/docs/dl?topic=dl-filter-routes&interface=ui).
@@ -494,13 +494,13 @@ ibmcloud dl export-route-filter-update|erfu GATEWAY_ID [--action ACTION] [--pref
 :   Specify the ID of the gateway.
 
 `--action ACTION`
-:   Specify the export route filter action. One of `permit`, `deny`.
+:   Specify the action of the export route filter. One of `permit`, `deny`.
 
 `--prefix PREFIX`
 :   Specify an IPv4 subnet CIDR indicating both the address and mask length.
 
 `--before BEFORE`
-:   To prioritize this filter in the export route filter list, specify the ID of the route filter that comes _before_ this filter.
+:   To prioritize this filter in the export route filter list, specify the ID of the route filter that comes before this filter.
 
 `--ge GE`
 :   Specify a minimum matching length (GE, greater than or equal to). For more information, see [About route filtering](/docs/dl?topic=dl-filter-routes&interface=ui).
@@ -666,10 +666,10 @@ ibmcloud dl gateway-change-reject|gwcr GATEWAY_ID [--action Action] [--bgp-asn B
 
 Create a gateway.
 
-This command is deprecated. See [connect-gateway-create](/docs/dl?topic=dl-dl-cli&interface=ui#create-connect-gateway) and [dedicated-gateway-create](/docs/dl?topic=dl-dl-cli&interface=ui#create-dedicated-gateway) for creating connect and dedicated gateways.
+This command is deprecated. See [connect-gateway-create](/docs/dl?topic=dl-dl-cli&interface=ui#create-connect-gateway) and [dedicated-gateway-create](/docs/dl?topic=dl-dl-cli&interface=ui#create-dedicated-gateway) for creating Connect and Dedicated gateways.
 {: deprecated}
 
-The `BGP_BASE_CIDR` option is deprecated. Remove this option as it will ignored. See `BGP_CER_CIDR` and `BGP_IBM_CIDR` to create a gateway by using either automatic or explicit IP assignment.
+The `BGP_BASE_CIDR` option is deprecated. Remove this option as it is ignored. See `BGP_CER_CIDR` and `BGP_IBM_CIDR` to create a gateway by using either automatic or explicit IP assignment.
 {: deprecated}
 
 ```sh
@@ -978,7 +978,7 @@ ibmcloud dl import-route-filter-create|irfc GATEWAY_ID --action ACTION --prefix 
 :   Specify the ID of the gateway.
 
 `--action ACTION`
-:   Specify the import route filter action. One of `permit`, `deny`.
+:   Specify the action of the import route filter. One of `permit`, `deny`.
 
 `--prefix PREFIX`
 :   Specify an IPv4 subnet CIDR indicating both the address and mask length.
@@ -1081,13 +1081,13 @@ ibmcloud dl import-route-filter-update|irfu GATEWAY_ID [--action ACTION] [--pref
 :   Specify the ID of the gateway.
 
 `--action ACTION`
-:   Specify the import route filter action. One of `permit`, `deny`.
+:   Specify the action of the import route filter. One of `permit`, `deny`.
 
 `--prefix PREFIX`
 :   Specify an IPv4 subnet CIDR indicating both the address and mask length.
 
 `--before BEFORE`
-:   To prioritize this filter in the import route filter list, specify the ID of the route filter that comes _before_ this filter.
+:   To prioritize this filter in the import route filter list, specify the ID of the route filter that comes before this filter.
 
 `--ge GE`
 :   Specify a minimum matching length (GE, greater than or equal to). For more information, see [About route filtering](/docs/dl?topic=dl-filter-routes&interface=ui).
@@ -1110,7 +1110,7 @@ ibmcloud dl import-route-filter-update|irfu GATEWAY_ID [--action ACTION] [--pref
 ## `ibmcloud dl loa`
 {: #loa-download}
 
-Download the LOA for the specified gateway in either the current working directory or in the specified directory.
+Download the LOA for the gateway in either the current working directory or in the specified directory.
 
 ```sh
 ibmcloud dl loa GATEWAY_ID [--file OUTPUT_DIRECTORY_PATH] [--help|-h]
