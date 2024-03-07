@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-07-06"
+  years: 2020, 2024
+lastupdated: "2024-03-07"
 
 subcollection: dl-cli-plugin
 
@@ -189,10 +189,10 @@ ibmcloud dl connect-gateway-create {--file JSON_FILE | GATEWAY_NAME --billing BI
 `--speed-mbps SPEED_MBPS`
 :   Specify a value for the speed. Required.
 
-`--bfd-interval value`
+`--bfd-interval VALUE`
 :   Configures the minimum interval (in milliseconds) between the transmitted and received BFD packets. Range [300 - 255000]
 
-`--bfd-multiplier value`
+`--bfd-multiplier VALUE`
 :   The number of BFD packets not received by a neighbor that causes the originating interface to be declared down. Range [1 - 255]
 
 `--bgp-base-cidr BGP_BASE_CIDR`
@@ -207,10 +207,10 @@ ibmcloud dl connect-gateway-create {--file JSON_FILE | GATEWAY_NAME --billing BI
 `--connection CONNECTION_TYPE:`
 :   Type of network connection that you want to bind to your direct link. One of: `direct`, `transit`.
 
-`--default-export-route-filter value`
+`--default-export-route-filter VALUE`
 :   Default export route filter. One of `permit`, `deny`.
 
-`--default-import-route-filter value`
+`--default-import-route-filter VALUE`
 :   Default import route filter. One of `permit`, `deny`.
 
 `--resource-group-id RESOURCE_GROUP_ID`
@@ -219,7 +219,7 @@ ibmcloud dl connect-gateway-create {--file JSON_FILE | GATEWAY_NAME --billing BI
 `--help|-h`
 :   Get help on this command.
 
-`--output value`
+`--output VALUE`
 :   Specify whether you want the output to display in JSON format. Currently, `json` is the only supported format.
 
 To enable [MD5 authentication for BGP peers](/docs/dl?topic=dl-dl-md5), or create [BGP AS prepends](/docs/dl?topic=dl-models-for-diversity-and-redundancy-in-direct-link&interface=ui#dl-bgp-path-selection), use the `--file` option to create the gateway as stated in the [template](/apidocs/direct_link#create-gateway).
@@ -241,7 +241,7 @@ The `BGP_BASE_CIDR` option is deprecated. Remove this option as it is ignored. S
 {: deprecated}
 
 ```sh
-ibmcloud dl dedicated-gateway-create {--file JSON_FILE | GATEWAY_NAME --billing BILLING --bgp-asn BGP_ASN --carrier-name CARRIER_NAME --ccr CROSS_CONNECT_ROUTER --customer-name CUSTOMER_NAME --location-name LOCATION_NAME --routing ROUTING --speed-mbps SPEED_MBPS [--bfd-interval interval] [--bfd-multiplier multiplier] [--bgp-base-cidr BGP_BASE_CIDR] [--bgp-cer-cidr BGP_CER_CIDR] [--bgp-ibm-cidr BGP_IBM_CIDR] [--connection CONNECTION_TYPE] [--resource-group-id RESOURCE_GROUP_ID]} [--output format]
+ibmcloud dl dedicated-gateway-create {--file JSON_FILE | GATEWAY_NAME --billing BILLING --bgp-asn BGP_ASN --carrier-name CARRIER_NAME --ccr CROSS_CONNECT_ROUTER --customer-name CUSTOMER_NAME --location-name LOCATION_NAME --routing ROUTING --speed-mbps SPEED_MBPS [--bfd-interval interval] [--bfd-multiplier multiplier] [--bgp-base-cidr BGP_BASE_CIDR] [--bgp-cer-cidr BGP_CER_CIDR] [--bgp-ibm-cidr BGP_IBM_CIDR] [-vlan VLAN] [--connection CONNECTION_TYPE] [--resource-group-id RESOURCE_GROUP_ID]} [--output format]
 ```
 
 ### Command options
@@ -250,13 +250,13 @@ ibmcloud dl dedicated-gateway-create {--file JSON_FILE | GATEWAY_NAME --billing 
 `GATEWAY_NAME`
 :   Specify a name for the new gateway.
 
-`--file value`
+`--file VALUE`
 :   JSON file for input data. Input method for AS Prepend and Route Filter values.
 
-`--bfd-interval value`
+`--bfd-interval VALUE`
 :   Configures the minimum interval (in milliseconds) between the transmitted and received BFD packets. Range [300 - 255000]
 
-`--bfd-multiplier value`
+`--bfd-multiplier VALUE`
 :   The number of BFD packets not received by a neighbor that causes the originating interface to be declared down. Range [1 - 255]
 
 `--bgp-asn VALUE`
@@ -274,40 +274,43 @@ ibmcloud dl dedicated-gateway-create {--file JSON_FILE | GATEWAY_NAME --billing 
 `--billing VALUE`
 :   Billing of resources (`metered` | `non-metered`). Select `metered` to charge per GB and `non-metered` for a flat rate.
 
-`--carrier-name value`
+`--carrier-name VALUE`
 :   Specify the gateway CARRIER NAME.
 
-`--connection value`
+`--connection VALUE`
 :   Type of network connection that you want to bind to your direct link. One of: `direct`, `transit`.
 
 `--ccr XCR`
 :   Select the IBM cross-connect router for the Direct Link connection.
 
-`--customer-name value`
+`--customer-name VALUE`
 :   Specify the gateway CUSTOMER NAME.
 
-`--default-export-route-filter value`
+`--default-export-route-filter VALUE`
 :   Default export route filter. One of `permit`, `deny`.
 
-`--default-import-route-filter value`
+`--default-import-route-filter VALUE`
 :   Default import route filter. One of `permit`, `deny`.
 
 `--location-name LOCATION`
 :   Specify the location name; for example, `dal10`.
 
-`--resource-group-id value`
+`--resource-group-id VALUE`
 :   Resource group ID for this resource. If unspecified, the account's default resource group is used.
 
-`--routing value`
+`--routing VALUE`
 :   Gateway routing of resources (`global` | `local`). Select `global` to connect resources across regions.
 
 `--speed-mbps SPEED_MBPS`
 :   Specify a value for the speed.
 
+`--vlan VLAN`
+:   Specify the VLAN number. Range [`2`-`3967`]. Use `null` to reset.
+
 `--help|-h`
 :   Get help on this command.
 
-`--output value`
+`--output VALUE`
 :   Specify whether you want the output to display in JSON format. Currently, `json` is the only supported format.
 
 To create a MACsec-enabled gateway, enable [MD5 authentication for BGP peers](/docs/dl?topic=dl-dl-md5), or create [BGP AS prepends](/docs/dl?topic=dl-models-for-diversity-and-redundancy-in-direct-link&interface=ui#dl-bgp-path-selection), use the `--file` option to create the gateway as stated in the [template](/apidocs/direct_link#create-gateway).
@@ -316,7 +319,7 @@ To create a MACsec-enabled gateway, enable [MD5 authentication for BGP peers](/d
 ### Examples
 {: #example-create-dedicated-gateway}
 
-- `ibmcloud dl dedicated-gateway-create dl-gw --billing metered --bgp-asn 64999 --bgp-base-cidr 169.254.0.51/30 --carrier-name carrier --ccr LAB-xcr01.dal09 --customer-name customer --location-name dal09 --routing local --speed-mbps 1000 --bgp-ibm-cidr 169.254.0.52/30 --bgp-cer-cidr 169.254.0.53/30 --connection direct`
+- `ibmcloud dl dedicated-gateway-create dl-gw --billing metered --bgp-asn 64999 --bgp-base-cidr 169.254.0.51/30 --carrier-name carrier --ccr LAB-xcr01.dal09 --customer-name customer --location-name dal09 --routing local --speed-mbps 1000 --bgp-ibm-cidr 169.254.0.52/30 --bgp-cer-cidr 169.254.0.53/30 --vlan 10 --connection direct`
 - `ibmcloud dl dedicated-gateway-create dl-gw --billing metered --bgp-asn 64999 --bgp-base-cidr 169.254.0.51/30 --carrier-name carrier --ccr LAB-xcr01.dal09 --customer-name customer --location-name dal09 --routing local --speed-mbps 1000 --bgp-ibm-cidr 169.254.0.52/30 --bgp-cer-cidr 169.254.0.53/30 --output json`
 - `ibmcloud dl dedicated-gateway-create --file ~/gateway.json`
 
@@ -341,7 +344,7 @@ ibmcloud dl export-route-filter|erf GATEWAY_ID FILTER_ID [-–help|-h] [--output
 `--help|-h`
 :   Get help on this command.
 
-`--output value`
+`--output VALUE`
 :   Specify whether you want the output to display in JSON format. Currently, `json` is the only supported format.
 
 ### Examples
@@ -367,7 +370,7 @@ ibmcloud dl export-route-filters|erfs GATEWAY_ID [-–help|-h] [--output format]
 `--help|-h`
 :   Get help on this command.
 
-`--output value`
+`--output VALUE`
 :   Specify whether you want the output to display in JSON format. Currently, `json` is the only supported format.
 
 ### Example
@@ -408,7 +411,7 @@ ibmcloud dl export-route-filter-create|erfc GATEWAY_ID --action ACTION --prefix 
 `--help|-h`
 :   Get help on this command.
 
-`--output value`
+`--output VALUE`
 :   Specify whether you want the output to display in JSON format. Currently, `json` is the only supported format.
 
 ### Examples
@@ -438,7 +441,7 @@ ibmcloud dl export-route-filter-delete|erfd GATEWAY_ID FILTER_ID [-–help|-h] [
 `--help|-h`
 :   Get help on this command.
 
-`--output value`
+`--output VALUE`
 :   Specify whether you want the output to display in JSON format. Currently, `json` is the only supported format.
 
 ### Examples
@@ -470,7 +473,7 @@ ibmcloud dl export-route-filter-replace|erfr GATEWAY_ID --file JSON_FILE --etag 
 `--help|-h`
 :   Get help on this command.
 
-`--output value`
+`--output VALUE`
 :   Specify whether you want the output to display in JSON format. Currently, `json` is the only supported format.
 
 ### Example
@@ -511,7 +514,7 @@ ibmcloud dl export-route-filter-update|erfu GATEWAY_ID [--action ACTION] [--pref
 `--help|-h`
 :   Get help on this command.
 
-`--output value`
+`--output VALUE`
 :   Specify whether you want the output to display in JSON format. Currently, `json` is the only supported format.
 
 ### Examples
@@ -538,7 +541,7 @@ ibmcloud dl gateway|gw GATEWAY_ID [-–help|-h] [--output format]
 `--help|-h`
 :   Get help on this command.
 
-`--output value`
+`--output VALUE`
 :   Specify whether you want the output to display in JSON format. Currently, `json` is the only supported format.
 
 ### Examples
@@ -562,31 +565,31 @@ ibmcloud dl gateway-change-approve GATEWAY_ID {--file JSON_FILE | [--action Acti
 `GATEWAY_ID`
 :   Specify the ID of the gateway.
 
-`--file value`
+`--file VALUE`
 :   JSON file for input data. Input method for AS Prepend values.
 
 `--action ACTION`
 :   Action request. One of: `gateway-create`, `gateway-delete`, `gateway-attribute-update`.
 
-`--bfd-interval value`
+`--bfd-interval VALUE`
 :   Configures the minimum interval (in milliseconds) between the transmitted and received BFD packets. Range [300 - 255000]
 
-`--bfd-multiplier value`
+`--bfd-multiplier VALUE`
 :   The number of BFD packets not received by a neighbor that causes the originating interface to be declared down. Range [1 - 255]
 
-`--bgp-asn value`
+`--bgp-asn VALUE`
 :   Gateway BGP-ASN. Excluded ASNs: 0, 13884, 36351, 64512, 64513, 65100, 65201‍–‍65234, 65402‍–‍65433, 65500, and 4201065000‍–‍4201065999
 
-`--bgp-cer-cidr value`
+`--bgp-cer-cidr VALUE`
 :   BGP customer edge router CIDR
 
-`--bgp-ibm-cidr value`
+`--bgp-ibm-cidr VALUE`
 :   BGP IBM CIDR
 
 `--billing VALUE`
 :   Billing (`metered` | `non-metered`). Select `metered` to charge per GB and `non-metered` for a flat rate. Set for gateway-create requests to select the gateway's metered billing option.
 
-`-connection value`
+`-connection VALUE`
 :   Type of network connection that you want to bind to your direct link. One of: `direct`, `transit`.
 
 `--resource-group-id VALUE`
@@ -598,10 +601,10 @@ ibmcloud dl gateway-change-approve GATEWAY_ID {--file JSON_FILE | [--action Acti
 `--speed-mbps SPEED_MBPS`
 :   Speed of the gateway in Mbps.
 
-`--vlan value`
+`--vlan VALUE`
 :   Gateway VLAN ID
 
-`--output value`
+`--output VALUE`
 :   Specify whether you want the output to display in JSON format. Currently, `json` is the only supported format.
 
 `--help|-h`
@@ -634,13 +637,13 @@ ibmcloud dl gateway-change-reject|gwcr GATEWAY_ID [--action Action] [--bgp-asn B
 `--action ACTION`
 :   Action request. One of: `gateway-create`, `gateway-delete`, `gateway-attribute-update`.
 
-`--bgp-asn value`
+`--bgp-asn VALUE`
 :   Gateway BGP-ASN. Excluded ASNs: 0, 13884, 36351, 64512, 64513, 65100, 65201‍–‍65234, 65402‍–‍65433, 65500, and 4201065000‍–‍4201065999
 
-`--bgp-cer-cidr value`
+`--bgp-cer-cidr VALUE`
 :   BGP customer edge router CIDR
 
-`--bgp-ibm-cidr value`
+`--bgp-ibm-cidr VALUE`
 :   BGP IBM CIDR
 
 `--speed-mbps SPEED_MBPS`
@@ -649,7 +652,7 @@ ibmcloud dl gateway-change-reject|gwcr GATEWAY_ID [--action Action] [--bgp-asn B
 `--vlan VLAN`
 :   Gateway VLAN ID
 
-`--output value`
+`--output VALUE`
 :   Specify whether you want the output to display in JSON format. Currently, `json` is the only supported format.
 
 `--help|-h`
@@ -697,13 +700,13 @@ ibmcloud dl gateway-create|gwc GATEWAY_NAME --billing BILLING --bgp-asn BGP_ASN 
 `--bgp-ibm-cidr BGP_IBM_CIDR`
 :   Specify the BGP IBM CIDR.
 
-`--carrier-name value`
+`--carrier-name VALUE`
 :   Specify the gateway carrier name.
 
 `--cross-connect-router XCR`
 :   Select the IBM cross-connect router for the Direct Link connection.
 
-`--customer-name value`
+`--customer-name VALUE`
 :   Specify the gateway customer name.
 
 `--location-name LOCATION`
@@ -712,10 +715,10 @@ ibmcloud dl gateway-create|gwc GATEWAY_NAME --billing BILLING --bgp-asn BGP_ASN 
 `--port-id`
 :   Port ID for the gateway. Required when type is `connect`.
 
-`--resource-group-id value`
+`--resource-group-id VALUE`
 :   Resource group ID for this resource. If unspecified, the account's default resource group is used.
 
-`--routing value`
+`--routing VALUE`
 :   Gateway routing of resources (`global | local`). Select global to connect resources across regions.
 
 `--speed-mbps SPEED_MBPS`
@@ -727,7 +730,7 @@ ibmcloud dl gateway-create|gwc GATEWAY_NAME --billing BILLING --bgp-asn BGP_ASN 
 `--help|-h`
 :   Get help on this command.
 
-`--output value`
+`--output VALUE`
 :   Specify whether you want the output to display in JSON format. Currently, `json` is the only supported format.
 
 ### Examples
@@ -778,7 +781,7 @@ ibmcloud dl gateway-statistics|gw-stats GATEWAY_ID --type STATISTIC_TYPE [--help
 `GATEWAY_ID`
 :   Specify the ID of the gateway.
 
-`type value`
+`type VALUE`
 :   Type of the statistics to retrieve. One of: `macsec_mka_session`, `macsec_policy`, `macsec_mka_statistics`, `bfd_session`.
 
 `--help|-h`
@@ -804,10 +807,10 @@ ibmcloud dl gateway-status GATEWAY_ID --type STATUS_TYPE [--output format] [--he
 `GATEWAY_ID`
 :   Specify the ID of the gateway.
 
-`--type value`
+`--type VALUE`
 :   Specify the status to retrieve. One of `bgp`|`bfd`|`link`.
 
-`--output value`
+`--output VALUE`
 :   Specify the output format. Only JSON is supported.
 
 `--help|-h`
@@ -824,7 +827,7 @@ ibmcloud dl gateway-status GATEWAY_ID --type STATUS_TYPE [--output format] [--he
 Update a specific gateway.
 
 ```sh
-ibmcloud dl gateway-update GATEWAY_ID {--file JSON_FILE | [--bfd-interval interval] [--bfd-multiplier multiplier] [--bgp-asn BGP_ASN] [--bgp-cer-cidr BGP_CER_CIDR] [--bgp-ibm-cidr BGP_IBM_CIDR] [--billing BILLING] [--connection CONNECTIOON_TYPE] [--loa-reject-reason LOA_REJECT_REASON] [--name NAME] [--operational-status OPERATION_STATUS] [--routing ROUTING] [--speed-mbps SPEED_MBPS]} [--output format]
+ibmcloud dl gateway-update GATEWAY_ID {--file JSON_FILE | [--bfd-interval interval] [--bfd-multiplier multiplier] [--bgp-asn BGP_ASN] [--bgp-cer-cidr BGP_CER_CIDR] [--bgp-ibm-cidr BGP_IBM_CIDR] [--billing BILLING] [--connection CONNECTION_TYPE]  [--default-export-route-filter DEFAULT_ACTION] [--default-import-route-filter DEFAULT_ACTION] [--loa-reject-reason LOA_REJECT_REASON] [--name NAME] [--operational-status OPERATION_STATUS] [--routing ROUTING] [--speed-mbps SPEED_MBPS]} [--vlan VLAN] [--clear-vlan VALUE] [--output format]
 ```
 
 ### Command options
@@ -833,29 +836,35 @@ ibmcloud dl gateway-update GATEWAY_ID {--file JSON_FILE | [--bfd-interval interv
 `GATEWAY_ID`
 :   Specify the ID of the gateway.
 
-`--file value`
+`--file VALUE`
 :   JSON file for input data.
 
-`--bfd-interval value`
+`--bfd-interval VALUE`
 :   Configures the minimum interval (in milliseconds) between the transmitted and received BFD packets. Range [300 - 255000]
 
-`--bfd-multiplier value`
+`--bfd-multiplier VALUE`
 :   The number of BFD packets not received by a neighbor that causes the originating interface to be declared down. Range [1 - 255]
 
-`--bgp-asn value`
+`--bgp-asn VALUE`
 :   Gateway BGP-ASN. Excluded ASNs: 0, 13884, 36351, 64512, 64513, 65100, 65201‍–‍65234, 65402‍–‍65433, 65500, and 4201065000‍–‍4201065999
 
-`--bgp-cer-cidr value`
+`--bgp-cer-cidr VALUE`
 :   BGP customer edge router CIDR.
 
-`--bgp-ibm-cidr value`
+`--bgp-ibm-cidr VALUE`
 :   BGP IBM CIDR.
 
-`--billing value`
+`--billing VALUE`
 :   Billing of resources (`metered` | `non-metered`). Select `metered` to charge per GB and `non-metered` for a flat rate.
 
-`--connection value`
-:   Type of network connection that you want to bind to your direct link. One of: `dedicated`, `connect`.
+`--connection VALUE`
+:   Type of network connection that you want to bind to your direct link. One of: `direct`, `transit`.
+
+`--default-export-route-filter VALUE`
+:   Default export route filter. One of:`permit`, `deny`.
+
+`--default-import-route-filter VALUE`
+:   Default import route filter. One of:`permit`, `deny`.
 
 `--loa-reject-reason LOA_REJECT_REASON`
 :   Specify the reason for the Letter of Authorization (LOA) rejection.
@@ -872,10 +881,16 @@ ibmcloud dl gateway-update GATEWAY_ID {--file JSON_FILE | [--bfd-interval interv
 `--speed-mbps SPEED_MBPS`
 :   Specify the speed of the gateway in Mbps.
 
+`--vlan VALUE`
+:   Specify the VLAN number. Range [`2`-`3967`]. Use `null` to reset. The gateway must have a `type` of `dedicated`. Optional.
+
+`--clear-vlan`
+:   Clear the mapped VLAN from the Dedicated gateway.
+
 `--help|-h`
 :   Get help on this command.
 
-`--output value`
+`--output VALUE`
 :   Specify whether you want the output to display in JSON format. Currently, `json` is the only supported format.
 
 To clear/update the [MD5 authentication for BGP peers](/docs/dl?topic=dl-dl-md5), use the `--file` option to update the gateway as stated in the [template](/apidocs/direct_link#update-gateway).
@@ -884,8 +899,8 @@ To clear/update the [MD5 authentication for BGP peers](/docs/dl?topic=dl-dl-md5)
 ### Examples
 {: #example-update-gateway1}
 
-- `ibmcloud dl gateway-update 8ba9e7b0-dded-400e-ad7e-6481dad0b157 --speed-mbps 5000 --name dl-gw-updated`
-- `ibmcloud dl gateway-update 8ba9e7b0-dded-400e-ad7e-6481dad0b157 --speed-mbps 5000 --name dl-gw-updated --output json`
+- `ibmcloud dl gateway-update 8ba9e7b0-dded-400e-ad7e-6481dad0b157 --speed-mbps 5000 --vlan 99 --name dl-gw-updated`
+- `ibmcloud dl gateway-update 8ba9e7b0-dded-400e-ad7e-6481dad0b157 --speed-mbps 5000 --vlan null --name dl-gw-updated --output json`
 - `ibmcloud dl gateway-update 8ba9e7b0-dded-400e-ad7e-6481dad0b157 --connection transit --output json`
 - `ibmcloud dl gateway-update 8ba9e7b0-dded-400e-ad7e-6481dad0b157 --file ~/gateway-update.json`
 
@@ -904,7 +919,7 @@ ibmcloud dl gateways|gws [-–help|-h] [--output format]
 `--help|-h`
 :   Get help on this command.
 
-`--output value`
+`--output VALUE`
 :   Specify whether you want the output to display in JSON format. Currently, `json` is the only supported format.
 
 ## `ibmcloud dl import-route-filter`
@@ -928,7 +943,7 @@ ibmcloud dl import-route-filter|irf GATEWAY_ID FILTER_ID [-–help|-h] [--output
 `--help|-h`
 :   Get help on this command.
 
-`--output value`
+`--output VALUE`
 :   Specify whether you want the output to display in JSON format. Currently, `json` is the only supported format.
 
 ### Example
@@ -954,7 +969,7 @@ ibmcloud dl import-route-filters|irfs GATEWAY_ID [-–help|-h] [--output format]
 `--help|-h`
 :   Get help on this command.
 
-`--output value`
+`--output VALUE`
 :   Specify whether you want the output to display in JSON format. Currently, `json` is the only supported format.
 
 ### Example
@@ -995,7 +1010,7 @@ ibmcloud dl import-route-filter-create|irfc GATEWAY_ID --action ACTION --prefix 
 `--help|-h`
 :   Get help on this command.
 
-`--output value`
+`--output VALUE`
 :   Specify whether you want the output to display in JSON format. Currently, `json` is the only supported format.
 
 ### Examples
@@ -1025,7 +1040,7 @@ ibmcloud dl import-route-filter-delete|irfd GATEWAY_ID FILTER_ID [-–help|-h] [
 `--help|-h`
 :   Get help on this command.
 
-`--output value`
+`--output VALUE`
 :   Specify whether you want the output to display in JSON format. Currently, `json` is the only supported format.
 
 ### Example
@@ -1057,7 +1072,7 @@ ibmcloud dl import-route-filter-replace|irfr GATEWAY_ID --file JSON_FILE --etag 
 `--help|-h`
 :   Get help on this command.
 
-`--output value`
+`--output VALUE`
 :   Specify whether you want the output to display in JSON format. Currently, `json` is the only supported format.
 
 ### Example
@@ -1098,7 +1113,7 @@ ibmcloud dl import-route-filter-update|irfu GATEWAY_ID [--action ACTION] [--pref
 `--help|-h`
 :   Get help on this command.
 
-`--output value`
+`--output VALUE`
 :   Specify whether you want the output to display in JSON format. Currently, `json` is the only supported format.
 
 ### Examples
@@ -1155,7 +1170,7 @@ ibmcloud dl location|loc LOCATION_NAME OFFERING_TYPE [--help|-h] [--output forma
 `--help|-h`
 :   Get help on this command.
 
-`--output value`
+`--output VALUE`
 :   Specify whether you want the output to display in JSON format. Currently, `json` is the only supported format.
 
 ### Examples
@@ -1179,7 +1194,7 @@ ibmcloud dl locations|locs OFFERING_TYPE [–-output format] [--help|-h]
 `OFFERING_TYPE`
 :   Specify the Direct Link offering type. Values are `dedicated` or `connect`.
 
-`--output value`
+`--output VALUE`
 :   Specify whether you want the output to display in JSON format. Currently, `json` is the only supported format.
 
 `--help|-h`
@@ -1206,7 +1221,7 @@ ibmcloud dl offering-speeds|ospeeds OFFERING_TYPE [--output format] [--help|-h]
 `OFFERING_TYPE`
 :   Specify the Direct Link offering type. Values are `dedicated` or `dedicated_hosting`.
 
-`--output value`
+`--output VALUE`
 :   Specify whether you want the output to display in JSON format. Currently, `json` is the only supported format.
 
 `--help|-h`
@@ -1236,7 +1251,7 @@ ibmcloud dl port PORT_ID [--help|-h] [--output format]
 `--help|-h`
 :   Get help on this command.
 
-`--output value`
+`--output VALUE`
 :   Specify whether you want the output to display in JSON format. Currently, `json` is the only supported format.
 
 ### Examples
@@ -1260,7 +1275,7 @@ ibmcloud dl ports [--help|-h] [--output format]
 `--help|-h`
 :   Get help on this command.
 
-`--output value`
+`--output VALUE`
 :   Specify whether you want the output to display in JSON format. Currently, `json` is the only supported format.
 
 ### Examples
@@ -1287,7 +1302,7 @@ ibmcloud dl route-report|rr GATEWAY_ID REPORT_ID [--output format] [--help|-h]
 `REPORT_ID`
 :   Specify the ID of the route report ID.
 
-`--output value`
+`--output VALUE`
 :   Specify whether you want the output to display in JSON format. Currently, `json` is the only supported format.
 
 `--help|-h`
@@ -1314,7 +1329,7 @@ ibmcloud dl route-report-create|rrc GATEWAY_ID [--output format] [--help|-h]
 `GATEWAY_ID`
 :   Specify the ID of the gateway.
 
-`--output value`
+`--output VALUE`
 :   Specify whether you want the output to display in JSON format. Currently, `json` is the only supported format.
 
 `--help|-h`
@@ -1344,7 +1359,7 @@ ibmcloud dl route-report-delete|rrd GATEWAY_ID REPORT_ID [--output format] [--he
 `REPORT_ID`
 :   Specify the ID of the route report ID.
 
-`--output value`
+`--output VALUE`
 :   Specify whether you want the output to display in JSON format. Currently, `json` is the only supported format.
 
 `--help|-h`
@@ -1371,7 +1386,7 @@ ibmcloud dl route-reports|rrs GATEWAY_ID [--output format] [--help|-h]
 `GATEWAY_ID`
 :   Specify the ID of the gateway.
 
-`--output value`
+`--output VALUE`
 :   Specify whether you want the output to display in JSON format. Currently, `json` is the only supported format.
 
 `--help|-h`
@@ -1401,7 +1416,7 @@ ibmcloud dl virtual-connection|vc GATEWAY_ID VIRTUAL_CONNECTION_ID [--output for
 `VIRTUAL_CONNECTION_ID`
 :   Specify the ID of the virtual connection.
 
-`--output value`
+`--output VALUE`
 :   Specify whether you want the output to display in JSON format. Currently, `json` is the only supported format.
 
 `--help|-h`
@@ -1434,7 +1449,7 @@ ibmcloud dl virtual-connection-create|vcc --type TYPE --network-id NETWORK_ID --
 `--name NAME`
 :   Specify the name of the virtual connection.
 
-`--output value`
+`--output VALUE`
 :   Specify whether you want the output to display in JSON format. Currently, `json` is the only supported format.
 
 `--help|-h`
@@ -1497,7 +1512,7 @@ ibmcloud dl virtual-connection-update|vcu [--name NAME] [--status STATUS] [--hel
 `--help|-h`
 :   Get help on this command.
 
-`--output value`
+`--output VALUE`
 :   Specify whether you want the output to display in JSON format. Currently, `json` is the only supported format.
 
 ### Examples
@@ -1521,7 +1536,7 @@ ibmcloud dl virtual-connections|vcs [--help|-h] [--output format]
 `--help|-h`
 :   Get help on this command.
 
-`--output value`
+`--output VALUE`
 :   Specify whether you want the output to display in JSON format. Currently, `json` is the only supported format.
 
 ### Examples
