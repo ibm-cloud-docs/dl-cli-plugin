@@ -5,10 +5,9 @@ toc:
     audience: service
     href: /docs/dl-cli-plugin
     console-page: /interconnectivity
-    product-page: https://www.ibm.com/products/direct-link
+    product-page: hhttps://www.ibm.com/products/direct-link
     path: dl-cli-plugin
     label: Direct Link CLI
-
   entries:
   - navgroup:
       id: reference
