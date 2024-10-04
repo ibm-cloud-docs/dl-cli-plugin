@@ -7,6 +7,7 @@ toc:
     console-page: /interconnectivity
     product-page: https://www.ibm.com/products/direct-link
     path: dl-cli-plugin
+    navigation: hidden
     label: Direct Link CLI
   entries:
   - navgroup:
