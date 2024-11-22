@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-03-07"
+lastupdated: "2024-11-22"
 
 subcollection: dl-cli-plugin
 
@@ -15,7 +15,7 @@ keywords: command line interface, commands, CLI
 # Direct Link CLI
 {: #dl-cli}
 
-The {{site.data.keyword.dl_full}} command line interface (CLI) is organized into sections, which are listed in the navigation window on the right.
+The {{site.data.keyword.dl_full}} command line interface (CLI) is organized into sections, which are listed in the navigation window.
 {: shortdesc}
 
 ## Before you begin
